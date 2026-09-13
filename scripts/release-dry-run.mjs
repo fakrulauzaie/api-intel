@@ -14,12 +14,13 @@ import {
 } from 'node:fs/promises';
 import { basename, dirname, isAbsolute, relative, resolve } from 'node:path';
 import { promisify } from 'node:util';
+import { resolveNpmCliPath } from './package-manager-cli.mjs';
 
 const execFile = promisify(execFileCallback);
 const repositoryRoot = resolve(import.meta.dirname, '..');
 const temporaryParent = resolve(repositoryRoot, '.tmp');
 const outputRoot = resolve(temporaryParent, 'release-dry-run');
-const npmCli = resolve(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
+const npmCli = resolveNpmCliPath();
 
 function sha256(bytes) {
   return createHash('sha256').update(bytes).digest('hex');

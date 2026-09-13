@@ -1,19 +1,16 @@
 import { createHash } from 'node:crypto';
 import { execFile as execFileCallback } from 'node:child_process';
 import { lstat, readFile, readdir, realpath, writeFile } from 'node:fs/promises';
-import { dirname, extname, relative, resolve } from 'node:path';
+import { extname, relative, resolve } from 'node:path';
 import { promisify } from 'node:util';
+import { resolveNpmCliPath } from './package-manager-cli.mjs';
 
 const execFile = promisify(execFileCallback);
 const repositoryRoot = resolve(import.meta.dirname, '..');
 const policyPath = resolve(repositoryRoot, 'scripts/public-release-audit-policy.json');
 const reportPath = resolve(repositoryRoot, 'docs/legal/public-release-audit.json');
 const git = 'git';
-const inheritedNpmExecPath = process.env.npm_execpath;
-const npmCli =
-  inheritedNpmExecPath && /(?:^|[\\/])npm(?:-cli)?\.js$/iu.test(inheritedNpmExecPath)
-    ? inheritedNpmExecPath
-    : resolve(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
+const npmCli = resolveNpmCliPath();
 
 const credentialPatterns = [
   {
