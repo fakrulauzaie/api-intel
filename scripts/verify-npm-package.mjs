@@ -14,6 +14,7 @@ import {
 import { dirname, relative, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import { format, resolveConfig } from 'prettier';
+import { resolveNpmCliPath } from './package-manager-cli.mjs';
 
 const execFile = promisify(execFileCallback);
 const repositoryRoot = resolve(import.meta.dirname, '..');
@@ -21,11 +22,7 @@ const contractPath = resolve(repositoryRoot, 'packaging/npm/distribution-contrac
 const privateReportPath = resolve(repositoryRoot, 'packaging/npm/package-contents.json');
 const publicReportPath = resolve(repositoryRoot, 'packaging/npm/public-package-contents.json');
 const temporaryRoot = resolve(repositoryRoot, '.tmp/npm-package-audit');
-const inheritedNpmExecPath = process.env.npm_execpath;
-const npmCli =
-  inheritedNpmExecPath && /(?:^|[\\/])npm(?:-cli)?\.js$/iu.test(inheritedNpmExecPath)
-    ? inheritedNpmExecPath
-    : resolve(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
+const npmCli = resolveNpmCliPath();
 
 function normalizePath(path) {
   return path.replaceAll('\\', '/').replace(/^\.\//u, '');

@@ -14,6 +14,7 @@ import {
 } from 'node:fs/promises';
 import { basename, dirname, relative, resolve } from 'node:path';
 import { promisify } from 'node:util';
+import { resolveNpmCliPath } from './package-manager-cli.mjs';
 
 const execFile = promisify(execFileCallback);
 const repositoryRoot = resolve(import.meta.dirname, '..');
@@ -23,7 +24,7 @@ const contractPath = resolve(
 );
 const candidateParent = resolve(repositoryRoot, '.tmp/public-alpha-candidate');
 const workParent = resolve(repositoryRoot, '.tmp');
-const npmCli = resolve(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
+const npmCli = resolveNpmCliPath();
 const maximumOutputBytes = 64 * 1024 * 1024;
 
 function sha256(value) {

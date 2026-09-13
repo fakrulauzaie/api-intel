@@ -127,14 +127,34 @@
       "sha256": "0b34acf8522b4ff74c4575ea6ac39229a89e43ff0ecc88a66f8589ec863f8d94"
     },
     {
+      "path": "scripts/audit-public-release.mjs",
+      "bytes": 17164,
+      "sha256": "a0f2c1fd74b32c499bd650df9ed9cd00fbb3ef00fec098679e308f55abde2304"
+    },
+    {
       "path": "scripts/audit-third-party-licenses.mjs",
       "bytes": 8816,
       "sha256": "6ff75a2879e308f4ba6f6a4f585cbb82b6a89b198c2e423516aeb7f7cbc60b76"
     },
     {
+      "path": "scripts/package-manager-cli.mjs",
+      "bytes": 775,
+      "sha256": "250ba8b25694acc97669d3c59097083e12ad874752fb7d5c204e9ecd42b642e7"
+    },
+    {
       "path": "scripts/verify-npm-package.mjs",
-      "bytes": 13476,
-      "sha256": "df2428d613f6c848e30802efb7822d98a2083524d3bdd50e33cda4e55ae99e71"
+      "bytes": 13315,
+      "sha256": "8c3eff5b296a2c6c7af2bd6444dbd5fa247546cad6e9f58c39b33610a699633d"
+    },
+    {
+      "path": "scripts/verify-package-install.mjs",
+      "bytes": 39252,
+      "sha256": "b7e43f88e7cd7809c508cf48f64651dc1aec528300111a26b79f4a173f935924"
+    },
+    {
+      "path": "scripts/verify-package-runtime.mjs",
+      "bytes": 11581,
+      "sha256": "2a79353dd77d3af9768eb52d80bd412fd931a5702614a86ff4ba1dbb662d1297"
     },
     {
       "path": "scripts/verify-provider-artifacts.mjs",
@@ -143,18 +163,18 @@
     },
     {
       "path": "scripts/release-candidate.mjs",
-      "bytes": 12083,
-      "sha256": "1039d27316a2021849b102536e9aab7872af735f839787e253b2e06c9707a76e"
+      "bytes": 12246,
+      "sha256": "f71fe9539afc97689d711651e98851a7273eae698e3f9ee2ab38a6e9f43d944b"
     },
     {
       "path": "scripts/release-dry-run.mjs",
-      "bytes": 13803,
-      "sha256": "c408947feda38f43a2b85145daec09ffd0bfecfb53fff61c9c16e76f43556b59"
+      "bytes": 13816,
+      "sha256": "c213b67d64af3fba480e502afff5dd41c24833f227a7ec695558f6c46fd546f2"
     },
     {
       "path": "scripts/stage-public-alpha-candidate.mjs",
-      "bytes": 21032,
-      "sha256": "8ca714164996e5128f859439774bced47c9069761ca7ac54a94f33ec113bbd51"
+      "bytes": 21045,
+      "sha256": "10411f74124c0adf3c389813d74f9d700e782751f41d78b79f05f0396b203964"
     },
     {
       "path": "docs/alpha-release-candidate.md",

@@ -15,6 +15,7 @@ import { createRequire } from 'node:module';
 import { tmpdir } from 'node:os';
 import { basename, dirname, isAbsolute, join, relative, resolve } from 'node:path';
 import { format, resolveConfig } from 'prettier';
+import { resolveNpmCliPath } from './package-manager-cli.mjs';
 
 const repositoryRoot = resolve(import.meta.dirname, '..');
 const fixtureRoot = resolve(repositoryRoot, 'packaging/npm/fixtures/clean-room');
@@ -25,7 +26,7 @@ const publicPackageContentsPath = resolve(
   'packaging/npm/public-package-contents.json',
 );
 const reportPath = resolve(repositoryRoot, 'packaging/npm/clean-room-install-report.json');
-const npmCli = resolve(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
+const npmCli = resolveNpmCliPath();
 const maximumProcessOutputBytes = 4 * 1_024 * 1_024;
 const processTimeoutMilliseconds = 5 * 60_000;
 
