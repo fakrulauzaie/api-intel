@@ -53,7 +53,10 @@ function run(executable, arguments_, options = {}) {
     child.stdout.on('data', (chunk) => stdout.push(chunk));
     child.stderr.on('data', (chunk) => stderr.push(chunk));
     child.once('error', rejectRun);
-    child.once('exit', (code, signal) => {
+    // `exit` can fire before stdout/stderr streams have closed. Waiting for
+    // `close` keeps short outputs such as `git rev-parse HEAD` from becoming an
+    // intermittent empty Action input on hosted runners.
+    child.once('close', (code, signal) => {
       const result = {
         code: code ?? 1,
         stdout: Buffer.concat(stdout).toString('utf8'),
