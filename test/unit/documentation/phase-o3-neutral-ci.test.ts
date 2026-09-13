@@ -130,6 +130,9 @@ describe('Phase O3.1 neutral repository CI', () => {
     expect(workflow).toContain('npm install --global pnpm@11.19.0 --ignore-scripts');
     expect(workflow).toContain('pnpm install --frozen-lockfile');
     expect(workflow).toContain('npm ci --ignore-scripts --no-audit --no-fund');
+    expect(workflow).toMatch(
+      /coverage-observation:[\s\S]*?Build production output for runtime-dependent tests[\s\S]*?pnpm run build[\s\S]*?Measure coverage without enforcing a threshold[\s\S]*?pnpm run test:coverage/u,
+    );
     for (const command of [
       'pnpm run format:check',
       'pnpm run lint',
