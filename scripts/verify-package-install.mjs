@@ -381,13 +381,19 @@ async function verifyBins(manager, consumerRoot, contract) {
     ),
   ]);
   if (cliVersion.stdout.trim() !== contract.expected.cliVersion) {
-    throw new Error(`${manager.name} api-intel version output drifted.`);
+    throw new Error(
+      `${manager.name} api-intel version output drifted: ` +
+        `stdout=${JSON.stringify(cliVersion.stdout)}, stderr=${JSON.stringify(cliVersion.stderr)}.`,
+    );
   }
   if (!cliHelp.stdout.includes('api-intel <command> [options]')) {
     throw new Error(`${manager.name} api-intel help did not run from the installed bin.`);
   }
   if (mcpVersion.stdout.trim() !== contract.expected.mcpVersion) {
-    throw new Error(`${manager.name} api-intel-mcp version output drifted.`);
+    throw new Error(
+      `${manager.name} api-intel-mcp version output drifted: ` +
+        `stdout=${JSON.stringify(mcpVersion.stdout)}, stderr=${JSON.stringify(mcpVersion.stderr)}.`,
+    );
   }
   if (!mcpHelp.stdout.includes('api-intel-mcp --analysis')) {
     throw new Error(`${manager.name} api-intel-mcp help did not run from the installed bin.`);

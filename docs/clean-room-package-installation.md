@@ -81,7 +81,7 @@ source-workspace paths.
 
 ## Distribution boundary
 
-The verified private-source archive contains 271 files, is 432,147 bytes compressed and 2,352,977
+The verified private-source archive contains 271 files, is 432,404 bytes compressed and 2,354,002
 bytes unpacked, with SHA-1
 `cb7affae34431808ae3ffe0ea78a4411d3176ea0`. Its SHA-512 integrity is retained in the
 machine report and the Phase O2.2 package-content ledger so a later staged registry

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+import { realpathSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { checkCommand } from './commands/check.js';
 import { controlsCommand } from './commands/controls.js';
@@ -64,7 +65,19 @@ function renderCommandHelp(command: CliCommand): string {
 
 function isDirectExecution(): boolean {
   const entryPath = process.argv[1];
-  return entryPath !== undefined && pathToFileURL(resolve(entryPath)).href === import.meta.url;
+  if (entryPath === undefined) return false;
+
+  const resolvedEntryPath = resolve(entryPath);
+  if (pathToFileURL(resolvedEntryPath).href === import.meta.url) return true;
+
+  try {
+    // POSIX package-manager bins invoke Node through a node_modules/.bin symlink.
+    // Node preserves that symlink in argv[1] while import.meta.url names the
+    // package file, so lexical URL equality alone incorrectly suppresses the CLI.
+    return realpathSync(resolvedEntryPath) === realpathSync(fileURLToPath(import.meta.url));
+  } catch {
+    return false;
+  }
 }
 
 function parseGlobalOption(firstArgument: string, io: CliIo): number | undefined {
