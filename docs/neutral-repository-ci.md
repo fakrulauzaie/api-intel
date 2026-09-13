@@ -50,6 +50,11 @@ The Ubuntu/Node 22.13.1 cell additionally runs formatting, lint, and strict type
 Documentation contracts are part of the full suite rather than represented by a
 weaker link-only surrogate.
 
+The root `.gitattributes` keeps detected text files on LF in every checkout. This is
+part of the reproducibility boundary: Windows must compare generated schemas and
+checked artifacts against the same bytes as Linux, while declared binary assets are
+never line-ending normalized.
+
 ## Real-package compatibility boundary
 
 `example-nestjs-app/package-lock.json` freezes one project-authored compatibility

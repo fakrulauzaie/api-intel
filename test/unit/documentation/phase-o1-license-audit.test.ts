@@ -86,9 +86,13 @@ describe('Phase O1.1 license and redistribution audit', () => {
     ) as LicenseInventory;
 
     expect(inventory.schemaVersion).toBe('1.0.0');
+    // This checked document is exact evidence from its named generation
+    // environment. The live audit performed earlier in CI independently checks
+    // the current runner's installed graph; the retained snapshot must not
+    // pretend to have been generated on whichever platform reads it.
     expect(inventory.input.environment).toEqual({
-      platform: process.platform,
-      architecture: process.arch,
+      platform: 'win32',
+      architecture: 'x64',
     });
     expect(inventory.project.license).toBe('Apache-2.0');
     expect(inventory.project).toMatchObject({

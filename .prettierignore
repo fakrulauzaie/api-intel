@@ -1,4 +1,5 @@
 node_modules/
+.gitattributes
 dist/
 action-dist/
 gitlab-dist/

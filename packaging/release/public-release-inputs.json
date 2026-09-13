@@ -103,8 +103,8 @@
     },
     {
       "path": "packaging/release/public-alpha-candidate-contract.json",
-      "bytes": 2969,
-      "sha256": "a7dedff5813f41e697ef53b2b336aba914b3551db6a6c323e8637e2c7e0ab7b6"
+      "bytes": 2993,
+      "sha256": "c7ab1c09923fbec5235e593f8b4ad40f63e46f6e74ed301148a7e8789dafa14d"
     },
     {
       "path": "packaging/release/vulnerability-exceptions.json",
