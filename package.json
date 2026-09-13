@@ -1,0 +1,105 @@
+{
+  "name": "@fakrulauzaie/api-intel",
+  "version": "0.1.0-alpha.1",
+  "description": "Evidence-backed blast radius for legacy NestJS systems using deterministic static analysis.",
+  "author": "fakrulauzaie",
+  "maintainers": [
+    "fakrulauzaie"
+  ],
+  "type": "module",
+  "bin": {
+    "api-intel": "dist/cli/index.js",
+    "api-intel-mcp": "dist/mcp/index.js"
+  },
+  "exports": {
+    "./schemas/api-intel.config.schema.json": "./schemas/api-intel.config.schema.json",
+    "./schemas/support-diagnostic-manifest.schema.json": "./schemas/support-diagnostic-manifest.schema.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "schemas/api-intel.config.schema.json",
+    "schemas/support-diagnostic-manifest.schema.json",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/legal/dependency-license-inventory.json",
+    "docs/legal/redistribution-audit.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:action": "node scripts/build-github-action.mjs",
+    "build:gitlab": "node scripts/build-gitlab-ci.mjs",
+    "artifacts:check": "node scripts/verify-provider-artifacts.mjs --check",
+    "artifacts:write": "npm run build:action && npm run build:gitlab && node scripts/verify-provider-artifacts.mjs --write",
+    "action:controlled-smoke": "node scripts/test-controlled-github-action.mjs",
+    "audit:dependencies": "node scripts/audit-dependencies.mjs --check",
+    "audit:dependencies:live": "node scripts/audit-dependencies.mjs --live",
+    "audit:dependencies:write": "node scripts/audit-dependencies.mjs --live --write",
+    "audit:licenses": "node scripts/audit-third-party-licenses.mjs --check",
+    "audit:licenses:write": "node scripts/audit-third-party-licenses.mjs --write",
+    "audit:public": "node scripts/audit-public-release.mjs --current",
+    "audit:public:history": "node scripts/audit-public-release.mjs --history",
+    "audit:public:report": "node scripts/audit-public-release.mjs --check-report",
+    "audit:public:write": "node scripts/audit-public-release.mjs --write-report",
+    "pack:verify": "node scripts/verify-package-runtime.mjs",
+    "pack:contents:check": "npm run prepack && node scripts/verify-npm-package.mjs --check",
+    "pack:contents:write": "npm run prepack && node scripts/verify-npm-package.mjs --write",
+    "pack:public-contents:check": "npm run prepack && node scripts/verify-npm-package.mjs --check-public",
+    "pack:public-contents:write": "npm run prepack && node scripts/verify-npm-package.mjs --write-public",
+    "pack:clean-room:check": "npm run pack:contents:check && node scripts/verify-package-install.mjs --check",
+    "pack:clean-room:smoke": "npm run pack:contents:check && node scripts/verify-package-install.mjs --smoke",
+    "pack:clean-room:write": "npm run pack:contents:check && node scripts/verify-package-install.mjs --write",
+    "pack:clean-room:report": "node scripts/verify-package-install.mjs --check-report",
+    "prepack": "npm run build && npm run pack:verify",
+    "release:integrity": "node scripts/release-candidate.mjs --check",
+    "release:integrity:write": "node scripts/release-candidate.mjs --write",
+    "release:public-integrity": "node scripts/release-candidate.mjs --check-public",
+    "release:public-integrity:write": "node scripts/release-candidate.mjs --write-public",
+    "release:dry-run": "node scripts/release-dry-run.mjs",
+    "release:alpha:stage": "node scripts/stage-public-alpha-candidate.mjs --write",
+    "release:alpha:check": "node scripts/stage-public-alpha-candidate.mjs --check",
+    "contrib:check-dco": "node scripts/check-dco.mjs",
+    "compatibility:check": "node scripts/verify-compatibility-corpus.mjs",
+    "schema:check": "node scripts/verify-config-schema.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --configLoader runner",
+    "test:coverage": "vitest run --configLoader runner --coverage --maxWorkers=1 --testTimeout=60000",
+    "test:watch": "vitest --configLoader runner",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "cli": "node dist/cli/index.js",
+    "mcp": "node dist/mcp/index.js",
+    "demo": "node scripts/demo.mjs"
+  },
+  "engines": {
+    "node": ">=22.13 <25"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "keywords": [
+    "architecture",
+    "blast-radius",
+    "nestjs",
+    "refactoring",
+    "static-analysis",
+    "typeorm"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "cytoscape": "3.34.0",
+    "libpg-query": "18.1.2",
+    "typescript": "5.9.3",
+    "zod": "4.1.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@types/node": "22.13.1",
+    "@vercel/ncc": "0.45.0",
+    "@vitest/coverage-v8": "4.1.11",
+    "eslint": "9.39.1",
+    "globals": "16.4.0",
+    "prettier": "3.6.2",
+    "typescript-eslint": "8.46.3",
+    "vitest": "4.1.11"
+  }
+}

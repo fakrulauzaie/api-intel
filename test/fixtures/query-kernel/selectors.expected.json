@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "endpointCases": [
+    {
+      "caseId": "endpoint-by-id",
+      "selectorKind": "canonical_id",
+      "expectedState": "resolved",
+      "expectedPaths": ["/health"]
+    },
+    {
+      "caseId": "endpoint-route-ambiguous",
+      "selectorKind": "route",
+      "expectedState": "ambiguous",
+      "expectedPaths": ["/health", "/health"]
+    },
+    {
+      "caseId": "endpoint-not-found",
+      "selectorKind": "route",
+      "expectedState": "not_found",
+      "expectedPaths": []
+    }
+  ],
+  "symbolCases": [
+    {
+      "caseId": "method-by-id",
+      "selectorKind": "canonical_id",
+      "expectedState": "resolved",
+      "expectedNames": ["HealthController.check"]
+    },
+    {
+      "caseId": "overload-ambiguous",
+      "selectorKind": "declaration",
+      "expectedState": "ambiguous",
+      "expectedNames": ["HealthController.check", "HealthController.check"]
+    },
+    {
+      "caseId": "location-disambiguated",
+      "selectorKind": "declaration",
+      "expectedState": "resolved",
+      "expectedNames": ["HealthController.check"]
+    },
+    {
+      "caseId": "symbol-not-found",
+      "selectorKind": "declaration",
+      "expectedState": "not_found",
+      "expectedNames": []
+    }
+  ],
+  "invalidSelectors": [
+    {
+      "caseId": "path-traversal",
+      "sourcePath": "../outside.ts",
+      "expectedError": "INVALID_QUERY"
+    },
+    {
+      "caseId": "absolute-path",
+      "sourcePath": "C:\\outside.ts",
+      "expectedError": "INVALID_QUERY"
+    }
+  ],
+  "mustNotPerform": ["target_import", "target_execution", "network_access", "filesystem_write"]
+}

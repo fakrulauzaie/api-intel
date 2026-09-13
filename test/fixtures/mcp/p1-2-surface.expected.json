@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "server": {
+    "name": "api-intel-artifact-server",
+    "version": "1.1.0"
+  },
+  "startupInputs": ["after", "analysis", "before", "policy", "system"],
+  "tools": [
+    "compare_analyses",
+    "find_distributed_candidates",
+    "get_change_impact",
+    "get_endpoint_trace",
+    "get_policy_results",
+    "get_symbol_dependents",
+    "list_endpoints",
+    "resolve_symbol"
+  ],
+  "resources": ["api-intel://registry/artifacts"],
+  "resourceTemplates": [
+    "api-intel://artifact/{artifactName}/evidence/{evidenceId}",
+    "api-intel://artifact/{artifactName}/record/{recordId}"
+  ],
+  "semanticBoundaries": [
+    "artifact_only",
+    "bounded_results",
+    "distributed_candidates_are_conditional",
+    "no_whole_document_resource",
+    "snapshot_dependents_are_not_blast_radius"
+  ],
+  "nonGoals": ["prompts", "remote_transport", "repository_scanning", "source_mutation"]
+}

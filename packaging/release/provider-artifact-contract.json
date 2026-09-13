@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "providers": {
+    "githubAction": {
+      "directory": "action-dist",
+      "buildScript": "scripts/build-github-action.mjs",
+      "entrypoint": "index.js",
+      "requiredFiles": [
+        "LICENSE",
+        "THIRD_PARTY_LICENSES.txt",
+        "THIRD_PARTY_NOTICES.md",
+        "cytoscape.min.js",
+        "dependency-license-inventory.json",
+        "index.js",
+        "libpg-query.wasm",
+        "licenses/cytoscape-3.34.0-MIT.txt",
+        "licenses/libpg-query-18.1.2-MIT.txt",
+        "package.json"
+      ],
+      "chunkPattern": "^[0-9]+\\.index\\.js$"
+    },
+    "gitlab": {
+      "directory": "gitlab-dist",
+      "buildScript": "scripts/build-gitlab-ci.mjs",
+      "entrypoint": "index.js",
+      "requiredFiles": [
+        "LICENSE",
+        "THIRD_PARTY_LICENSES.txt",
+        "THIRD_PARTY_NOTICES.md",
+        "cytoscape.min.js",
+        "dependency-license-inventory.json",
+        "index.js",
+        "libpg-query.wasm",
+        "licenses/cytoscape-3.34.0-MIT.txt",
+        "licenses/libpg-query-18.1.2-MIT.txt",
+        "package.json"
+      ],
+      "chunkPattern": "^[0-9]+\\.index\\.js$"
+    }
+  },
+  "metadataInputs": [
+    "action.yml",
+    "packaging/gitlab/Dockerfile",
+    "templates/api-intel/template.yml",
+    "packaging/npm/distribution-contract.json",
+    "packaging/npm/package-contents.json",
+    "scripts/provider-distribution.mjs",
+    "scripts/build-github-action.mjs",
+    "scripts/build-gitlab-ci.mjs"
+  ],
+  "container": {
+    "dockerfile": "packaging/gitlab/Dockerfile",
+    "runtimeUser": "10001:10001",
+    "bundledEntrypoint": "/opt/api-intel/gitlab-dist/index.js",
+    "runtimeValidation": "github_hosted_docker_smoke_pending"
+  },
+  "browser": {
+    "claimedBrowsers": [],
+    "automatedContracts": [
+      "self_contained_no_network_references",
+      "cytoscape_source_embedded",
+      "selection_filter_fit_controls_present",
+      "keyboard_navigation_present",
+      "accessible_table_fallback_present",
+      "inline_csp_hashes_exact"
+    ],
+    "manualGate": "passed_local_browser_unspecified",
+    "namedBrowserMatrix": "unverified"
+  }
+}

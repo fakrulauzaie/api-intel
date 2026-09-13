@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "packageName": "@fakrulauzaie/api-intel",
+  "packageVersion": "0.1.0-alpha.1",
+  "surface": "cli_first_data_exports_only",
+  "allowedExactFiles": [
+    "LICENSE",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/legal/dependency-license-inventory.json",
+    "docs/legal/redistribution-audit.md",
+    "package.json",
+    "schemas/api-intel.config.schema.json",
+    "schemas/support-diagnostic-manifest.schema.json"
+  ],
+  "runtimeFilePattern": "dist/**/*.js",
+  "dataExports": {
+    "./schemas/api-intel.config.schema.json": "./schemas/api-intel.config.schema.json",
+    "./schemas/support-diagnostic-manifest.schema.json": "./schemas/support-diagnostic-manifest.schema.json"
+  },
+  "budgets": {
+    "maximumFileCount": 280,
+    "maximumPackedBytes": 650000,
+    "maximumUnpackedBytes": 3000000
+  },
+  "assets": [
+    {
+      "id": "cytoscape_browser",
+      "package": "cytoscape",
+      "version": "3.34.0",
+      "sourcePath": "node_modules/cytoscape/dist/cytoscape.min.js",
+      "sha256": "9c2a3bf2592e0b14a1f7bec07c03a54f16dedf32af9cd0af155c716aa6c87bc3",
+      "distributions": {
+        "npm": {
+          "strategy": "runtime_dependency",
+          "copiedPaths": []
+        },
+        "githubAction": {
+          "strategy": "copied_once",
+          "copiedPaths": ["action-dist/cytoscape.min.js"]
+        },
+        "gitlab": {
+          "strategy": "copied_once",
+          "copiedPaths": ["gitlab-dist/cytoscape.min.js"]
+        }
+      }
+    },
+    {
+      "id": "libpg_query_wasm",
+      "package": "libpg-query",
+      "version": "18.1.2",
+      "sourcePath": "node_modules/libpg-query/wasm/libpg-query.wasm",
+      "sha256": "e6293a462e63e7e7ff40d89683d46851ec83c9d5627562ba847abac01bb93b50",
+      "distributions": {
+        "npm": {
+          "strategy": "runtime_dependency",
+          "copiedPaths": []
+        },
+        "githubAction": {
+          "strategy": "copied_once",
+          "copiedPaths": ["action-dist/libpg-query.wasm"]
+        },
+        "gitlab": {
+          "strategy": "copied_once",
+          "copiedPaths": ["gitlab-dist/libpg-query.wasm"]
+        }
+      }
+    }
+  ]
+}

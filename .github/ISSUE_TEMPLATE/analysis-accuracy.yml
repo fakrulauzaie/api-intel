@@ -1,0 +1,59 @@
+name: Analysis accuracy report
+description: Report a supported-pattern false positive, false negative, or unclear proof stop.
+title: '[Accuracy]: '
+labels:
+  - analysis-accuracy
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is about deterministic static-analysis semantics. Use only synthetic, authorized evidence and do not attach generated architecture artifacts.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety and scope
+      options:
+        - label: I checked docs/supported-patterns.md and the applicable feature guide.
+          required: true
+        - label: The reproduction is synthetic and contains no client-derived source or identifiers.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
+  - type: dropdown
+    id: classification
+    attributes:
+      label: Classification
+      options:
+        - False positive
+        - False negative
+        - Proof stop or uncertainty is unclear
+        - Canonical output is nondeterministic
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: api-intel, TypeScript, NestJS, and relevant package versions
+    validations:
+      required: true
+  - type: textarea
+    id: pattern
+    attributes:
+      label: Minimal synthetic pattern
+      description: Include the smallest newly authored pattern and its close negative counterpart.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed fact, diagnostic, or proof stop
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected evidence-backed result
+      description: Explain what can be proven and what must not be inferred.
+    validations:
+      required: true

@@ -1,0 +1,9 @@
+import { Controller, Get } from '@nestjs/common-not-installed';
+
+@Controller('missing')
+export class MissingDependencyController {
+  @Get()
+  read(): string {
+    return 'static source only';
+  }
+}

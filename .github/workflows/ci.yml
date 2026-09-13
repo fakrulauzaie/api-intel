@@ -1,0 +1,205 @@
+name: Repository CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-matrix:
+    name: ${{ matrix.os }} / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        os:
+          - ubuntu-24.04
+          - windows-2025
+        node:
+          - 22.13.1
+          - 24.20.0
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - name: Check out source without persistent credentials
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up pinned Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ matrix.node }}
+          package-manager-cache: false
+
+      - name: Install pinned pnpm without lifecycle scripts
+        run: npm install --global pnpm@11.19.0 --ignore-scripts --no-audit --no-fund
+
+      - name: Install the frozen engine dependency graph
+        run: pnpm install --frozen-lockfile
+
+      - name: Install the frozen real-package fixture without lifecycle scripts
+        working-directory: example-nestjs-app
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Verify formatting, lint, and strict types
+        if: matrix.os == 'ubuntu-24.04' && matrix.node == '22.13.1'
+        run: |
+          pnpm run format:check
+          pnpm run lint
+          pnpm run typecheck
+
+      - name: Build production output
+        run: pnpm run build
+
+      - name: Verify generated configuration schema
+        run: pnpm run schema:check
+
+      - name: Verify pinned real-package compatibility corpus
+        run: pnpm run compatibility:check
+
+      - name: Run full semantic, golden, CLI, and documentation suite
+        run: pnpm run test
+
+  coverage-observation:
+    name: Coverage observation (no threshold)
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - name: Check out source without persistent credentials
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up pinned Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 22.13.1
+          package-manager-cache: false
+
+      - name: Install pinned pnpm without lifecycle scripts
+        run: npm install --global pnpm@11.19.0 --ignore-scripts --no-audit --no-fund
+
+      - name: Install frozen source and fixture dependencies
+        run: |
+          pnpm install --frozen-lockfile
+          npm --prefix example-nestjs-app ci --ignore-scripts --no-audit --no-fund
+
+      - name: Measure coverage without enforcing a threshold
+        run: pnpm run test:coverage
+
+      - name: Retain the measurement
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: source-coverage-node-22.13.1
+          path: coverage
+          if-no-files-found: error
+          include-hidden-files: false
+          retention-days: 7
+
+  release-artifacts:
+    name: Reproducible package and provider artifacts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - name: Check out source without persistent credentials
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up pinned Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 22.13.1
+          package-manager-cache: false
+
+      - name: Install pinned pnpm without lifecycle scripts
+        run: npm install --global pnpm@11.19.0 --ignore-scripts --no-audit --no-fund
+
+      - name: Install the frozen engine dependency graph
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify reviewed dependency licenses and vulnerabilities
+        run: |
+          pnpm run audit:licenses
+          pnpm run audit:dependencies
+
+      - name: Compare live advisories with the reviewed lockfile-bound decision
+        run: pnpm run audit:dependencies:live
+
+      - name: Build production output
+        run: pnpm run build
+
+      - name: Rebuild and compare checked provider distributions
+        run: pnpm run artifacts:check
+
+      - name: Exercise the checked action against an isolated controlled target
+        run: pnpm run action:controlled-smoke
+
+      - name: Exercise the OD0 npm and pnpm clean-room installation contract
+        run: pnpm run pack:clean-room:smoke
+
+      - name: Build the candidate GitLab image
+        run: >-
+          docker build
+          --build-arg NODE_IMAGE=node:22.14.0-bookworm-slim
+          --build-arg PNPM_VERSION=11.19.0
+          --build-arg NPM_VERSION=10.9.2
+          --file packaging/gitlab/Dockerfile
+          --tag api-intel-o3-2:candidate
+          .
+
+      - name: Prove the candidate image defaults to an unprivileged runtime
+        shell: bash
+        run: |
+          test "$(docker image inspect api-intel-o3-2:candidate --format '{{.Config.User}}')" = "10001:10001"
+          test "$(docker run --rm --entrypoint id api-intel-o3-2:candidate -u)" = "10001"
+          set +e
+          output="$(docker run --rm --entrypoint node api-intel-o3-2:candidate /opt/api-intel/gitlab-dist/index.js 2>&1)"
+          status="$?"
+          set -e
+          test "$status" = "10"
+          printf '%s\n' "$output" | grep 'API Intelligence failed:'
+
+      - name: Verify release inputs and assemble a non-publishing candidate
+        run: |
+          pnpm run release:integrity
+          pnpm run release:dry-run --prepared
+
+      - name: Retain canonical artifact manifests
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-artifact-manifests-node-22.13.1
+          path: |
+            packaging/npm/package-contents.json
+            packaging/npm/public-package-contents.json
+            packaging/release/provider-artifact-contract.json
+            packaging/release/reproducible-artifacts.json
+            packaging/release/release-integrity-policy.json
+            packaging/release/dependency-vulnerability-report.json
+            packaging/release/vulnerability-exceptions.json
+            packaging/release/source-dependencies.cdx.json
+            packaging/release/release-inputs.json
+            packaging/release/public-release-inputs.json
+            packaging/release/SHA256SUMS
+            packaging/release/PUBLIC_SHA256SUMS
+            .tmp/release-dry-run
+          if-no-files-found: error
+          include-hidden-files: false
+          retention-days: 7

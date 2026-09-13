@@ -1,0 +1,715 @@
+# Canonical Model Contract
+
+This document records the current canonical and derived-document contracts. The
+TypeScript types, Zod schemas, integrity validators, and version constants under
+`src/` are authoritative. Historical phase notes explain compatibility decisions but
+do not override the current contract.
+
+## Canonical and volatile documents
+
+`analysis.json` is represented by `AnalysisDocument`. It contains repository-relative
+paths, semantic records, assertions, evidence, and diagnostics. It must not contain
+absolute checkout paths, timestamps, durations, or other machine-specific values.
+
+`run.json` is represented by `RunDocument`. It may contain an absolute input path,
+timestamps, and duration. `normalizeRunForComparison()` removes these volatile fields
+before repeatability comparisons.
+
+Endpoint trace files are derived views represented by `EndpointTraceView`. They do not
+replace or add facts to `AnalysisDocument`.
+
+## Current version matrix
+
+| Artifact                   | Current writer behavior                                                     |
+| -------------------------- | --------------------------------------------------------------------------- |
+| `analysis.json`            | `8.0.0`; v1-v7 remain readable and frozen                                   |
+| `diff.json`                | `5.0.0` for analysis v6-v8; older analyses use capability-appropriate v1-v4 |
+| `impact.json`              | `2.0.0` for analysis v4-v8, otherwise `1.0.0`                               |
+| `policy-results.json`      | `1.0.0`                                                                     |
+| graph view                 | `9.0.0` for analysis v7/v8; older analyses use capability-appropriate v1-v8 |
+| OpenAPI enrichment sidecar | `5.0.0` for analysis v5-v8; older analyses use capability-appropriate v1-v4 |
+| control-evidence JSON/CSV  | `5.0.0` for analysis v5-v8; older analyses use capability-appropriate v1-v4 |
+| `bundle.json`              | `1.0.0`                                                                     |
+| `system-analysis.json`     | `1.0.0`; separate artifact-only Phase 46 document                           |
+| system impact              | `1.0.0` comparison; `2.0.0` bounded distributed-conditional propagation     |
+| query responses            | `1.0.0`; transport-neutral P0.1 selectors over validated artifacts          |
+| doctor result              | `1.0.0`; source-safe operational preflight, not analysis evidence           |
+
+The scanner currently supports and enables `outbound_http`, `in_process_event`,
+`job_queue`, and `microservice_message`.
+
+## Doctor preflight contract
+
+`DoctorDocument` schema `1.0.0` is an operational preflight result and does not add
+facts to `AnalysisDocument`. Its finite check codes carry `pass`, `warning`, or
+`failure`, bounded remediation, and scalar source-free facts. The document deliberately
+uses `<repository>` instead of a checkout path. Recognized framework records require a
+TypeScript-resolved imported declaration; dependency-manifest text alone is not proof.
+
+The capability summary separates extractors that run from framework families observed
+in this project, exact retained version evidence, effective configuration bounds, and
+expected unavailable families. Unverified means evidence is absent, not that a version
+is incompatible. Default output inspection is metadata-only. The explicit
+`--probe-output` mode may prove one bounded create/delete operation, but neither mode
+predicts every future scan publication. See [Doctor and Capability Preflight](doctor.md).
+
+## MCP startup registry contract
+
+The Phase P1 registry is a runtime boundary, not another analysis document. It adds
+no field to `AnalysisDocument` or `SystemAnalysisDocument` and has no serialized
+canonical artifact of its own. Each startup entry records a unique query artifact name,
+an explicit role (`analysis`, `system`, `policy`, `before`, or `after`), and a canonical
+local file path. The path remains runtime input and never enters a content-addressed
+query document ID.
+
+The current MCP server contract is versioned independently as `1.2.0`; the query response
+contract remains `1.0.0`, while each loaded document retains its own schema version and
+canonical identity. Startup rejects failed/canceled analyses and validates system
+and policy documents before placing them in a deeply frozen, load-once registry. MCP
+tool structured content uses the unchanged query response schemas. Resource schema
+`1.0.0` wraps a bounded registry summary, one exact evidence record, or one exact
+top-level ID-bearing record with its artifact descriptor and collection name; it is not
+a new canonical analysis fact. The registry never exposes mutable or whole source
+documents. The server contract additionally caps a complete serialized tool result at
+512 KiB, caps text summaries at 512 characters, and validates resource URI selectors
+before lookup. These are adapter limits, not changes to query schema `1.0.0`. See
+[Local Artifact MCP Server](mcp-server.md).
+
+## Stable identities
+
+All IDs use `<kind>:<32 lowercase hexadecimal characters>`. Their hashes are derived
+only from normalized semantic identity components. Repository revision may be included;
+timestamps and display labels are not.
+
+Important identity inputs include:
+
+- source: repository revision and normalized repository-relative path;
+- class: revision, source path, and qualified name;
+- method: revision, source path, qualified class name, method name, and signature;
+- endpoint: revision, normalized HTTP method/path, and handler method ID;
+- evidence: source file ID, exact range, evidence role, and source content hash;
+- assertion: subject, predicate, target, and deterministic rule ID;
+- module: its canonical class ID;
+- global guard registration: module, guard, kind, and registration evidence;
+- QueryBuilder literal table: normalized literal table name plus
+  `query_builder_literal` provenance;
+- raw-SQL physical table: PostgreSQL-normalized qualified name plus
+  `raw_sql_literal` provenance;
+- contract type: normalized source path plus qualified class/interface name;
+- contract field: effective contract type plus property name;
+- request parameter: method, parameter index, and supported Nest source kind;
+- response contract: handler method; and
+- entity column: effective entity, declaring class, and property name;
+- authorization metadata: endpoint, scope, exact metadata key, decorator identity,
+  evidence, and extraction rule; and
+- authorization enforcement: metadata identity, state, exact guard/assertion identity,
+  and rule; and
+- resource access: source method, package-proven technology/API, operation, resource
+  kind, structural target/selector, call-site evidence, and extraction rule.
+
+System-analysis IDs use separate `system_analysis`, `system_service`, `system_record`,
+`system_endpoint`, `broker_realm`, `system_correlation`, and `system_diagnostic`
+prefixes. A service ID uses its explicit namespace; a system-record ID combines that
+namespace with the untouched source-analysis record ID. Repository or artifact paths
+are not identity inputs.
+
+The integrity validator rejects repeated IDs. It distinguishes an identical duplicate
+from an unequal-content stable-ID collision; neither is silently overwritten.
+
+## Phase 45–46 system-analysis contract
+
+`SystemAnalysisDocument` schema `1.0.0` is independent of every analysis, diff,
+impact, policy, structured-export, and graph schema. It stores source artifact headers,
+explicit broker realms, namespaced producer/consumer references, correlation states,
+and system diagnostics. Its strict root contains `sourceDocumentsEmbedded: false` and
+cannot contain source files, methods, assertions, or evidence from input analyses.
+
+Broker realm identity includes explicit environment and broker aliases, technology,
+transport, queue/topic/pattern destination, and optional prefix/namespace. Correlation
+integrity permits `declared_realm_candidate` only when an exact structural contract
+and one explicit realm are shared by every member. Target-only matches, ambiguities,
+and unmatched inventory cannot become declared candidates. No state proves delivery
+or handler execution. Phase 46's `stitch` writer validates each source analysis
+independently, retains cold/dynamic/registration-uncertain records as unsupported,
+and emits the strict system document plus a Markdown projection without embedding
+source collections. Source-proven transport cannot be contradicted by topology. The
+system ID covers service snapshot headers, endpoint contract/transport/realm facts,
+correlations, and diagnostics. See
+[System Analysis and Artifact Stitching](system-analysis-contract.md).
+
+`SystemReportDocument` schema `1.0.0` is a separate Phase 47 derived-view contract. It
+references system, service, correlation, and namespaced source-record IDs; it retains
+`sourceDocumentsEmbedded: false` and cannot contain source files, evidence snippets,
+or absolute paths. Its graph node/edge, conditional-path, diagnostic, display-limit,
+and typed-policy collections are strict and deterministically ordered. Only
+`declared_realm_candidate` may back `conditional_route`, `conditional_candidate`, or
+`conditional_effect` edges. Report identity covers the system snapshot, display
+limits, displayed graph IDs, full correlation/path/policy IDs, and diagnostics. The
+existing `SystemAnalysisDocument` schema remains `1.0.0`; the report does not migrate
+or mutate it. See [Conditional System Graph and Policies](system-report.md).
+
+## Differential system-impact contract
+
+`SystemImpactDocument` schema `1.0.0` is an independent P4.1 comparison artifact. It
+accepts explicit before/after `SystemAnalysisDocument` snapshots and topology
+observations; it does not mutate either source contract. Both sides declare the same
+service namespace scope. Each service observation is `available`, `not_present`,
+`missing`, or `incompatible`, while topology uses the same four-state vocabulary.
+`not_present` is a positive statement about snapshot coverage. `missing` and
+`incompatible` mean the facts are unknown and cannot be interpreted as removals.
+
+Producer and consumer semantic identity combines the declared service namespace,
+endpoint role, and untouched canonical source-analysis record ID. Realm identity uses
+the explicit environment and broker aliases. Binding identity prefers an exact source
+record selector and otherwise uses the full structural contract. Correlation identity
+is anchored by the producer endpoint identity, or by the ordered consumer identities
+for consumer-only inventory. Target text alone is never a comparison identity.
+
+The document tracks added, removed, and modified services, endpoints, realms, bindings,
+correlations, ambiguity transitions, and declared-realm conditional-candidate
+eligibility. Missing or incompatible artifacts yield explicit uncertainties and
+`completed_with_unknowns`; affected endpoint/correlation changes are withheld.
+Semantic-key collisions are also uncertainties and suppress comparison for that key
+on both sides.
+
+P4.1 does not traverse a candidate into worker paths or effects. Every schema `1.0.0`
+document carries the literal `propagation.state = "not_computed"` and
+`propagation.reason = "phase_p4_1_contract_only"`. A conditional-candidate change is
+only a change in static eligibility.
+
+P4.2 schema `2.0.0` retains those fields and replaces the no-propagation marker with a
+computed `distributed_conditional` projection. It records bounded seeds, ordered broker
+hops, downstream table/resource effects, per-path completeness and truncation, source
+artifact content fingerprints, analysis/assertion/evidence provenance, omitted counts,
+and one graph overlay for each available side. Seeds are either locally impacted HTTP
+endpoints or changed producer records. A hop is valid only for a
+`declared_realm_candidate`; target-only, ambiguous, and unmatched correlations cannot
+appear in propagation. All effects retain the literal causal class
+`distributed_conditional`. See
+[Differential System Impact](system-impact.md).
+
+## Query response contract
+
+Query schema `1.0.0` is a transport-neutral derived contract. A query kernel registers
+already validated analysis, comparison, impact, policy, system-analysis, and
+system-report documents under bounded local names. Each descriptor uses a SHA-256
+content identity over the document family's canonical serialization and separately
+retains a native canonical document ID when that family defines one.
+
+Endpoint and symbol selectors return exactly one of `not_found`, `resolved`, or
+`ambiguous`. Matches are ordered by full canonical record ID and may be truncated only
+by an explicit recorded limit; `totalMatches`, `returned`, and `omitted` preserve the
+distinction between no match and an undisplayed match. Response metadata contains the
+ordered union of diagnostic and evidence IDs for returned records. Runtime schemas
+reject mismatched state/count summaries, unsorted or repeated matches, and inconsistent
+reference summaries.
+
+Paged operations add exclusive canonical cursors plus total, skipped, remaining, and
+next-cursor fields. Trace subcollections and class seed methods each carry their own
+returned/omitted counts. Reverse reachability additionally declares maximum depth,
+maximum states, visited states, and truncation. Comparison and impact responses name
+the before and after artifact roles explicitly and identify their in-memory derived
+artifact by content address.
+
+Symbol selection requires either a canonical ID or the combination of a normalized
+repository-relative source path and qualified name. Kind and source position can
+further constrain the latter. No query resolves an absolute path, reads source text,
+or guesses among multiple declarations. See [Vendor-Neutral Query Kernel](query-kernel.md).
+
+Distributed candidate queries accept only a complete structural system interaction
+target and its matching interaction kind. The canonical system contract key is
+returned with the unchanged correlation state. Policy queries retain `outcome` and
+`blocking` as independent facts and publish source versus filtered summaries; adapters
+must not reinterpret `unknown` as `fail`.
+
+## Assertions and uncertainty
+
+Assertions use one of four statuses:
+
+- `resolved`: one supported target is proven;
+- `ambiguous`: the assertion represents one plausible target among multiple candidates;
+- `unresolved`: a target should exist but cannot be found;
+- `unsupported`: source exists, but the construct is outside a supported rule.
+
+Resolved and ambiguous assertions require a non-null `objectId`. Unresolved and
+unsupported assertions may use `null` rather than inventing a placeholder object. All
+resolved assertions require at least one evidence record. Unsupported conditions may
+also be represented by diagnostics when no relationship can be stated honestly.
+
+Assertion predicate subject/target kinds are fixed and checked during integrity
+validation. For example, `ENDPOINT_IMPLEMENTED_BY` must connect an endpoint to a
+method, and `ENTITY_MAPS_TO_TABLE` must connect a TypeORM entity record to a table.
+
+Direct NestJS guard facts use `ENDPOINT_USES_GUARD`. The deterministic rule IDs
+`nest.guard.controller.v1` and `nest.guard.method.v1` preserve declaration scope.
+Only TypeChecker-resolved `@nestjs/common` `UseGuards` calls whose arguments resolve to
+repository class declarations are supported. A same-named local decorator or a guard
+factory is not treated as guard metadata. Endpoint views use `none_declared` only when
+no supported direct guard fact exists. They expose `AUTH_GLOBAL_POLICY_UNKNOWN` when
+the bounded global scan is incomplete; they never infer that an endpoint is public.
+
+Analysis v2 adds module relationship predicates and evidence-linked global guard
+registration records. Derived endpoint state distinguishes `declared`, `none_proven`,
+and `unknown` global analysis, then combines supported global, controller, and method
+guards. `none_proven` and `no_supported_guard_proven` are bounded negative results,
+not public/authentication claims. Analysis v1 remains strict and readable; its missing
+module/global families normalize to unavailable/unknown rather than empty proof.
+
+Analysis v2 also accepts `query_builder_literal` and `raw_sql_literal` as
+`TableRecord.nameSource` values.
+Entity-derived `explicit`/`default_lowercase_class_name` table IDs remain unchanged;
+literal targets use provenance-qualified IDs so same-named entity, QueryBuilder, and
+raw-SQL tables are not silently merged. Analysis v1 retains its frozen two-value table
+source vocabulary and rejects the v2-only `configuration.rawSql` envelope.
+
+Analysis v2 adds declared contract and entity-column record families plus the
+`METHOD_DECLARES_REQUEST_PARAMETER`, `METHOD_DECLARES_RESPONSE`,
+`CONTRACT_TYPE_DECLARES_FIELD`, and `ENTITY_DECLARES_COLUMN` predicates. Contract type
+shapes distinguish source declarations from checker-derived mapped/generated shapes.
+Validator decorators remain declared constraints, manual `@Res()` remains explicit,
+and `any`/unknown/complex returns are not expanded from bodies. Column names distinguish
+explicit names, a documented property-name fallback, and unknown dynamic options.
+None of these declaration records proves effective validation, transformation,
+serialization, or naming-strategy output. Phases 20-21 add v2-only
+`RequestFieldOriginRecord` and `ColumnInfluenceRecord`, plus
+`REQUEST_PARAMETER_HAS_FIELD_ORIGIN` and `REQUEST_FIELD_MAY_FLOW_TO_COLUMN`. The
+influence record retains method, field origin, entity column, sink kind,
+`direct`/`derived`/`unknown` state, and evidence. Its ordered `callPath` is empty for
+same-method influence or contains caller, callee, and call-site evidence for each
+proven direct hop. Integrity requires a continuous path from the request handler to
+the sink method. This is bounded “may flow” provenance, not exact stored-value
+lineage. V1 rejects all of these v2-only families and predicates.
+
+When enabled, `analysisRun.configuration.rawSql` records the explicit dialect, exact
+parser name/version, SQL byte and statement limits, observed parse-time limit, and AST
+node limit. The same configuration appears in `run.json` and contributes to the
+analysis-run ID. The property is absent when raw-SQL analysis is disabled, preserving
+the semantic identity and byte output of existing scans.
+
+## Analysis v5 authorization facts
+
+Analysis v5 preserves every v4 fact family and adds `authorizationMetadata` and
+`authorizationEnforcements`. These records deliberately separate three statements:
+
+- a supported metadata decorator is present on a controller or endpoint method;
+- a guard is registered for the endpoint or application; and
+- an exact relationship between that metadata and guard is package-proven, configured,
+  or unknown.
+
+Metadata values are never retained. The model records only a redacted scalar type,
+array length/item-type shape, object keys, or `unknown`. Direct `SetMetadata()` wrappers
+require an explicitly configured metadata key or exact decorator symbol. Repository
+wrappers using package-proven `applyDecorators(SetMetadata(...), UseGuards(...))` are
+discoverable without name configuration when both calls and the nested guard class are
+statically exact. Bare decorator names are not configuration identities.
+
+`proven_enforced` means only that one supported composite decorator co-declares the
+metadata and exact guard. `configured_relationship` preserves a user-declared mapping
+without upgrading it to proof. `enforcement_unknown` is explicit when neither condition
+holds. None of these states proves authentication, authorization success, runtime
+container registration, or guard execution.
+
+## Analysis v6 non-relational resource access
+
+Analysis v6 preserves every v5 fact family and adds `resourceAccesses` plus
+`resourceAccessAnalysis`. `METHOD_ACCESSES_RESOURCE` connects a source method to each
+canonical resource record. Current extraction is package-proven and bounded to
+`cache-manager` `get`/`set`/`del`/`wrap` and selected direct `ioredis` string, hash,
+delete, expiry, and scan commands.
+
+Targets retain only structural identity: exact text, bounded template segments,
+symbolic tokens such as a proven `this.member`, or `dynamic`. Payload arguments,
+callback results, Redis values, credentials, and runtime configuration values are not
+retained. `scan` records the supported `MATCH` structure rather than treating the
+cursor as a resource identity; `hscan` separates the hash key from its field selector.
+
+Pipelines, transactions, Lua scripts, pub/sub, unbounded key commands, arbitrary
+wrappers, and unsupported client packages produce explicit diagnostics or no fact. A
+resource record proves only a package-resolved static access expression. It does not
+prove cache hit/miss, command success, atomicity, expiry behavior, key existence,
+network delivery, or a runtime value.
+
+## Analysis v7 Redlock critical sections
+
+Analysis v7 preserves every v6 family, extends resource technology with `redlock`,
+and adds `criticalSections`. Package-proven `Redlock.using()` calls produce one
+`distributed_lock` / `critical_section` resource per bounded structural key. Direct
+arrays and immutable const arrays are supported up to 16 entries; spread, dynamic,
+or oversized resource lists remain diagnosed without guessed keys.
+
+Each critical-section record identifies the source method, lock resource records,
+inline arrow/function callback evidence, and the exact canonical assertion IDs whose
+call sites lie inside that callback. Traces exclude those assertions from the ordinary
+synchronous path and reintroduce them under `critical_section_conditional`. Downstream
+calls preserve that causal class; an existing `distributed_conditional` boundary
+remains dominant. The record proves lexical scope and package dependency only. It does
+not prove acquisition, mutual exclusion, contention, timing, callback execution, or
+release. Custom lock-wrapper propagation was outside the v7 boundary; v8's narrow
+verified-wrapper grammar is documented separately below.
+
+## Analysis v8 verified wrapper flows
+
+Analysis v8 preserves the complete v7 record shape and adds four diagnostic codes for
+verified critical-section wrapper analysis. It can propagate an exact callable
+parameter backwards from a package-proven `redlock.using()` callback through at most
+three unchanged positional forwarding hops. A repository call is projected only when
+the TypeScript checker identifies one exact summarized method and the proven argument
+is an inline arrow or function expression.
+
+Wrapper-derived scopes reuse `ResourceAccessRecord` and `CriticalSectionRecord` and
+use the distinct rule `resource.redlock.verified-wrapper.v1`. Their lock target is
+`dynamic`; the caller owns the resource, scope, callback-contained effects, and the
+ordered call-site/forwarding/terminal evidence. Existing downstream extractors may
+enter only that exact inline callback. No configuration is accepted for declaring a
+wrapper because configuration cannot establish callback flow or package identity.
+
+The v8-only diagnostics are
+`CRITICAL_SECTION_CALLBACK_FLOW_UNPROVEN`,
+`CRITICAL_SECTION_WRAPPER_TARGET_AMBIGUOUS`,
+`CRITICAL_SECTION_WRAPPER_CYCLE_TRUNCATED`, and
+`CRITICAL_SECTION_WRAPPER_LIMIT_REACHED`. They are emitted only for a call or bounded
+flow connected to a package-proven candidate; arbitrary callback helpers do not
+create wrapper diagnostics. These records still prove only a bounded static path and
+lexical scope, never lock acquisition, invocation, exclusivity, timing, or release.
+
+## Result-state policy
+
+`completed` means the analysis encountered no diagnosed gap; this includes a genuinely
+empty repository. `completed_with_gaps` means trustworthy facts or a nonfatal partial
+analysis remain available alongside a diagnosed unresolved, unsupported, or unknown
+condition. `failed` is reserved for a fatal integrity condition or an error that leaves
+no trustworthy facts. `canceled` remains distinct from all three. Record counts,
+assertion statuses, and diagnostic codes preserve the difference between empty,
+unresolved, and unsupported outcomes rather than overloading the result state.
+
+## Evidence semantics
+
+Evidence locations are repository-relative through their `SourceFile` reference.
+Coordinates are one-based. Starts are inclusive and ends are exclusive, matching
+TypeScript node offsets after conversion.
+
+Every evidence record repeats the indexed source content hash. Integrity validation
+requires the evidence hash to equal its source file hash. Snippets are redacted,
+bounded convenience text; they are never identity or independent proof.
+
+## Canonical ordering
+
+Record arrays are ordered by stable ID before serialization except global guard
+registrations, which use their contiguous registration order. Class roles and
+assertion/diagnostic evidence references receive stable ordering. Trace guard order is
+semantic: application-global, controller, then method, preserving proven global
+registration order. Object keys are recursively sorted by `canonicalStringify()`.
+
+Canonical serializers never mutate extractor-owned arrays. A shuffled discovery order
+must produce byte-identical canonical output.
+
+## Validation boundary
+
+Writing trustworthy canonical output requires both:
+
+1. Zod runtime schema validation; and
+2. cross-record integrity validation from `validateAnalysisDocument()`.
+
+Integrity validation checks global ID uniqueness, record-kind prefixes, references,
+predicate endpoint kinds, declaration roles, evidence hashes and ranges, class roles,
+and evidence requirements. A validation failure makes the analysis unpublishable as a
+trusted `analysis.json`.
+
+## Structured export contracts
+
+OpenAPI enrichment sidecars and control-evidence matrices are independently versioned.
+Schema `1.0.0` represents analysis v1/v2 facts, `2.0.0` adds outbound/local
+interaction fields for analysis v3, `3.0.0` adds distributed interactions and
+distributed-conditional effects, and `4.0.0` adds selected `jobQueueBranchIds` for
+analysis v4. Schema `5.0.0` adds redacted authorization requirements and enforcement
+states for analysis v5. An empty v4/v5 branch array means no branch was selected; an
+older schema means that branch capability is unavailable.
+Their cross-record
+validators require canonical snapshot identity, valid endpoint/table/evidence
+references, and complete evidence closure. The matrix additionally requires exactly
+one row for every canonical endpoint and accepts policy outcomes only from a validated
+policy document for that same snapshot.
+
+An enriched OpenAPI document is a derived copy, not a canonical document. Only a
+uniquely exact method/path match may expose endpoint facts. Ambiguous, unresolved, and
+unmatched operations retain their state without guessed guards, tables, or lineage.
+The source OpenAPI bytes are never changed. CSV is a presentation of the validated
+matrix JSON; spreadsheet formula neutralization does not alter the underlying facts.
+
+## Offline graph-view contract
+
+The graph view is independently versioned: schema `1.0.0` remains readable for
+analysis v1/v2, historical interaction reports may use `2.0.0` through `7.0.0`, and
+current analysis v7/v8 reports emit graph schema `9.0.0`. Cross-record validation requires
+snapshot identity, exactly one view per canonical endpoint, exactly one view per
+canonical interaction handler, unique node/edge/evidence IDs, complete scene
+references, canonical evidence closure, declared display limits, and summary
+agreement. Optional policy input must match the analysis ID; optional impact input
+must contain that analysis on its validated before or after side.
+
+Each scene is an endpoint- or handler-rooted projection of existing catalogue, trace,
+guard, and provenance views. Gap nodes represent null assertion targets without
+inventing a record. Impact styling applies only to the endpoint and canonical assertion steps
+present in validated impact paths. HTML is a rendering of this document and is not a
+canonical or independently inferred artifact.
+
+Graph schema `2.0.0` was introduced for early canonical interaction nodes and remains
+readable for compatibility. Graph v4 scenes represent outbound HTTP, local event,
+BullMQ, and Nest microservice interaction/handler/boundary nodes. Graph v5 additionally
+renders canonical BullMQ branch nodes and branch-effect edges; candidate edges remain
+labeled as candidates rather than delivery. Graph v6 adds endpoint authorization
+requirements with redacted value shapes and explicit enforcement states. Graph v7
+uses graph schema `7.0.0` and
+retains those facts and adds one bounded repository architecture overview with complete
+numeric metric/ownership arrays, percentile legends, and an independently limited
+scene. Graph v8 adds resource-access nodes and reach metrics without treating them as
+communication interactions. The overview remains derived and does not change canonical
+analysis facts.
+Graph v9 adds explicit critical-section scope nodes and connects callback-contained
+assertion edges through that scope without claiming runtime lock behavior.
+
+## Analysis v3 interaction substrate
+
+Analysis v3 preserves every v2 family and adds strict `ApplicationRecord`,
+`InteractionRecord`, and `InteractionHandlerRecord` collections. The four reserved
+interaction kinds are `outbound_http`, `in_process_event`, `job_queue`, and
+`microservice_message`. Reservation does not imply extractor support.
+
+`interactionAnalysis` separates `schemaKinds` from `supportedKinds` and
+`enabledKinds`. Phase 30 publishes all schema kinds, no supported/enabled kinds, empty
+record collections, and `not_run`. Phase 31 publishes `outbound_http` as supported and
+enabled, with `complete` or `incomplete` extractor state; the remaining kinds stay
+reserved only. Phase 32 does not add another kind; it extends `outbound_http` with
+Nest `HttpService` activation and symbolic targets. Phase 33 activates
+`in_process_event`, application roots, and independent local handler records. The
+current scanner additionally supports and enables `job_queue` and
+`microservice_message`.
+Integrity requires enabled kinds to be supported, complete
+evidence/reference closure, kind-correct interaction/handler matches, and supporting
+method/application assertions for canonical records.
+
+Targets are discriminated and strict. HTTP targets retain only method, sanitized
+target structure, and query-key names. Event payload classes are not event identity.
+Event producer targets retain static string/enum identities or normalized unique-symbol
+declaration keys; dynamic and wildcard-shaped producer identities remain explicit and
+are never dispatched as patterns. A supported `@OnEvent()` string pattern additionally
+retains `{ kind: wildcard, delimiter }`, only when static root configuration proves
+wildcards enabled. Exact/wildcard match integrity uses compatible application scope,
+EventEmitter2 segment semantics, and the owning rule ID. Phase 35 emits queue targets
+with `technology: bullmq` and independently exact/dynamic queue and job identities.
+Phase 36 emits canonical microservice mode/pattern/client/transport targets for the
+supported Nest `ClientProxy` subset. Headers, bodies, credentials, environment values,
+queue payloads, broker delivery, and remote consumers are not canonical facts.
+
+## Analysis v4 BullMQ branch substrate
+
+Analysis v4 preserves every v3 family and adds strict
+`interactionHandlerDispatches`, `interactionHandlerBranches`, and
+`interactionHandlerBranchEffects` collections. Dispatches are `complete`, `partial`,
+or `unsupported`; selectors are exact jobs, all jobs, unmatched jobs, or unknown.
+Branch effects reference an existing canonical method assertion and prove only that
+its call-site evidence lies within that source region.
+
+The bounded extractor supports direct `switch (job.name)` and terminating sequential
+strict-equality checks on the exact `WorkerHost.process()` parameter symbol. It
+supports static literals, enums, `as const` values, grouped empty switch labels,
+`break`, `return`, `throw`, a default/unmatched region, a common prelude, and top-level
+`try/finally`. Aliases, mutation, compound predicates, dynamic case labels, and
+non-empty fallthrough fail closed into an explicit unknown residual branch. Exact
+producer jobs traverse only matching, common, or supported unmatched branch effects;
+unknown residual work is not copied onto exact jobs.
+
+Branch-aware endpoint traces list selected `jobQueueBranchIds`. Comparison v3 uses
+structural dispatch/branch/effect semantic keys; impact v2 applies branch selectors
+when walking back to exact producers. OpenAPI/control v4 and graph v5 expose the same
+selected branch identities. The broker boundary remains `distributed_conditional` and
+never proves enqueue, delivery, worker execution, or completion.
+
+Phase 31 outbound records use `direction: outbound`, `activation: eager`,
+`boundary: external_or_unobserved`, and `dispatchTiming: asynchronous`. Their target
+retains a normalized HTTP method, an exact/template/dynamic sanitized URL structure,
+and query-key names only. Every record has a resolved
+`METHOD_INITIATES_INTERACTION` assertion and initiation/resolution evidence. See
+[Eager Outbound HTTP Analysis](outbound-http.md) for the extraction and redaction
+contract.
+
+Phase 32 cold producers use `proven_activated`, `constructed_cold`, or `unknown`;
+checker-proven `axiosRef` remains `eager`. Symbolic target values contain only bounded
+identities such as `{config:PAYMENT_URL}` and `{env:AUTH_SERVICE_URL}`, optional static
+path structure, and numbered runtime placeholders. Configuration/environment values
+are never resolved or stored. See
+[Nest HttpService and Symbolic Targets](nest-http-service.md).
+
+Phase 33 event producers are eager and `in_process`. `emit` is synchronous when every
+matched listener timing is statically synchronous; `emitAsync` is asynchronous, and
+mixed/unknown listener timing stays unknown. Handler registration is separately
+`proven_registered`, `declared_candidate`, or `registration_unknown`. Exact candidate
+fan-out never claims runtime delivery. V3 trace terminals may carry `synchronous`,
+`local_interaction_synchronous`, or `local_interaction_asynchronous` causal class;
+frozen v1/v2 traces omit the field. See
+[In-Process Event Analysis](in-process-events.md).
+
+Phase 34 adds configured `*`/`**` handler matching: `*` consumes exactly one segment,
+while `**` consumes zero or more, using the statically resolved delimiter. All matches
+are candidate assertions; exact matches do not outrank wildcard matches. Handler
+configuration evidence is canonical and required for a retained wildcard pattern.
+V3 endpoint traces additionally publish a `causalSummary` that partitions synchronous,
+local, and distributed-conditional effects and lists outbound/local interaction IDs
+plus explicit completeness diagnostics.
+
+Phase 35 queue producers are eager, outbound, and asynchronous. Their boundary is
+`external_or_unobserved` until one or more same-queue local `WorkerHost` candidates
+exist, then `broker_or_worker_boundary`. Queue-wide handlers use a dynamic job target
+by design; analysis v4 separately projects supported `job.name` branches and selects
+compatible effects for exact producers. Matched proven-registered worker terminals
+remain `distributed_conditional`, never synchronous. Endpoint traces include
+`distributedInteractionIds` and, in v4, selected `jobQueueBranchIds`. See
+[BullMQ Queue Interactions](bullmq-interactions.md).
+
+Phase 36 microservice producers retain `request_response` or `event` mode, a bounded
+canonical scalar/plain-JSON pattern, client token, and supported transport inventory.
+`emit` is eager; `send` distinguishes proven activation, cold construction, and
+unknown flow. Matches require the same resolved application, mode, pattern, and
+transport. Event handlers may fan out; duplicate request handlers use `ambiguous`
+assertions and are not traversed. Candidate handler effects are
+`distributed_conditional`. See
+[Nest Microservice Interactions](nest-microservices.md).
+
+The v3 predicates are `APPLICATION_USES_ROOT_MODULE`,
+`METHOD_INITIATES_INTERACTION`, `INTERACTION_MATCHES_LOCAL_HANDLER`, and
+`HANDLER_IMPLEMENTED_BY`. A handler match is a local static candidate, not proof of
+delivery or execution. Proven event/queue fan-out uses multiple resolved assertions;
+`ambiguous` is reserved for cases such as duplicate microservice request handlers
+where traversal is deliberately withheld.
+
+The pure version normalizer exposes v2 families as unavailable for v1 and interaction
+families as unavailable for v1/v2. It never turns a missing historical family into a
+proven empty result. V1/v2 writers, schemas, canonical bytes, and analysis-run IDs
+remain frozen.
+
+## CI evaluation contract
+
+Phase P2.1 versions the derived `CiEvaluationDocument` independently as `1.0.0`.
+It references one compatible baseline/candidate analysis pair and the exact comparison,
+impact, and policy artifacts used to evaluate it. Analysis provenance includes the
+canonical analysis ID, schema and result state, repository revision, toolchain,
+configuration fingerprint, full artifact fingerprint, and source-file count. Input
+artifact fingerprints use their owning canonical serializers.
+
+The document outcome vocabulary is only `success | policy_violation`; construction
+failures use the separate process vocabulary `invalid_input |
+incompatible_baseline | analysis_failure | canceled`. Exit codes are fixed by the
+P2.1 contract and are independent of any GitHub or GitLab adapter.
+
+All projected findings are strict, ordered records. Evidence locations contain side,
+canonical evidence/file IDs, repository-relative path, one-based range, role, and
+content hash. They deliberately exclude snippets. Summary counts, configured blocking
+outcome, duplicate identities, and the content-derived evaluation ID are integrity
+validated. Machine JSON, Markdown, and neutral JSONL annotations are deterministic;
+no analysis schema or policy schema changed.
+
+## CI reproducible-scan recipe contract
+
+Phase P2.2 versions `CiScanRecipeManifest` independently as `1.0.0`. It references one
+validated P2.1 evaluation and embeds the exact baseline/candidate analysis provenance.
+The recipe adds the engine distribution hash, a structurally validated Node range,
+trusted project-configuration content hash, effective analysis-configuration hash,
+explicit topology state/hash, and per-snapshot package-manager and lockfile
+provenance.
+
+Each dependency plan permits only one fixed executable/argument vector for its
+package manager, requires immutable lockfile mode, and records lifecycle scripts as
+disabled. An isolated baseline records a distinct workspace key. A trusted baseline
+artifact records a null workspace but retains the dependency plan used to produce it.
+The candidate is always an isolated untrusted scan.
+
+`recipeId` is derived from the complete canonical recipe content. The baseline cache
+key is derived only from trusted baseline artifact, revision, lockfile, engine,
+configuration, and topology inputs. The policy is fixed as
+`trusted_writer_candidate_read_only`; fork secrets are `none` and candidate token
+permission is `read_only`. Canonical serialization is deterministic. Recipe/schema or
+identity defects are invalid input; a different otherwise valid expected provenance
+is an incompatible baseline. No canonical analysis schema changed.
+
+## GitHub CI projection and artifact manifest
+
+Phase P3.1 adds provider-adapter version `1.0.0` without changing
+`CiEvaluationDocument` or `CiScanRecipeManifest`. `GitHubCiProjection` references one
+validated evaluation ID and retains its outcome, an escaped bounded Markdown summary,
+an ordered bounded annotation list, and published/omitted counts. Annotation levels
+map portable `failure` to GitHub `error`; warnings and notices retain their meanings.
+Only candidate-side evidence with a safe repository-relative path retains one-based
+file coordinates. Other evidence becomes a job-level annotation rather than being
+misattributed to the candidate diff.
+
+`GitHubActionArtifactManifest` schema `1.0.0` records adapter version, evaluation ID,
+outcome, annotation counts, and the relative path, byte count, and SHA-256 hash of
+every other file in the content-addressed action result directory. The manifest does
+not include itself. Workflow-command annotations and the job summary are derived
+views; canonical JSON artifacts remain the source of truth. See
+[GitHub Pull-Request Gate](github-action.md).
+
+## GitLab CI projection and artifact manifest
+
+Phase P3.2 adds independent adapter version `1.0.0` without changing the P2.1
+`CiEvaluationDocument` or P2.2 `CiScanRecipeManifest`. `GitLabCiProjection` references
+one validated evaluation, retains its outcome and a bounded escaped Markdown summary,
+and contains an error-first collection of at most 500 `GitLabCodeQualityFinding`
+records plus published/omitted counts.
+
+Each finding uses only GitLab Code Quality's supported `description`, `check_name`,
+`fingerprint`, `severity`, and `location` fields. Portable failures map to `blocker`,
+warnings to `major`, and notices to `info`. A deterministic SHA-256 fingerprint binds
+the source annotation and exact candidate location. Only safe candidate-relative paths
+with one-based start lines are eligible. Evidence that GitLab cannot locate remains in
+the canonical evaluation and increments the omitted count; the adapter never invents
+a path.
+
+`GitLabCiArtifactManifest` schema `1.0.0` records adapter version, evaluation ID,
+digest-pinned execution image, outcome, Code Quality counts, and the relative path,
+byte count, and SHA-256 hash of every other file in the content-addressed evaluation
+directory. The fixed root report, summary, and process result are GitLab upload
+entrypoints; the content-addressed directory remains the authoritative downloadable
+bundle. See
+[GitLab Merge-Request Gate](gitlab-ci.md).
+
+## Sanitized CI comment contract
+
+Phase P5.1 versions `CiCommentDocument` independently as `1.0.0`. It references one
+validated `CiEvaluationDocument` by exact ID and copies its outcome, numeric summary,
+candidate analysis identity, and bounded revision display. Provider run identity and
+artifact links are normalized, credential-free HTTPS records supplied by the caller;
+the model does not fetch or attest those destinations.
+
+Findings are a deterministic failure-first prefix of portable CI annotations. They
+retain the source annotation ID, category, level, bounded title/message, and at most a
+repository-relative side/path/start-line location. Source snippets and canonical
+evidence payloads remain outside the comment and inside downloadable artifacts.
+Candidate/included/omitted counts are explicit for findings and links. The final
+Markdown has an exact recorded byte count and a hard 60,000-byte ceiling.
+
+`commentId` derives from the complete canonical bounded projection. The upsert key and
+`<!-- api-intel:ci-evaluation:v1 -->` marker are schema literals, so repository text
+cannot select or forge a different update target. Internal validation cannot prove
+source equivalence after a malicious projection is rehashed; the separate
+evaluation-binding validator therefore checks summary, provenance, annotation count,
+and the exact retained prefix against the trusted source evaluation. No provider
+publication or canonical analysis schema changed. See
+[Sanitized CI Comment Contract](ci-comment.md).
+
+## CI comment publication result
+
+Phase P5.2 versions `CiCommentPublicationResult` independently as `1.0.0`. It records
+the provider (`github` or `gitlab`), one of `created`, `updated`, `unchanged`, or
+`permission_unavailable`, the exact source evaluation and comment-document IDs, a
+bounded provider target key, HTTP status, pages scanned, and the positive numeric
+provider comment/note ID. Only `permission_unavailable` carries a `null` provider ID;
+successful publication states must carry one.
+
+This result is operational metadata, not analysis evidence and not a new evaluation.
+It contains no token, response body, source text, or claim of runtime behavior. Before
+it can be produced, the publisher binds the strict comment to the strict evaluation,
+then binds both baseline and candidate revisions to trusted provider-event values.
+The publication contract does not change canonical analysis schema `8.0.0`, CI
+evaluation schema `1.0.0`, or comment schema `1.0.0`. See
+[Optional CI Comment Publisher](ci-comment-publisher.md).

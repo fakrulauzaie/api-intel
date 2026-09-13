@@ -1,0 +1,19 @@
+{
+  "event": "pull_request",
+  "outcome": "success",
+  "addedEndpoint": "POST /controlled-orders",
+  "requiredArtifacts": [
+    "api-intel-graph.html",
+    "ci-evaluation.json",
+    "ci-evaluation.md",
+    "ci-scan-recipe.json",
+    "diff.json",
+    "github-annotations.jsonl",
+    "github-summary.md",
+    "impact.json",
+    "manifest.json",
+    "policy-results.json"
+  ],
+  "actionImplementation": "action-dist/index.js",
+  "targetContainsActionImplementation": false
+}

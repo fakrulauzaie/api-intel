@@ -1,0 +1,32 @@
+{
+  "gate": "CK0",
+  "schemaVersion": "1.0.0",
+  "packageManagers": {
+    "pnpm": ["install", "--frozen-lockfile", "--ignore-scripts", "--ignore-pnpmfile"],
+    "npm": ["ci", "--ignore-scripts"]
+  },
+  "requiredProvenance": [
+    "engineDistributionFingerprint",
+    "analysisSchemaVersion",
+    "repositoryRevision",
+    "projectConfigurationFingerprint",
+    "effectiveAnalysisFingerprint",
+    "dependencyLockfileFingerprint",
+    "topologyFingerprintOrNotApplicable"
+  ],
+  "trust": {
+    "baseline": "trusted",
+    "candidate": "untrusted",
+    "forkSecrets": "none",
+    "candidateTokenPermission": "read_only",
+    "baselineCachePolicy": "trusted_writer_candidate_read_only"
+  },
+  "mustNotPerform": [
+    "repository checkout",
+    "branch resolution",
+    "dependency install",
+    "target lifecycle script",
+    "network request",
+    "provider API call"
+  ]
+}

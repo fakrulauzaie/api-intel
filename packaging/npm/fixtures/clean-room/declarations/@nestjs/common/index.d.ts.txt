@@ -1,0 +1,4 @@
+export declare function Controller(path?: string): ClassDecorator;
+export declare function Injectable(): ClassDecorator;
+export declare function Module(metadata: unknown): ClassDecorator;
+export declare function Post(path?: string): MethodDecorator;

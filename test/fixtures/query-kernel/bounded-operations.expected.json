@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "operations": [
+    "compareAnalyses",
+    "findDistributedCandidates",
+    "getChangeImpact",
+    "getEndpointTrace",
+    "getPolicyResults",
+    "getSymbolDependents",
+    "listEndpoints"
+  ],
+  "selectorStates": ["ambiguous", "not_found", "resolved"],
+  "reverseDependencyPredicates": [
+    "ENDPOINT_IMPLEMENTED_BY",
+    "HANDLER_IMPLEMENTED_BY",
+    "METHOD_CALLS_METHOD"
+  ],
+  "distributedStates": [
+    "ambiguous",
+    "declared_realm_candidate",
+    "target_only_candidate",
+    "unmatched"
+  ],
+  "mustPreserve": [
+    "before_after_roles",
+    "canonical_ids",
+    "evidence_ids",
+    "policy_blocking",
+    "policy_unknown",
+    "system_contract_key",
+    "system_correlation_state"
+  ],
+  "mustNotPerform": [
+    "target_import",
+    "target_execution",
+    "network_access",
+    "filesystem_write",
+    "source_scan"
+  ]
+}

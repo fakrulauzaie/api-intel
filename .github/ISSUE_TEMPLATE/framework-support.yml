@@ -1,0 +1,51 @@
+name: Framework support proposal
+description: Propose support for a specific public framework, version, or static call pattern.
+title: '[Framework]: '
+labels:
+  - framework-support
+  - proposal
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I checked the compatibility and supported-patterns documentation.
+          required: true
+        - label: I can provide a synthetic positive and close negative fixture.
+          required: true
+        - label: I am not asking api-intel to execute target code or guess from names alone.
+          required: true
+  - type: input
+    id: packages
+    attributes:
+      label: Exact packages and versions
+      placeholder: '@nestjs/common 0.0.0; package-name 0.0.0'
+    validations:
+      required: true
+  - type: input
+    id: documentation
+    attributes:
+      label: Authoritative public documentation URL
+    validations:
+      required: true
+  - type: textarea
+    id: pattern
+    attributes:
+      label: Representative synthetic API pattern
+    validations:
+      required: true
+  - type: textarea
+    id: identity
+    attributes:
+      label: Proposable static identity and boundary
+      description: Explain which package symbols or declarations can be proven and where proof should stop.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Legacy-system value
+      description: Describe the refactoring or blast-radius question this would answer.
+    validations:
+      required: true

@@ -1,0 +1,1669 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": {
+    "name": "@fakrulauzaie/api-intel",
+    "version": "0.1.0-alpha.1",
+    "surface": "cli_first_data_exports_only"
+  },
+  "archive": {
+    "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
+    "fileCount": 271,
+    "packedBytes": 431991,
+    "unpackedBytes": 2352555,
+    "shasum": "24d0e70976bbe9e88e328ea47f472c1a9e074a6c",
+    "integrity": "sha512-SyzgUnRrS08Bjrus1Kydacp55vaK18qxMeBmLvPw6ITZMf5lfjc8vzJ078OuGwuxcyKzE9lkYFWNrofJRvsvYA=="
+  },
+  "budgets": {
+    "maximumFileCount": 280,
+    "maximumPackedBytes": 650000,
+    "maximumUnpackedBytes": 3000000
+  },
+  "dataExports": {
+    "./schemas/api-intel.config.schema.json": "./schemas/api-intel.config.schema.json",
+    "./schemas/support-diagnostic-manifest.schema.json": "./schemas/support-diagnostic-manifest.schema.json"
+  },
+  "assets": [
+    {
+      "id": "cytoscape_browser",
+      "npmStrategy": "runtime_dependency",
+      "githubActionCopies": ["action-dist/cytoscape.min.js"],
+      "gitlabCopies": ["gitlab-dist/cytoscape.min.js"],
+      "sha256": "9c2a3bf2592e0b14a1f7bec07c03a54f16dedf32af9cd0af155c716aa6c87bc3"
+    },
+    {
+      "id": "libpg_query_wasm",
+      "npmStrategy": "runtime_dependency",
+      "githubActionCopies": ["action-dist/libpg-query.wasm"],
+      "gitlabCopies": ["gitlab-dist/libpg-query.wasm"],
+      "sha256": "e6293a462e63e7e7ff40d89683d46851ec83c9d5627562ba847abac01bb93b50"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "role": "legal"
+    },
+    {
+      "path": "README.md",
+      "size": 11748,
+      "sha256": "f3037d3759d114a180fdda685d2f0c9afa651df3786b4db88fe458eb07a7cee5",
+      "role": "package_documentation"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 3212,
+      "sha256": "dc0f7c97f415f1195726b93ef45c18c3b2816ca7498076688c741b27ab271928",
+      "role": "legal"
+    },
+    {
+      "path": "dist/analysis/critical-section-effects.js",
+      "size": 1671,
+      "sha256": "d310c42ab75deaf392fec165b0eebe9578cae3bbf87bd6b59aa4896370a35c38",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/analysis/job-queue-branch-effects.js",
+      "size": 4105,
+      "sha256": "f1941b3311cf88fb203b2d4789d8510e83c23919ff0122856da3c79e8181e635",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/analysis/merge-records.js",
+      "size": 4560,
+      "sha256": "8f6edcc68332549fcdd8a2e57f4683b3e3e4ef16c9bbee2516c36471739b64be",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/analysis/normalize-document.js",
+      "size": 2315,
+      "sha256": "ce431a5a0e5703035f5408ed74621d56804ac8a75ff6408ce7c88c11d0f40e50",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/analysis/result-state.js",
+      "size": 443,
+      "sha256": "dffaad9f504a425e109bad5c795dcebd9b655b85ea9104f983c3b527f3bbd5be",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/analysis/scan-repository.js",
+      "size": 24369,
+      "sha256": "477626e8cabeb96de5a5dbc73e95577f4df7822a4cd201a7fa18186b6ba17092",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/architecture/index.js",
+      "size": 92,
+      "sha256": "9f838774c5bc40fa12346aaad0e433bcca091626e81406eeb669858d106e3749",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/architecture/model.js",
+      "size": 725,
+      "sha256": "7dfc0c4a7b0b44c393dc403216dfa70e4afe2965af3a41ae927a5b7b06a7a050",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/architecture/overview.js",
+      "size": 12023,
+      "sha256": "0ef2a5af555545bd364c8800ec746d76bb241895a98029a50e614ceaa3225321",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/authorization/endpoint-authorization.js",
+      "size": 1949,
+      "sha256": "1a971d815e020093387092cea512c74d10edfbd1268e01343ec5db68d3d1876e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-adapter/distribution.js",
+      "size": 1311,
+      "sha256": "012e124f7df078cb4a1be398e26f7a9158d66e5af019a22d63929bb1e2a5533d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-adapter/index.js",
+      "size": 132,
+      "sha256": "68e512f4a47ded44f734c9b67248536fa43394d49b435fd85c3d7704d7df9120",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-adapter/presentation.js",
+      "size": 1735,
+      "sha256": "213101c23608a27089036e07b1bc0b49d6cfb43927d3317dbd2b80e12ddd5b68",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-adapter/runner.js",
+      "size": 17236,
+      "sha256": "85e797cd7cbb2da268fc20bd21ab43d54b4bdc03f1a38986a7f2a94a71814557",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/errors.js",
+      "size": 693,
+      "sha256": "5f96976d2f90785612e97216b7a91323a11ec7eec4cdb3ae9f092e49098b5c10",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/github.js",
+      "size": 7857,
+      "sha256": "b22c9bf41ba9d6fbabd0d1a6f4c453d64a19fe2255f635375eb826cf6e8aa92e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/gitlab.js",
+      "size": 7317,
+      "sha256": "a8d5024a6410feb0213367aaef1043e0d0676f6d8bb7e6009e93d0d88ff69b7d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/http.js",
+      "size": 7477,
+      "sha256": "21d01a56c7d2c821fc106686870d97908a470151a4daef7ea3593f1894ba0e5a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/index.js",
+      "size": 178,
+      "sha256": "68d049f68af1e9a9f6ce9b9f6c1d2157f34d2a50253bd73538c4f25b9fccbe1e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/model.js",
+      "size": 637,
+      "sha256": "45e42ae665e0f9cb187777453a4108fa61750bbe8ad2b8f6968a9c92ace7cb47",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment-publisher/schemas.js",
+      "size": 1599,
+      "sha256": "df2fe751c7cc670c3a47dc1bec5bcc9c8b893aa1a4c1181dff82dad0fd479f39",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/index.js",
+      "size": 249,
+      "sha256": "72cafab9b65015b134d5c8a5307902f0557ca36b783acca64109e89850b0855d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/markdown.js",
+      "size": 295,
+      "sha256": "0ecc46b5ef0550e9df316a1f1813261b083440bcb518cc18038ce23f0e7f9655",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/model.js",
+      "size": 898,
+      "sha256": "de1473993544e44c20021b94c4219a4313c7ed86b25e0a96f8a96fdcf8ace51a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/ordering.js",
+      "size": 1297,
+      "sha256": "efb10dbf67500df931f07cf4fe18c28defdd547ea0edca6a044e7a841a31d77c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/presentation.js",
+      "size": 2151,
+      "sha256": "19d40691819320ca135f333bb66c9796c9202f7ee59b922cb35846b56b1a9ebd",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/project.js",
+      "size": 6605,
+      "sha256": "6b529070ac862a08c52629a28586e3248593c18fceb93dd5cb2ee9187a89a6b7",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/render.js",
+      "size": 3334,
+      "sha256": "d4f47c48dbc63c0ebc929d3e95f10ab2c4a2767b157b9c1d3738ebc69ae3a33c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/schemas.js",
+      "size": 3383,
+      "sha256": "db3139f4c1561ca5e1b9bbe13b664070e20d6a1f6ed29b8190d00852e9e300c1",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-comment/validate.js",
+      "size": 8023,
+      "sha256": "88341e9a99852fe86241eaf38fbab69a946779cd397b18dc72d88b846fc03587",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/annotations.js",
+      "size": 3154,
+      "sha256": "940384ba83e30da998c772239f3617df3b8722aebd009dc7323feabce0cec955",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/evaluate.js",
+      "size": 18438,
+      "sha256": "24c55c6aa3efa9ea10f7d71cb6ccf3156b3c56cdb0fe4fd28ee10c20d65e9bcb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/index.js",
+      "size": 350,
+      "sha256": "65a430d7dbf83325082bb5d21df2941ee166dea58cbdd01a35967a365d3c4cef",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/markdown.js",
+      "size": 3850,
+      "sha256": "ee275675a1d69f7c0e038fa2b66ced8664c9fe600fa044fe14e6d8a0ff948f58",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/model.js",
+      "size": 1183,
+      "sha256": "bdd55467b50400315b5195e0996fe52ab7d0b48001a52ba5c24b41e656975516",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/ordering.js",
+      "size": 3962,
+      "sha256": "370b7468d68e099bf1b52332b442171de4612b93fe5849a2a0e44908bcea5150",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/recipe-model.js",
+      "size": 146,
+      "sha256": "b2f71016c84ae5ab2b1dea73e1371ac9c15d7942fdf51abe75007499916e5612",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/recipe-schemas.js",
+      "size": 5635,
+      "sha256": "c2b0faee9f715da9a698d5018d045509a5793215990ad87e22d34e88bc2b4a09",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/recipe.js",
+      "size": 10742,
+      "sha256": "63db0cc4ff1d904d6547ccd7ebcc5dc0dac6232cbce55bb89148b5bf09b9082f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/schemas.js",
+      "size": 6069,
+      "sha256": "0e08caf768408f30fa4a6f54446506e4bfa2d07d4eabd2f918e3cb77a514cb89",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ci-evaluation/validate.js",
+      "size": 6605,
+      "sha256": "ecebb87ffad0dc5849b48d4e349ed129933b7e0eaa8d4711886b4bb9574bc3ab",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/analysis-input.js",
+      "size": 1671,
+      "sha256": "3cf77dea50bcb80e9038b3740047e857cbc4397f64de1c7765886746b753e5a7",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/cancellation.js",
+      "size": 433,
+      "sha256": "0e7f2c09e8275ed269fd749cdb6bf64a792c67249f6311d18054357e7e59233a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/check.js",
+      "size": 4888,
+      "sha256": "d54c1f9bb5b19345f2fa7d24cceb12e069562912faaf3d6a80fe817de5613ba3",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/controls.js",
+      "size": 4024,
+      "sha256": "5c25598a6a4cd91e98e60f7a083a6bba4b931f7acfb8de95ba026bda6e45b54f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/diff.js",
+      "size": 4015,
+      "sha256": "bbd26c8f032c397bd26a9996b2f17161abae1bef617e52b70a8e867bd2b0f1d4",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/doctor.js",
+      "size": 3690,
+      "sha256": "9666d3d8e89a7c535790ce35ac97b62533354c62a9c1bb1580d3f944dd8cf462",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/endpoints.js",
+      "size": 2742,
+      "sha256": "61a88380cfc98454363965e05a8040b7f3a9a43752cc35fe63a39f68268934f5",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/graph.js",
+      "size": 6313,
+      "sha256": "5336e461e018db4a4eaee93255160c0b3eef15ff77c3633e73e4af3bbd5f8fbd",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/impact.js",
+      "size": 4005,
+      "sha256": "177198412490c6722c89ed0b0e18f143e0ab89b3587b58744f623b4c0a110e09",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/init.js",
+      "size": 2916,
+      "sha256": "174ba4acf2a9d7b6758d081ebd338c43066eeed4d5d3190eec3800d1846c1324",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/openapi.js",
+      "size": 4658,
+      "sha256": "d8f915291d33f914777b5db65903aa7e8ffeb7b2d5988b2da94a1b7cb4bb6500",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/report.js",
+      "size": 3580,
+      "sha256": "c2eea3630ea3ea57efac7e26ad93b3415c497bce7b3d8d46522d90fd16507dc1",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/scan.js",
+      "size": 19650,
+      "sha256": "ae64f67024a355a4ece15764042a6bcd6ce9215b2ed6298cfc189b1f1b8111cd",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/stitch.js",
+      "size": 6830,
+      "sha256": "4f28259dfe7f7d2e83ce59317c2d5bc90d4f5f57175f40a5d253985ba4281e77",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/commands/trace.js",
+      "size": 3426,
+      "sha256": "97ae54c0b8882cb1c9f735649b157e93dc75537a7458575a7434dd52981f9a76",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/errors.js",
+      "size": 789,
+      "sha256": "328d8785a6622a330b2f91747905923e4915db9ffa7d69684d43443589ca7d98",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/index.js",
+      "size": 4758,
+      "sha256": "fad2e804cefb479ce60243b423720e04e335432bfa622fa30ebf581af3d2cdfc",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/local-artifact-preview.js",
+      "size": 3014,
+      "sha256": "774850d141a02673253102f819ea2c695e67c9ecc122cd8df3b66ef4c3638b77",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/options.js",
+      "size": 1933,
+      "sha256": "08200d44389bb1b7fddf6111908085b67c6f6e0164ef275ba4b04c9c8d14bf2f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/output.js",
+      "size": 398,
+      "sha256": "2961b872a1b797381c4bd7fa1294c7687edf99520a9c55601331cadb8ca21062",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/preview-published-artifact.js",
+      "size": 664,
+      "sha256": "8dccf9c53a5214b5ffafc3fbff8b4e699e63914dc37815360e9482f21b53db7a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/system-input.js",
+      "size": 3188,
+      "sha256": "e9640321dca94009369c1835b635a1674c184aa33f2c49dab1b6162ea3427351",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/cli/types.js",
+      "size": 44,
+      "sha256": "01ae2a5b120382f9a648ced7ee8507493a134f216d100fc61600c6c9738235d2",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/compare.js",
+      "size": 32574,
+      "sha256": "d99930489491daf8bf7fe9df1fc188bab126e1866e578959514b5c9817b79599",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/index.js",
+      "size": 314,
+      "sha256": "f043f4b47b5684cad743c5b56e8490baab131a4a54e56854b3707c01e97cada5",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/markdown.js",
+      "size": 10533,
+      "sha256": "f381aadf2b4e4e126c11831c848c255fa18962d8127d0b1dc9ae5470429056f6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/model.js",
+      "size": 1573,
+      "sha256": "ef1f55b18e341b3b3a815ed0f5321436d25c1780e456e3c3219da84aee9dca9f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/normalize.js",
+      "size": 2084,
+      "sha256": "b0221bf6539220b261b64602a3c80c733f27415a6226bad6f3c9edf2ec0ffdad",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/ordering.js",
+      "size": 11435,
+      "sha256": "f4997d90dde6774818e0460c8eaa19b934609e7faec297a38962d0e3cd6b4e7e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/projection.js",
+      "size": 32585,
+      "sha256": "35c9a23f554e50911bcb3dec4150c41c89ed793ecfd06fa5e68f3f7ebf82fe7d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/schemas.js",
+      "size": 18541,
+      "sha256": "019d24909b9a384d443316adf218ad8032ccf19a7aaae66258f2db4e692d085d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/semantic-key.js",
+      "size": 1582,
+      "sha256": "c2592ef0255a8c300d8924dc887e6b4a0bd6043c9eaa25f5266d17dab9840e3b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/comparison/validate.js",
+      "size": 13214,
+      "sha256": "0d19631406f7ce8a18586913dc980c9494da0e1aefbb651e079bd78bb0c5042c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/config/analysis-config.js",
+      "size": 1236,
+      "sha256": "d99646c9bc8a6009f18ccb8ff61f4daf7d310c017dd1e6237ca10663b255f7bb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/config/project-config-schema.js",
+      "size": 5777,
+      "sha256": "db78ead81fe28da32cccf31cd2a23a523c838fb73691b4de23c47bd7bced878e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/config/project-config.js",
+      "size": 8542,
+      "sha256": "c8e0e33e972d6a6e56a4d1fdad47c63d1ab2e615140658d67438c5dbed7fdaa7",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/diagnostics/catalogue.js",
+      "size": 11790,
+      "sha256": "4e84c5a868823575010ed1fc3f0cf47037374a0a82810585efea0777a73b5ef6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/doctor/index.js",
+      "size": 123,
+      "sha256": "d0713b4466b9aeafd0891c6344ce56d766aa4bf0890bd674b4b1a007506be244",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/doctor/model.js",
+      "size": 1667,
+      "sha256": "326b20055b058867a0e06512693ab3bfb8ea6564e791131f3f45ade8c0fb36a4",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/doctor/preflight.js",
+      "size": 24243,
+      "sha256": "108bf29f912aa0d2562b3e1927bc1cda66b9234bdbcc768166e309e2d5b6b652",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/doctor/schemas.js",
+      "size": 2071,
+      "sha256": "048dfa35f6c8240eb3e0670c414030fb112cc9256b1bbd1184f967ec8895c88b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/evidence/locations.js",
+      "size": 2190,
+      "sha256": "78715088e16f0df4df36ac808a3b0ad653085c8e1f235e043e487545ebfc14d9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/evidence/redact.js",
+      "size": 1007,
+      "sha256": "8565bb99a8f76d0749e2d96335e722416439ba4f40f5ce635566661ff188f5c2",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/evidence/snippets.js",
+      "size": 717,
+      "sha256": "463799c515de1eec454bef8a1ade6bc41c6fbafb44e1668c806521bda6e0a408",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/evidence/validate.js",
+      "size": 56732,
+      "sha256": "1da046923d96accbe6f01e471e2f9ece6b1d4c2c9b95dcb5ee1e275e0f8b4f09",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/bullmq-branches.js",
+      "size": 18591,
+      "sha256": "7ca226b5447457f5b304c665af8fbf384898ca52704adb590b5cdd9e332ea455",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/canonical-records.js",
+      "size": 3069,
+      "sha256": "fc8ac533961ccf69df9ed2f8cdde691f4b7b4cd20a0ca71c80aa735f8dc3564a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/class-relationships.js",
+      "size": 25716,
+      "sha256": "c33b7ead1b97108d457e4d525f0fe5d4aa3fd2a6e668c698cc533f273eac14da",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/constructor-members.js",
+      "size": 3873,
+      "sha256": "b1bab7da4c403f5a7acda9aa8cdf31fa6c950982118ebf10b36e60ee074b7753",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/critical-section-wrapper-flow.js",
+      "size": 25353,
+      "sha256": "9fc636ab717c292372a452f9b8e6176374c3a70c261ed9323872686b653befa2",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/inter-method-provenance.js",
+      "size": 24054,
+      "sha256": "64a9a5e65eeedccb1e955acaf947c2aff00a33a95272eeef606bcb989c926b11",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-authorization.js",
+      "size": 26929,
+      "sha256": "180056381aad8d81286ac15b73ec107ff86d8fede3bf8e6dba322672f7a39c34",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-bullmq.js",
+      "size": 22576,
+      "sha256": "6a3d8a4fe58ddc2e1af0d39049492dff750d8ee8d535ecd35e6a327d6de75335",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-contracts.js",
+      "size": 19683,
+      "sha256": "732d83c210f945aec83c739ce522508e4603d9027435c8c3db2bb97eb1a561ff",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-event-emitter.js",
+      "size": 43987,
+      "sha256": "aa3527c92e7d4e0e20238a232b4a34e815d988ef3c8474bbd89027f4e2dc2189",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-guards.js",
+      "size": 6058,
+      "sha256": "b9055f4b8f7935581f3684a96bd779c9441c6436a83da5828f4e6952e429629b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-http-service.js",
+      "size": 34364,
+      "sha256": "b159e71e9e6c2a81d2c00d5188e93ae597e1a9e434ab0033a332ee19902c73b3",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-microservices.js",
+      "size": 49850,
+      "sha256": "ed393fad630887e8d8a47e87d15a535599f552587a561e2091cea57d765fc730",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-modules.js",
+      "size": 33334,
+      "sha256": "e886de3ea922fda8fe1df08e701b2d8019c4b54811ea1ba459a173b57d89e37f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/nest-routes.js",
+      "size": 12313,
+      "sha256": "17ae4a2736c12f37d5a1ac4b07c38b2b874035ff7bd6a4e969863dfb1b112605",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/outbound-http.js",
+      "size": 33012,
+      "sha256": "70e52f876a2c2ba460ee0f609757894a0933f10e99ec19faa30304fd8f76fa90",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/package-symbols.js",
+      "size": 883,
+      "sha256": "b81068384efaf03d13b27b8024367661688ee5404d25906712a369da52e16afe",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/provenance-expression.js",
+      "size": 12550,
+      "sha256": "a2c0ae7157a6d948ec7ce25ed0a920dfbc8df654ea6804d2e722381a35df195b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/redlock-critical-sections.js",
+      "size": 22522,
+      "sha256": "fcba6846c5dd33397b411c5e8046a669e3e2e8875d68744b3a5468bd5908ccc0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/request-provenance.js",
+      "size": 28308,
+      "sha256": "f2bae20a84a8822c0b4106e7c9929b06c3dd7c4c57a2cc61861c360c389f7ac0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/resource-access.js",
+      "size": 23057,
+      "sha256": "f4bffd3bb6d8f2f3865c5115d52eef90dd8fa80a90d1d9e8c25346878aa7e29d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/route-paths.js",
+      "size": 293,
+      "sha256": "ecd1c420840f6c1703faf2e053b74f2701309e885b0f1e7480e8ea8ecd7715bb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/typeorm-persistence.js",
+      "size": 45207,
+      "sha256": "b834ee02470df8af0f351ba93c9054393d634d6e1f5ce32464b6e4fd4986ec1b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/typeorm-query-builder.js",
+      "size": 24529,
+      "sha256": "10150471723aa8995d5a3ea53c22c02cf8f8fdf0d9ccace9553fe8331e3d9482",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/extractors/typeorm-raw-sql.js",
+      "size": 13991,
+      "sha256": "a102264326b935b3c89b2e8f286eb0f57c1ac636d4a03eb04ee162164dbbe001",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/index-library.js",
+      "size": 185,
+      "sha256": "d42ff6d18a8823fe4510fd3f9a6766a9fc4aa66aa50072a1b8341ea25d253d53",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/index.js",
+      "size": 515,
+      "sha256": "a2534d2a462d46e12bf4278de630c33c45828c0b631e76535063c4581d33c0f1",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/main.js",
+      "size": 5622,
+      "sha256": "33300bc80b2922007902d49acec50a2ac8ff6424b77349639347acac0987db8d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/model.js",
+      "size": 388,
+      "sha256": "5a1aa89b5d6abef94d16fd3781f941530984c138b55f92530696b728febe15af",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/project.js",
+      "size": 6081,
+      "sha256": "ff10d93928b9f7fe5f88eb84e7940bc3b1f834f6bf2fa8281772a6038368ace0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/runner.js",
+      "size": 4325,
+      "sha256": "0ac48ac461cd76eab4831cb633f4ef5b04f999fcdd9ba03841d37a6b36ce5702",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/github-action/schemas.js",
+      "size": 4409,
+      "sha256": "0d4074809595d4e5d07a1c3aa6c6f095421865368cd0f3c284ada6af03f36092",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/index-library.js",
+      "size": 185,
+      "sha256": "d42ff6d18a8823fe4510fd3f9a6766a9fc4aa66aa50072a1b8341ea25d253d53",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/index.js",
+      "size": 534,
+      "sha256": "6beff4b54310aeafa1432c255b7620b6df15d7598eb3aa5be7380eb3bb6d77e8",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/main.js",
+      "size": 5216,
+      "sha256": "859afa45c587653710bc264458d0062b75c1358b27831c937dd3208bfb2cdbb6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/model.js",
+      "size": 355,
+      "sha256": "7ac2b7f1a2df05ef4f0fd3b3472eb55beaf625b8a559fca8a60923a074f5673d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/project.js",
+      "size": 5330,
+      "sha256": "6bd8880a022bd6375dee02c506b1e4097941a031af5af9884e09e85b68ff1f80",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/runner.js",
+      "size": 5997,
+      "sha256": "fff1d9d7e82f090f900eee74aaaabc6ecb2ab8b3a6c60b6dbd08c1dbae103a91",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/gitlab-ci/schemas.js",
+      "size": 3469,
+      "sha256": "1fa0aabcf2dc0a3d0d64893dc719f3dfe101aa9aaf2fccfcb2f0943af8724cec",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/app-script.js",
+      "size": 40434,
+      "sha256": "47d44c09aecf2764ede1ffb9a273709874887186b7d9ff886ae5713059994131",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/architecture.js",
+      "size": 17022,
+      "sha256": "60c867e6415dd0f50bdd7c8bbb487ca425f220df33327892e19a0531144b296a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/html.js",
+      "size": 10718,
+      "sha256": "1e517214e2c620e52d84b55302a9d04e3950d6ff2e615f1b026ffc140b390c7c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/model.js",
+      "size": 1804,
+      "sha256": "9668a74e50c50e28e63125a01ff0530d022ec715197dd2b07bf9bffa2aad49a9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/ordering.js",
+      "size": 10157,
+      "sha256": "094e67e0e720b39d0ac22210106d89244249aa6a109c520f360ba8ddf7cb8ddb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/project.js",
+      "size": 47200,
+      "sha256": "634ccb8446393f78856c49ce5fc4fb0bc4a4df8024e50d8bb4a3e77b4f85cf07",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/schemas.js",
+      "size": 20644,
+      "sha256": "69c9cfcb89a782e6abb287034a618f33c7b36443512825dbf604f7624f47789c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/styles.js",
+      "size": 7357,
+      "sha256": "16392aa361cc3bf27c3f394fe64f6331a2bdb2eb34bf21216c653e43b88aa022",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/graph-report/validate.js",
+      "size": 24562,
+      "sha256": "96d3a8e6dbc89bbae64af5ce0b862725997527d20b7ec0025116babff2522ca5",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/guards/effective.js",
+      "size": 3169,
+      "sha256": "5ed6b97ceefbd2c9840cbe08180c27e9085afb1af29227a7d09cfee5b602b049",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/guards/index.js",
+      "size": 65,
+      "sha256": "a8946947919663d5c8e3c96223fa6a66be6e0842df764dc2c2986ccb099e8cef",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/analyze.js",
+      "size": 33217,
+      "sha256": "94f5d604c424e6eff34508becb6dc41905e0bdd11353d86bbac6ea185acab728",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/graph.js",
+      "size": 9283,
+      "sha256": "4fbb548a401d3daa93e10d1803196fec2454f077d6021ee29275070041bddfff",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/index.js",
+      "size": 279,
+      "sha256": "5ef0872bda955c8192e20d1612e689a2f75836f375e69f16322a232300502739",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/markdown.js",
+      "size": 4460,
+      "sha256": "44fa3421a8a64c8ca356fd180c7af995ce44bbc6cc4ff5d204c4f21cf51aaf37",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/model.js",
+      "size": 1454,
+      "sha256": "73d5682c5968afc44ce8ea4feac328f46450619f9415561bbe759e2537e306e9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/ordering.js",
+      "size": 3256,
+      "sha256": "521ac1a7fdaed54224dab0da9cc06bfcdaa0d18bcb255214d9ec31cd90d1e77c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/schemas.js",
+      "size": 4766,
+      "sha256": "39984f0cb64394b6405a9a29281146e3e5bca87ab4e910d1ed578f70c1d7e2e9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/source-changes.js",
+      "size": 1285,
+      "sha256": "fd33d3fa8938b58d5cc892938b390b6d7a509be3984f3c1b33935660e19f58b9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/impact/validate.js",
+      "size": 9394,
+      "sha256": "3686085635dee18a6330bf49bed8796e56affbfce62f73feb968448de8f2e62e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/initialization.js",
+      "size": 10998,
+      "sha256": "c3c0e33003c5ae08460b28bd347b0964c7d864641e17a6d46681985179e56e35",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/arguments.js",
+      "size": 4489,
+      "sha256": "7e4dda031164c54dc736a69f3bdfab853ca7a765082d44d00a9e816e5ea33728",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/index.js",
+      "size": 3086,
+      "sha256": "2e1b794c74677eecbc8274931f8b875510af681f5d557f8e3de4f180115a6297",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/model.js",
+      "size": 1648,
+      "sha256": "3f6445d398c505eaef1b1012e98c71da952540ec57c2738ed1e4cd843ddb54fb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/registry.js",
+      "size": 8740,
+      "sha256": "2694db941b367332b063e230c5a87927be8a13f8895b918e0f877f6ee00243ff",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/resource-server.js",
+      "size": 3381,
+      "sha256": "50c5e98e8743c606c73e2392fd41e1618d6940440cb0e02c37e6752886f0bd0c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/resources.js",
+      "size": 3989,
+      "sha256": "97896a7e9b2146b4d9718b18ff36202b827db7f6cb2f9987bf50d2696f87051d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/server.js",
+      "size": 793,
+      "sha256": "07420277b8666736c2e4e4fffac4f18fa3c2f88dfeff0cc23ac918cacdff7865",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/mcp/tools.js",
+      "size": 9811,
+      "sha256": "bf522905d7d30d0b9d6d17e6d42f6014d91fbc2e2be1a9a58fcf930660cac7a4",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/analysis.js",
+      "size": 2758,
+      "sha256": "57e788556cab6662af5b748bafb2b309198d4b2535151edc1a6e8409627b74ff",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/assertions.js",
+      "size": 1339,
+      "sha256": "94e84e8c0527fa85af94142e28736ccceb88469cd94b28364c3b4fe9489d8ec0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/authorization.js",
+      "size": 1066,
+      "sha256": "905f8c961cd93088ece596bc3b7183f63c23e70e90c81904d833e25f620ce251",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/critical-sections.js",
+      "size": 129,
+      "sha256": "ad8419f1766ae3cf1f30e7504672940f1ae57d78ed933b8b0a96d42168f29706",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/diagnostics.js",
+      "size": 3064,
+      "sha256": "607ef56577d290ff5e9aba5b9a24069c529f33ae3d64e86a8457c520a5783c7a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/entities.js",
+      "size": 2052,
+      "sha256": "bdcab43112e083557cc41a1af0b9aac06a6c4635b8a4d024d6ec52164217c20b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/evidence.js",
+      "size": 170,
+      "sha256": "1646476cdc2ec79cad5930bc4ead76656ad33fbad4eb1d8c81d5b5b4603ca64c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/guard-rules.js",
+      "size": 990,
+      "sha256": "a4457741b67e4c40f1c07ec879bfa4e1f4e39cbf8de6a7225034694c95220c7f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/hashing.js",
+      "size": 193,
+      "sha256": "503e40878b39249a02d670a90c56c7260203801cb249459debf2b944f65fcf39",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/ids.js",
+      "size": 9466,
+      "sha256": "b5e4ca09e719fa19459d69fbe912a1f48730761f1084d0b58696492c06776a26",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/index.js",
+      "size": 602,
+      "sha256": "a831ae37ffb341b35d338e0fe23418401de498af02988aec2893ab45f03d72af",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/interactions.js",
+      "size": 6004,
+      "sha256": "6ac3af5405469ddca1ae53e2eca54a1634eb8909e098598bc7c36aaf5c6ad9be",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/job-queue-branches.js",
+      "size": 2138,
+      "sha256": "aab7941c23ddc0989835a7a2d33fec581ec87253880ca6b0262421da16871c37",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/ordering.js",
+      "size": 14676,
+      "sha256": "63bbc0e105443dab98edecc9c6ef0d5b0a269f26ca9ce99353a82aaeffef8d38",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/paths.js",
+      "size": 1638,
+      "sha256": "f1b9e3eaa16f83a0c25ac1722bf85582bddf88ec9449b621a8084151453db8e7",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/resource-access.js",
+      "size": 2214,
+      "sha256": "f1668661053bfa3af4d55f61a355113eca1618ca28818615be67c436be7b4266",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/model/schemas.js",
+      "size": 51312,
+      "sha256": "317d241c3ce17f58757f785c6f13c99d0813057fa0820a37253e830806fd1419",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/modules/index.js",
+      "size": 66,
+      "sha256": "5affefbe4844184571af22600d8aba227e3ff60b2f4a0d5e29ed271e0ac61935",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/modules/visibility.js",
+      "size": 4409,
+      "sha256": "5d8566da4da15eeef49bd55e4dca890dea357cd8bc64645c76b600c0a597887d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/analysis-artifacts.js",
+      "size": 3642,
+      "sha256": "7995e31c08d9956a4fbc1c4ab9a4e52c694f0a08f0de75d947f090d14eef9a4f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/artifact-plan.js",
+      "size": 8021,
+      "sha256": "282a51e60bab889bf228b65f975a59bb02d3fdb97aba114d9665f891f337ecb4",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/atomic-files.js",
+      "size": 1535,
+      "sha256": "f8daa85a4b35209b3dc0629eb09e762062343ca01fb1e974330abd07f43d0738",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/diff-artifact.js",
+      "size": 875,
+      "sha256": "51a414b51b22ded3a2424523661455d7405051bcb8f8b4f8e779d3d86de59400",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/graph-report-artifact.js",
+      "size": 1281,
+      "sha256": "d391a75d6edc5ec3a7c564a27242a7771fbba7ce310c8b53e79b9634896a63fe",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/impact-artifact.js",
+      "size": 893,
+      "sha256": "7a89a19ec678d8c299842799ed5d27f94344519e26cf1e03212069a46b87461f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/policy-artifact.js",
+      "size": 1114,
+      "sha256": "a7572e80767f7816455978c13f19a44a43090a2b9ab1da754608b71fd7dfa39b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/report-artifacts.js",
+      "size": 1885,
+      "sha256": "9dbad9b3ee98194b03c857adf1549048896f879d85cc4ff9db97f22356ed187c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/report-manifest.js",
+      "size": 2009,
+      "sha256": "d80174f3f03845a7074eac12177d47c19f9557ea9258476e787f434be3bdc49b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/structured-export-artifacts.js",
+      "size": 2772,
+      "sha256": "c7bfd2d16593a1bf92b276b6cbbe43f9b5c42e457e5a3ac473fa75803f915cdc",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/system-analysis-artifacts.js",
+      "size": 998,
+      "sha256": "51a6e466334a2dd99baf6cf1cf3bc6ce14754b19d74280f05d356e2f1f0db418",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/output/system-report-artifacts.js",
+      "size": 1275,
+      "sha256": "97aa597a101c81e1cae57d069f83c288a6d85020f5f73bf48af5bc15189feb41",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/config.js",
+      "size": 2280,
+      "sha256": "1a6ee10cc4a6b3840c913673a829e229dd6dcdd081e1066f7cb5b7f57c0e0c24",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/evaluate.js",
+      "size": 34105,
+      "sha256": "b3782a2c3890ef469cc213ca465d6caeb6543151142ae2c26ee0e743a964a5d0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/index.js",
+      "size": 244,
+      "sha256": "eefd7143a10616b929025e8ef348eaffac9f43e18a3365aaf7a5637c3a60e31b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/markdown.js",
+      "size": 2851,
+      "sha256": "7c4ed1cc1b267260af3d3d974c7939d87970455c1af3b6ac4868312122ef0f1f",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/model.js",
+      "size": 2189,
+      "sha256": "7de6d1cf9fd3555ad3664ae56f877a4727f155d02fb41263c4dce19bf0a050f4",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/ordering.js",
+      "size": 1234,
+      "sha256": "3ec59111c0483ef5179158969d99dca13ed0593a1c2f91f84544a80675c11bb9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/rule-config.js",
+      "size": 3011,
+      "sha256": "d556221b6d7da460e45ba653f77b697b3a41d1c4d5a49898f567d088d51c2702",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/schemas.js",
+      "size": 2133,
+      "sha256": "0d56fb7fd8b6339967d0d5780b98b2c871c9bb06bc1b9f0cdbd0ff693179ad34",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/policy/validate.js",
+      "size": 7487,
+      "sha256": "d465db0801719d4ed9f7e74141d096f43fdc65aaf7d092127eb1e069136989e8",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/artifacts.js",
+      "size": 3129,
+      "sha256": "51eedb38815f3a5a84a3375f280f8ea51e00ddba28650df2e3809f4acb438873",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/index.js",
+      "size": 232,
+      "sha256": "90d0ec964c8f9c64a3e7d9e372af20149cc99defc94e926de57d8ba97a06b0ff",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/kernel.js",
+      "size": 27920,
+      "sha256": "829b786c43f49e32823acbbcef8e3c73b89781cf1b524f4ccaa30afa1e433a8c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/model.js",
+      "size": 888,
+      "sha256": "cbc3d4c339ec84c82b94e3142ade91ded282603a629274dc63b29a965ad9e456",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/operations-model.js",
+      "size": 407,
+      "sha256": "00a4ae67abcba06514ee9611d3b577a819322829e28d1a6a26ac5ca2f2662e27",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/operations-schemas.js",
+      "size": 22299,
+      "sha256": "c552b0730d9d15b02c0990d5b11a0eba6fcdada92a5808f4c6f33b7f0d5f04b2",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/operations.js",
+      "size": 19188,
+      "sha256": "96737704f3e88aa76fcd32b7a10ca9594538705d4896ce20019f21ae7912a88e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/query/schemas.js",
+      "size": 7315,
+      "sha256": "e51c148cbfb3485641f3e77c90f23bbfc43cf7978b7771d6b714630c2f33ca1c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/reporting/endpoint-catalogue.js",
+      "size": 20216,
+      "sha256": "f23bccb87e5235d61791c2a132f6fd1e472bdbe178b8e74493f1dd409b9d03be",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/reporting/endpoint-contracts.js",
+      "size": 13686,
+      "sha256": "7860e8b304257ff351163bebebe285412e1b03350df1f98cad61cf9df229be19",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/reporting/endpoint-trace-markdown.js",
+      "size": 17213,
+      "sha256": "a0da3362445c1f5ff10cb16a06457293128f5b18c2b580e8ad5aebfda0350dd1",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/reporting/interaction-labels.js",
+      "size": 1302,
+      "sha256": "bd51095f2c48154f345defdfc202690978b310c6fbbda286bb7ff5bb249bd958",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/reporting/report-bundle.js",
+      "size": 2574,
+      "sha256": "4c53bb6e442d1a0e8a6d1c83fab44a5679599a47c4ac2cddd1ec551badd41254",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/scanner/errors.js",
+      "size": 684,
+      "sha256": "631cbac7bdebe46a28d8287570bd9551987316f603de7e24307b53c0baf08ff1",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/scanner/exclusions.js",
+      "size": 582,
+      "sha256": "a106f9e0cb999c0e38a28f348d84b143307db24a2718236ee5cb9abd951c3333",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/scanner/git-metadata.js",
+      "size": 864,
+      "sha256": "9a55425df4bf77f68904174ffb470077a8cbd581b18239e9d012e368970fc94a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/scanner/inventory.js",
+      "size": 6203,
+      "sha256": "ec93b2a5fda24dff900f040c95fde04198645512cb04bf0b677a13b12a50a2c6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/sql/dialect-adapter.js",
+      "size": 176,
+      "sha256": "f7e9074972876e2487de37b867ce246d827909835b1f8230f00297d388a1f22a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/sql/postgresql-table-access.js",
+      "size": 15036,
+      "sha256": "3046171106d34dafdb5fdf935da803b8754c18be28cb8be3583680973a0980f8",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/control-evidence.js",
+      "size": 7182,
+      "sha256": "a2b55e2ab4443f8f0d0946ceadf7c337176e0bc33e1b5abd2b7446f76660e504",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/csv.js",
+      "size": 5616,
+      "sha256": "c8a6bd3712af7ca07bb011b82e89e2f327db27d1397d1553674530e128e7cfaf",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/endpoint-facts.js",
+      "size": 12070,
+      "sha256": "2997181fee06ae4fbad1fc42269237b7ea5024ccd16422d160252c592007dd47",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/inputs.js",
+      "size": 2343,
+      "sha256": "7e5bac181b57148fb7928825091e160bbe44eefffc1f969ce0951e0e5cdbbef5",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/model.js",
+      "size": 816,
+      "sha256": "b1cd883e02ba9f861c914e33efa21b4daab67211c6e74e0458f44af9c68c8a55",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/openapi.js",
+      "size": 10210,
+      "sha256": "946341fc1c144a79f744731f91ed76eb2834e271ebb910bb19b9be1af77be635",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/ordering.js",
+      "size": 7515,
+      "sha256": "b3d33d6c7918a7380ae424877036c1bcb56962a55e99e4b38dbaf72b4296c3cb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/schemas.js",
+      "size": 13968,
+      "sha256": "ac34410f0bd4c58cb9c74e0f45bc57be1342cce573cff2621d4ed6176ead6a1d",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/structured-exports/validate.js",
+      "size": 11262,
+      "sha256": "f540879138316889bdc24743d4b4c2701a39f4cb01bc64957e91b27a3eb8dc60",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/ids.js",
+      "size": 3108,
+      "sha256": "7dd2bcf556e9ccab183d4d739479f399cc670df0245e679be656f8c923bfa8b5",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/index.js",
+      "size": 239,
+      "sha256": "76aa128e59dac27237df0746164e5490127369f32e971870bd85177571318239",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/markdown.js",
+      "size": 3845,
+      "sha256": "f017f1de2997f1daf921997a71b0ae4851a1d2eb5ce32371fd1653071147a9f0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/model.js",
+      "size": 2041,
+      "sha256": "032b902e528b8327367cf8ce3b3abcb69024ebf9fc1a9d943f73579d29d01791",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/ordering.js",
+      "size": 1364,
+      "sha256": "ba90bb886d7fbcababb5c05a2b335448dc030cb7dabec8880c271e097c9d35cf",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/schemas.js",
+      "size": 6607,
+      "sha256": "c872196d2bf75f8894caec24b2588ad37df38ec5e4c286278a195eeda0d803fb",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/stitch.js",
+      "size": 19629,
+      "sha256": "6d6d0c168c07bedbf8f677b221a89c78daef93146e6008f028bbfc3a13d33820",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/topology.js",
+      "size": 4542,
+      "sha256": "2c60662daba08d2ef940c533ab7555b1211fdaf8b8d044e5a81193b339733017",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-analysis/validate.js",
+      "size": 21231,
+      "sha256": "7af60537a327d93e7933ac1faa0a3f817a9c1830da102b939fc2ac64e14981c9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/compare.js",
+      "size": 35102,
+      "sha256": "f625b07870e6c937f080a1cf18bf642322924971a5b04c20cb104f5f81ac873e",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/ids.js",
+      "size": 5859,
+      "sha256": "c440804cc5c240799ba6be7d3f0dc74324e7e73747360d42e77d4ccc5e8c1bad",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/index.js",
+      "size": 241,
+      "sha256": "9b5dddf84c5bcec1905285187da7a515101e86ba9d4a510707bdb4d1dcc66b66",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/model.js",
+      "size": 1392,
+      "sha256": "3aa06b95c7975f8c33cf50eab697e5b6a8a703033c3f87fc4374d8336a6224d6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/ordering.js",
+      "size": 4881,
+      "sha256": "456459c265543cef1e5a14860f2a15044aff27784479a11110ffb77e6c58d5a6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/propagate.js",
+      "size": 50270,
+      "sha256": "0132564543f82f562da25fc77e1c02bb1ee3f35dbad36a4c40d1346dd783f1aa",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/schemas.js",
+      "size": 15279,
+      "sha256": "a88e84bc8b2c93473a7225a6f5e9eca0ced7ed09f6bdbb7e3bbab1be0b759a88",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-impact/validate.js",
+      "size": 44372,
+      "sha256": "1b8d977e41f68be8d89094089f8a4d4969bdb5148f2f726910772566c0143ebf",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/app-script.js",
+      "size": 18379,
+      "sha256": "666bba8dfb5664c2310800bd64b4cf235647042cb53a7beccbdc0da2246ed238",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/html.js",
+      "size": 8420,
+      "sha256": "6534a6ab34b8f2102b4cd3c0890e4acb1081c776ab33a7c48dd261afe0cd66c7",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/index.js",
+      "size": 240,
+      "sha256": "e9de0f7c52e64d5be5a4cd9952c4a5b69e882bddc29393c4fc0de55b40629e9a",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/markdown.js",
+      "size": 1968,
+      "sha256": "da87efe2093edca0e53023c882f4ec77ddee93dac9a315b3831d463cfba6e796",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/model.js",
+      "size": 1100,
+      "sha256": "53ec88619277aa63513920be3d95498476ff702f8669ec1e11d285ebf1f3cef9",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/ordering.js",
+      "size": 1773,
+      "sha256": "1e6a7308369a30e434016c6e1aff67622bea127596c941b25ea2c288bafaad65",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/policy.js",
+      "size": 3602,
+      "sha256": "922ede8784c6fc5487fb4aef22065766166dbc635525760d363d6a2a284c26ee",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/project.js",
+      "size": 23605,
+      "sha256": "55bf27f2f478c4ac225078b49634bacb887072aeae155a2fadf57da5f3efbf38",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/schemas.js",
+      "size": 5368,
+      "sha256": "94df48bb8b60328a2a2f3abdc4aec4b5a3e0c6edc5cd856cf462812cb68f7ec5",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/styles.js",
+      "size": 3877,
+      "sha256": "b111ca855ca0fa9aa6504a0bdb85bec302e732a2bb340705a12841af506fd09b",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/system-report/validate.js",
+      "size": 6494,
+      "sha256": "5330aa7867113c1dd44ce3b29d28c16ed4a49b2ab387ef0c6bf5ceb97ec22829",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/tracing/assertion-indexes.js",
+      "size": 2095,
+      "sha256": "e41e2f059a3e0596be0472fb392d6c7c9f004d5000e0e96ad0996fed30dbbcb0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/tracing/endpoint-trace.js",
+      "size": 21049,
+      "sha256": "13cf4e68a55b1daff6a23198b40dd3073000600af50fe99d7fbfebd479aef0bf",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/tracing/interaction-handler-trace.js",
+      "size": 15795,
+      "sha256": "2320236ce0cf16424095e7f4d0c2b6d24ecd820c9cdf713d8767decefeb0fa51",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/tracing/interaction-indexes.js",
+      "size": 1451,
+      "sha256": "7c9664c8a00df79f9a2d78fb1c0d36933c9df3f9c3718615e696728fc4298dc6",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/tracing/job-queue-branch-selection.js",
+      "size": 1251,
+      "sha256": "7a0504f374f3f3521d6260f90a4757985cf546f48fa87b773e888d13014c84b4",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/tracing/preliminary-call-trace.js",
+      "size": 2858,
+      "sha256": "a1d13eee379e6d7239b16feaf64e1fd76c961c872d7e11e999389e0ab8649cef",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ts-index/constants.js",
+      "size": 9410,
+      "sha256": "0adc1bd32f538ecef0681c0f9baf897e65b0cb1aa23c71137dcb7e71bc027884",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ts-index/decorators.js",
+      "size": 4296,
+      "sha256": "a91f85160fb4bdbcbe51d1e4968b954312dcbce0f2d409ef20d3eda0d29810e0",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ts-index/index.js",
+      "size": 193,
+      "sha256": "e6aa1b4b34c44c73ea7a383c2bbf451096ad23f0597007f6813c155ea1327b2c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ts-index/program.js",
+      "size": 11738,
+      "sha256": "c52e9f02504419bdcef5e6be570c7eef7520bc307e0afbaa281727dfda07aacf",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ts-index/source-index.js",
+      "size": 6252,
+      "sha256": "81af2b1c11cb62a8976c33ffdb88ce3f9e1c2ae42696fd0aaafc62e52f66a086",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/ts-index/symbols.js",
+      "size": 1743,
+      "sha256": "19d314ed3a88d1db273d3129375e300a3c8f783a331b96f08423da140d846f64",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "dist/version.js",
+      "size": 118,
+      "sha256": "32c0ebad4a9b6926c52c276fd620d35e2b52ed9c2b81f549838e3eca4da0792c",
+      "role": "runtime_javascript"
+    },
+    {
+      "path": "docs/legal/dependency-license-inventory.json",
+      "size": 73975,
+      "sha256": "455f21afecf2505bf997b0ddfc26f3d538e0f8ec8cd59c43e791e5107416b434",
+      "role": "legal_evidence"
+    },
+    {
+      "path": "docs/legal/redistribution-audit.md",
+      "size": 6431,
+      "sha256": "43370302f7b0138284960db6cd2b4528fcb2deab6301d1497deafc22f6663a22",
+      "role": "legal_evidence"
+    },
+    {
+      "path": "package.json",
+      "size": 4889,
+      "sha256": "0fcc7889271a22bbf27902ff36e326bfbe2704c9fb0c1da5f2a2deb2919bf291",
+      "role": "manifest"
+    },
+    {
+      "path": "schemas/api-intel.config.schema.json",
+      "size": 39570,
+      "sha256": "3f4f669b9093b1e535c04712b3d5ae1af2c898750224cd9c9177672604676cf6",
+      "role": "data_export"
+    },
+    {
+      "path": "schemas/support-diagnostic-manifest.schema.json",
+      "size": 4154,
+      "sha256": "71830ec57637eb8b993609c096de52f3537f42eb6a0b976cc8b7b3da7254245d",
+      "role": "data_export"
+    }
+  ]
+}

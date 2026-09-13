@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "1.1.0",
+  "generatedAt": "2026-09-10",
+  "policy": {
+    "path": "scripts/public-release-audit-policy.json",
+    "sha256": "0823fb633c8c1e06575f11c4246952526ab08c13a089354546915fb298601eef",
+    "redactionBoundary": "Findings contain categories, stable non-secret IDs, and counts; matched values are never written."
+  },
+  "currentTree": {
+    "status": "pass",
+    "candidateFiles": 825,
+    "scannedTextFiles": 823,
+    "skippedBinaryFiles": 2,
+    "findings": []
+  },
+  "releaseCandidate": {
+    "status": "pass",
+    "candidateFiles": 271,
+    "scannedTextFiles": 271,
+    "skippedBinaryFiles": 0,
+    "findings": []
+  },
+  "history": {
+    "status": "excluded_by_selected_strategy",
+    "evidenceState": "findings_detected",
+    "publicationDisposition": "excluded_by_selected_strategy",
+    "commitCount": 15,
+    "findings": [
+      {
+        "category": "concrete_absolute_path_in_public_document",
+        "id": null,
+        "occurrences": 71,
+        "pathCount": 7,
+        "commitCount": 4
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_broker_marker_01",
+        "occurrences": 9,
+        "pathCount": 4,
+        "commitCount": 4
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_domain_marker_03",
+        "occurrences": 1,
+        "pathCount": 1,
+        "commitCount": 1
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_domain_marker_05",
+        "occurrences": 12,
+        "pathCount": 7,
+        "commitCount": 2
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_domain_marker_06",
+        "occurrences": 13,
+        "pathCount": 9,
+        "commitCount": 3
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_interaction_marker_01",
+        "occurrences": 32,
+        "pathCount": 17,
+        "commitCount": 4
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_job_marker_01",
+        "occurrences": 3,
+        "pathCount": 2,
+        "commitCount": 1
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_job_marker_02",
+        "occurrences": 1,
+        "pathCount": 1,
+        "commitCount": 1
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_job_marker_03",
+        "occurrences": 1,
+        "pathCount": 1,
+        "commitCount": 1
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_job_marker_04",
+        "occurrences": 1,
+        "pathCount": 1,
+        "commitCount": 1
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_job_marker_05",
+        "occurrences": 1,
+        "pathCount": 1,
+        "commitCount": 1
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_repository_marker_01",
+        "occurrences": 20,
+        "pathCount": 16,
+        "commitCount": 4
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_repository_marker_02",
+        "occurrences": 14,
+        "pathCount": 14,
+        "commitCount": 3
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_resource_marker_01",
+        "occurrences": 26,
+        "pathCount": 14,
+        "commitCount": 2
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_resource_marker_02",
+        "occurrences": 4,
+        "pathCount": 4,
+        "commitCount": 2
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_service_marker_01",
+        "occurrences": 57,
+        "pathCount": 16,
+        "commitCount": 8
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_service_marker_02",
+        "occurrences": 38,
+        "pathCount": 12,
+        "commitCount": 5
+      },
+      {
+        "category": "private_material_fingerprint",
+        "id": "legacy_system_marker_01",
+        "occurrences": 8,
+        "pathCount": 5,
+        "commitCount": 1
+      }
+    ],
+    "historyRewritePerformed": false,
+    "recommendedStrategy": "sanitized_new_public_repository_without_legacy_history",
+    "selectedStrategy": "sanitized_new_public_repository_without_legacy_history",
+    "strategySelectedAt": "2026-09-10",
+    "legacyHistoryIncluded": false
+  },
+  "ownershipAndPublication": {
+    "status": "owner_attestation_recorded",
+    "recordedAt": "2026-09-10",
+    "projectOwnedSourceAuthorized": true,
+    "organizationDerivedMaterialDisposition": "prohibited_from_public_surfaces",
+    "legacyHistoryIncluded": false,
+    "thirdPartyObligations": "remain_applicable",
+    "exactExternalPublicationAuthorized": false
+  },
+  "publicRepositoryPlan": {
+    "status": "selected_execution_deferred",
+    "strategy": "sanitized_new_public_repository_without_legacy_history",
+    "sourceRepositoryHistoryDisposition": "remain_private",
+    "legacyHistoryIncluded": false,
+    "externalRepositoryCreated": false,
+    "publicationAuthorized": false
+  },
+  "publicationAuthorized": false
+}

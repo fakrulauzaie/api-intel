@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": "@fakrulauzaie/api-intel",
+  "sourceManifestMustRemainPrivateBeforeO5": true,
+  "vulnerabilityAudit": {
+    "source": "pnpm_registry_audit",
+    "report": "packaging/release/dependency-vulnerability-report.json",
+    "exceptions": "packaging/release/vulnerability-exceptions.json",
+    "lockfile": "pnpm-lock.yaml",
+    "maximumReportAgeDays": 14,
+    "blockingSeverities": ["high", "critical"],
+    "requiredExceptionFields": [
+      "advisoryId",
+      "package",
+      "severity",
+      "owner",
+      "rationale",
+      "affectedSurfaces",
+      "compensatingControls",
+      "reviewedOn",
+      "expiresOn"
+    ]
+  },
+  "releaseEvidence": {
+    "sbom": "packaging/release/source-dependencies.cdx.json",
+    "inputs": "packaging/release/release-inputs.json",
+    "checksums": "packaging/release/SHA256SUMS",
+    "providerArtifacts": "packaging/release/reproducible-artifacts.json",
+    "publicAlphaCandidateContract": "packaging/release/public-alpha-candidate-contract.json",
+    "npmPackage": "packaging/npm/package-contents.json",
+    "licenseInventory": "docs/legal/dependency-license-inventory.json",
+    "sbomScope": "source_build_and_package_manager_runtime_dependencies",
+    "ociBaseAndOsPackagesIncluded": false
+  },
+  "versioning": {
+    "tagPrefix": "v",
+    "changelog": "CHANGELOG.md",
+    "releaseTagMustEqualPackageVersion": true,
+    "releaseChangelogHeadingMustEqualPackageVersion": true
+  },
+  "trustBoundary": {
+    "pullRequestPermissions": "contents_read_only",
+    "pullRequestSecrets": "none",
+    "candidateExternalMutation": false,
+    "protectedEnvironment": "release",
+    "npmIdentity": "trusted_publishing_oidc_required_when_enabled",
+    "containerIdentity": "short_lived_provider_token_required_when_enabled",
+    "longLivedRegistryTokens": "forbidden",
+    "publishWorkflowImplemented": false
+  },
+  "operations": {
+    "runbook": "docs/release-integrity-and-response.md",
+    "dryRunOutput": ".tmp/release-dry-run",
+    "dryRunExternalMutation": false,
+    "alphaCandidateOutput": ".tmp/public-alpha-candidate",
+    "alphaCandidateExternalMutation": false
+  },
+  "pendingIndependentGates": [
+    "sanitized_public_repository_clean_clone_matrix",
+    "github_hosted_provider_and_container_smoke",
+    "gitlab_hosted_component_validation",
+    "exact_oci_image_sbom_base_digest_and_source_obligation_review",
+    "private_security_reporting_channel_activation"
+  ]
+}

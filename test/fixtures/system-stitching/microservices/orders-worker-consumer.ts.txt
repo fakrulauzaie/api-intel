@@ -1,0 +1,31 @@
+import { Controller, Module } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import {
+  MessagePattern,
+  MicroserviceOptions,
+  Payload,
+  Transport,
+} from '@nestjs/microservices';
+
+// S0_SOURCE:microservices-orders-worker-consumer
+throw new Error('S0 orders-worker consumer fixture must never execute');
+
+@Controller()
+export class OrdersWorkerController {
+  @MessagePattern('orders.rebuild-index')
+  rebuildOrderIndex(@Payload() payload: unknown): unknown {
+    return payload;
+  }
+}
+
+@Module({ controllers: [OrdersWorkerController] })
+export class OrdersWorkerModule {}
+
+async function bootstrap(): Promise<void> {
+  await NestFactory.createMicroservice<MicroserviceOptions>(OrdersWorkerModule, {
+    transport: Transport.RMQ,
+    options: { queue: 'orders_jobs' },
+  });
+}
+
+void bootstrap;

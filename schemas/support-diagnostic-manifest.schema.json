@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "api-intel source-free support diagnostic manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "engine",
+    "environment",
+    "analysis",
+    "framework",
+    "diagnostics",
+    "privacy"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version"],
+      "properties": {
+        "version": {
+          "$ref": "#/$defs/version"
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodeVersion", "platform", "architecture"],
+      "properties": {
+        "nodeVersion": {
+          "$ref": "#/$defs/version"
+        },
+        "platform": {
+          "enum": ["windows", "linux", "macos", "other", "unknown"]
+        },
+        "architecture": {
+          "enum": ["x64", "arm64", "other", "unknown"]
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "command",
+        "resultState",
+        "sourceFileCount",
+        "endpointCount",
+        "interactionCount",
+        "diagnosticCount"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "#/$defs/version"
+        },
+        "command": {
+          "enum": [
+            "scan",
+            "diff",
+            "impact",
+            "check",
+            "openapi",
+            "controls",
+            "graph",
+            "stitch",
+            "endpoints",
+            "trace",
+            "report"
+          ]
+        },
+        "resultState": {
+          "enum": ["completed", "completed_with_gaps", "failed", "canceled", "unknown"]
+        },
+        "sourceFileCount": {
+          "$ref": "#/$defs/count"
+        },
+        "endpointCount": {
+          "$ref": "#/$defs/count"
+        },
+        "interactionCount": {
+          "$ref": "#/$defs/count"
+        },
+        "diagnosticCount": {
+          "$ref": "#/$defs/count"
+        }
+      }
+    },
+    "framework": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["typescript", "nestCommon", "nestCore", "typeorm"],
+      "properties": {
+        "typescript": {
+          "$ref": "#/$defs/version"
+        },
+        "nestCommon": {
+          "$ref": "#/$defs/version"
+        },
+        "nestCore": {
+          "$ref": "#/$defs/version"
+        },
+        "typeorm": {
+          "$ref": "#/$defs/version"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "severity", "count"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]{0,79}$"
+          },
+          "severity": {
+            "enum": ["info", "warning", "error"]
+          },
+          "count": {
+            "$ref": "#/$defs/count"
+          }
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceIncluded",
+        "pathsIncluded",
+        "identifiersIncluded",
+        "snippetsIncluded",
+        "freeFormTextIncluded",
+        "reviewedByReporter"
+      ],
+      "properties": {
+        "sourceIncluded": {
+          "const": false
+        },
+        "pathsIncluded": {
+          "const": false
+        },
+        "identifiersIncluded": {
+          "const": false
+        },
+        "snippetsIncluded": {
+          "const": false
+        },
+        "freeFormTextIncluded": {
+          "const": false
+        },
+        "reviewedByReporter": {
+          "const": true
+        }
+      }
+    }
+  },
+  "$defs": {
+    "version": {
+      "type": "string",
+      "maxLength": 40,
+      "pattern": "^(?:unknown|v?[0-9]+(?:\\.[0-9]+){0,3}(?:[-+][0-9A-Za-z.-]+)?)$"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000000
+    }
+  }
+}

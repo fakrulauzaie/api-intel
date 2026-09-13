@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "packageName": "@fakrulauzaie/api-intel",
+  "packageVersion": "0.1.0-alpha.1",
+  "packageManagers": ["npm", "pnpm"],
+  "expected": {
+    "cliVersion": "0.1.0-alpha.1",
+    "mcpVersion": "1.2.0",
+    "analysisSchemaVersion": "8.0.0",
+    "doctorSchemaVersion": "1.0.0",
+    "doctorResult": "warning",
+    "initializationSchemaVersion": "1.0.0",
+    "initialConfiguration": { "version": 4 },
+    "existingConfigurationExitCode": 9,
+    "configurationSchemaTitle": null,
+    "supportSchemaTitle": "api-intel source-free support diagnostic manifest",
+    "endpoint": {
+      "httpMethod": "POST",
+      "routePath": "/orders",
+      "handler": "OrdersController.create"
+    },
+    "rawSql": {
+      "dialect": "postgresql-18",
+      "ruleId": "typeorm.raw-sql.select.read.v1",
+      "table": "order_record",
+      "direction": "READ"
+    },
+    "graphFile": "api-intel-graph.html",
+    "mcpProtocolVersion": "2025-11-25",
+    "mcpTools": [
+      "compare_analyses",
+      "find_distributed_candidates",
+      "get_change_impact",
+      "get_endpoint_trace",
+      "get_policy_results",
+      "get_symbol_dependents",
+      "list_endpoints",
+      "resolve_symbol"
+    ],
+    "missingDependency": {
+      "diagnosticCode": "TS_IMPORT_UNRESOLVED",
+      "resultState": "completed_with_gaps"
+    },
+    "invalidTsconfig": {
+      "exitCode": 2,
+      "message": "TypeScript configuration could not be parsed:"
+    }
+  }
+}

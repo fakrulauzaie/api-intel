@@ -1,0 +1,54 @@
+{
+  "artifactKind": "public-synthetic-system-expectation",
+  "schemaVersion": "1.0.0",
+  "sourceCase": {
+    "caseId": "microservices-multi-service-declared-realm",
+    "technology": "nest_microservices",
+    "topology": "multi_service",
+    "sources": [
+      {
+        "serviceNamespace": "orders-api",
+        "role": "producer",
+        "fixture": "microservices/orders-api-producer.ts.txt"
+      },
+      {
+        "serviceNamespace": "orders-worker",
+        "role": "consumer",
+        "fixture": "microservices/orders-worker-consumer.ts.txt"
+      }
+    ],
+    "contractKey": "{\"canonicalPattern\":\"\\\"orders.rebuild-index\\\"\",\"mode\":\"request_response\",\"patternKind\":\"scalar\",\"targetKind\":\"microservice_message\"}",
+    "realmBindings": [
+      {
+        "serviceNamespace": "orders-api",
+        "role": "producer",
+        "brokerAlias": "shared-rmq",
+        "environmentAlias": "test",
+        "transport": "rmq",
+        "destinationKind": "queue",
+        "destinationValue": "orders_jobs"
+      },
+      {
+        "serviceNamespace": "orders-worker",
+        "role": "consumer",
+        "brokerAlias": "shared-rmq",
+        "environmentAlias": "test",
+        "transport": "rmq",
+        "destinationKind": "queue",
+        "destinationValue": "orders_jobs"
+      }
+    ],
+    "expected": {
+      "state": "declared_realm_candidate",
+      "unmatchedReason": null,
+      "ambiguityReason": null,
+      "provenCrossServiceEdge": false
+    },
+    "mustNotInfer": [
+      "broker_delivery_guaranteed",
+      "cross_service_causal_path",
+      "remote_handler_execution"
+    ],
+    "rationale": "The synthetic orders API producer and orders worker consumer share an explicitly declared RMQ realm and remain a delivery candidate only."
+  }
+}

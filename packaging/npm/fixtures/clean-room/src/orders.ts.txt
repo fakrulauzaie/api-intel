@@ -1,0 +1,30 @@
+import { Controller, Injectable, Module, Post } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { DataSource } from 'typeorm';
+
+@Injectable()
+export class OrdersService {
+  private readonly dataSource!: DataSource;
+
+  readOrders(): Promise<unknown[]> {
+    return this.dataSource.query('SELECT id, status FROM order_record');
+  }
+}
+
+@Module({ controllers: [OrdersController], providers: [OrdersService] })
+export class ApplicationModule {}
+
+export async function bootstrap(): Promise<void> {
+  const application = await NestFactory.create(ApplicationModule);
+  await application.listen(3000);
+}
+
+@Controller('orders')
+export class OrdersController {
+  constructor(private readonly orders: OrdersService) {}
+
+  @Post()
+  create(): Promise<unknown[]> {
+    return this.orders.readOrders();
+  }
+}

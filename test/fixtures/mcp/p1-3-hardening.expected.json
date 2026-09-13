@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "serverVersion": "1.2.0",
+  "limits": {
+    "artifactCount": 64,
+    "artifactBytes": 67108864,
+    "resourceBytes": 262144,
+    "toolResponseBytes": 524288,
+    "toolSummaryCharacters": 512
+  },
+  "protocolCases": [
+    "ambiguity",
+    "cancellation_before_kernel_execution",
+    "invalid_input",
+    "malformed_artifact",
+    "oversized_artifact",
+    "oversized_resource",
+    "oversized_tool_response",
+    "repeated_call_byte_stability",
+    "resource_selector_escape"
+  ],
+  "mustPreserve": [
+    "artifact_backed_only",
+    "conditional_distributed_candidates",
+    "explicit_ambiguity",
+    "redacted_evidence",
+    "stdio_only"
+  ],
+  "mustNotExpose": [
+    "agent_sampling",
+    "arbitrary_file_reads",
+    "background_tasks",
+    "mutation",
+    "network_transport",
+    "repository_scanning",
+    "shell_execution",
+    "whole_artifact_resources"
+  ]
+}

@@ -1,0 +1,6 @@
+**
+!gitlab-dist/
+!gitlab-dist/**
+!packaging/
+!packaging/gitlab/
+!packaging/gitlab/Dockerfile

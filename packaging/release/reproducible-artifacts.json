@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "1.0.0",
+  "contractSha256": "eded86b033767105235a9631a6e82c06855e77bbba1413095c5f722690239400",
+  "toolchain": {
+    "node": ">=22.13 <25",
+    "packageManager": "pnpm@11.19.0",
+    "ncc": "0.45.0",
+    "typescript": "5.9.3"
+  },
+  "providers": {
+    "githubAction": {
+      "directory": "action-dist",
+      "fileCount": 12,
+      "fingerprint": "sha256:4901856acce0c7118362d39ac73ae38a5e6d43454e805c7cc134297eae6fdf95",
+      "files": [
+        {
+          "path": "291.index.js",
+          "bytes": 1442944,
+          "sha256": "940b1cf31e633e507ebcc12ea244d93becbf06487a56bd3248c1fe2336c89715"
+        },
+        {
+          "path": "571.index.js",
+          "bytes": 9343747,
+          "sha256": "201a49dc65e34ecb6df27299ebac066015260af035983d8b661a83150861a890"
+        },
+        {
+          "path": "cytoscape.min.js",
+          "bytes": 435328,
+          "sha256": "9c2a3bf2592e0b14a1f7bec07c03a54f16dedf32af9cd0af155c716aa6c87bc3"
+        },
+        {
+          "path": "dependency-license-inventory.json",
+          "bytes": 73975,
+          "sha256": "455f21afecf2505bf997b0ddfc26f3d538e0f8ec8cd59c43e791e5107416b434"
+        },
+        {
+          "path": "index.js",
+          "bytes": 3939,
+          "sha256": "fe4b212ef78fdfc3599b644940b1ae17a949065905c1fdc6ba7a4aa1ca220d88"
+        },
+        {
+          "path": "libpg-query.wasm",
+          "bytes": 1717541,
+          "sha256": "e6293a462e63e7e7ff40d89683d46851ec83c9d5627562ba847abac01bb93b50"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "licenses/cytoscape-3.34.0-MIT.txt",
+          "bytes": 1082,
+          "sha256": "eb319c6e6f233607f71e8e2f450391751883cfc0eeb3ca7ef574c13d1d9c2203"
+        },
+        {
+          "path": "licenses/libpg-query-18.1.2-MIT.txt",
+          "bytes": 1160,
+          "sha256": "6676f35ef9ae1f095f420c56ab2078cf321227a88599ad224218b76d05fec731"
+        },
+        {
+          "path": "package.json",
+          "bytes": 23,
+          "sha256": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a"
+        },
+        {
+          "path": "THIRD_PARTY_LICENSES.txt",
+          "bytes": 13670,
+          "sha256": "e311c82d6cdc6a977afbe6be4edb041b1807471ac6defb85eadd40eb0f987e06"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "bytes": 3212,
+          "sha256": "dc0f7c97f415f1195726b93ef45c18c3b2816ca7498076688c741b27ab271928"
+        }
+      ]
+    },
+    "gitlab": {
+      "directory": "gitlab-dist",
+      "fileCount": 12,
+      "fingerprint": "sha256:00ed4805ddde5aaec2e1705add0af6a8aee8159b5ae7faa4f78e438882d3589c",
+      "files": [
+        {
+          "path": "571.index.js",
+          "bytes": 9343747,
+          "sha256": "201a49dc65e34ecb6df27299ebac066015260af035983d8b661a83150861a890"
+        },
+        {
+          "path": "833.index.js",
+          "bytes": 1442744,
+          "sha256": "4ea281f9ee3aac1cb4c8c48feb042ec1533158c1ab973c8fe0bf009f950fb9a6"
+        },
+        {
+          "path": "cytoscape.min.js",
+          "bytes": 435328,
+          "sha256": "9c2a3bf2592e0b14a1f7bec07c03a54f16dedf32af9cd0af155c716aa6c87bc3"
+        },
+        {
+          "path": "dependency-license-inventory.json",
+          "bytes": 73975,
+          "sha256": "455f21afecf2505bf997b0ddfc26f3d538e0f8ec8cd59c43e791e5107416b434"
+        },
+        {
+          "path": "index.js",
+          "bytes": 3958,
+          "sha256": "20d7ac6eb6d288ff3425d3a47895d7f599dca24c1369c00b511b18cb8c3bab07"
+        },
+        {
+          "path": "libpg-query.wasm",
+          "bytes": 1717541,
+          "sha256": "e6293a462e63e7e7ff40d89683d46851ec83c9d5627562ba847abac01bb93b50"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "licenses/cytoscape-3.34.0-MIT.txt",
+          "bytes": 1082,
+          "sha256": "eb319c6e6f233607f71e8e2f450391751883cfc0eeb3ca7ef574c13d1d9c2203"
+        },
+        {
+          "path": "licenses/libpg-query-18.1.2-MIT.txt",
+          "bytes": 1160,
+          "sha256": "6676f35ef9ae1f095f420c56ab2078cf321227a88599ad224218b76d05fec731"
+        },
+        {
+          "path": "package.json",
+          "bytes": 23,
+          "sha256": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a"
+        },
+        {
+          "path": "THIRD_PARTY_LICENSES.txt",
+          "bytes": 13670,
+          "sha256": "e311c82d6cdc6a977afbe6be4edb041b1807471ac6defb85eadd40eb0f987e06"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "bytes": 3212,
+          "sha256": "dc0f7c97f415f1195726b93ef45c18c3b2816ca7498076688c741b27ab271928"
+        }
+      ]
+    }
+  },
+  "reviewedAssets": [
+    {
+      "id": "cytoscape_browser",
+      "sourcePath": "node_modules/cytoscape/dist/cytoscape.min.js",
+      "sha256": "9c2a3bf2592e0b14a1f7bec07c03a54f16dedf32af9cd0af155c716aa6c87bc3"
+    },
+    {
+      "id": "libpg_query_wasm",
+      "sourcePath": "node_modules/libpg-query/wasm/libpg-query.wasm",
+      "sha256": "e6293a462e63e7e7ff40d89683d46851ec83c9d5627562ba847abac01bb93b50"
+    }
+  ],
+  "metadataInputs": [
+    {
+      "path": "action.yml",
+      "bytes": 5261,
+      "sha256": "68031bddc1c501e48e72dcf6536e946ed6d7eefebbdfab26f869bfb10dc47195"
+    },
+    {
+      "path": "packaging/gitlab/Dockerfile",
+      "bytes": 1050,
+      "sha256": "db8d67a4ad4b6e329256bf57f0b80d00a6ef190b3d70da9019453940967df631"
+    },
+    {
+      "path": "templates/api-intel/template.yml",
+      "bytes": 4965,
+      "sha256": "39b9fdcdf7aab0108c50fa25a44dd69ccbb1c4988a06eb1d62b7663c5dfaa2c1"
+    },
+    {
+      "path": "packaging/npm/distribution-contract.json",
+      "bytes": 2151,
+      "sha256": "2199c90f49a227cb093e8f72d7ecd36569759f96a99acbfab42bb4ee9d14d4bd"
+    },
+    {
+      "path": "packaging/npm/package-contents.json",
+      "bytes": 55165,
+      "sha256": "5196d472dc05ff5daab0258cd1a951918e1be2958094ad291d0affb5f270bf41"
+    },
+    {
+      "path": "scripts/provider-distribution.mjs",
+      "bytes": 3998,
+      "sha256": "b58838b6d4fd019ed43ff049a6d8ec0ae71b98f8e021cfcf724bebf3a6e95771"
+    },
+    {
+      "path": "scripts/build-github-action.mjs",
+      "bytes": 249,
+      "sha256": "d23b41d50245afec7e52f1ea106f2d43c3ab53166f4e377b2326bdb2066ec06c"
+    },
+    {
+      "path": "scripts/build-gitlab-ci.mjs",
+      "bytes": 241,
+      "sha256": "f9362507ff26e47d9c279812842ae475e2398bb46b286ae7640036a999a924f7"
+    }
+  ],
+  "npmPackageManifest": {
+    "path": "packaging/npm/package-contents.json",
+    "name": "@fakrulauzaie/api-intel",
+    "version": "0.1.0-alpha.1",
+    "fileCount": 271,
+    "packedBytes": 431995,
+    "unpackedBytes": 2352574,
+    "shasum": "c704a8be412d5fda816fad5043fd819e5d8a4fda",
+    "integrity": "sha512-PvyfX/5Vy/xiffFT/EKfqAF96zV3Ev26Ll6Z7FAUxYOy2ubcylABdItvz4lYyIrZQMo6yH6RF8UoKQtp6yi1NA=="
+  },
+  "container": {
+    "dockerfile": "packaging/gitlab/Dockerfile",
+    "runtimeUser": "10001:10001",
+    "bundledEntrypoint": "/opt/api-intel/gitlab-dist/index.js",
+    "runtimeValidation": "github_hosted_docker_smoke_pending"
+  },
+  "browser": {
+    "claimedBrowsers": [],
+    "automatedContracts": [
+      "self_contained_no_network_references",
+      "cytoscape_source_embedded",
+      "selection_filter_fit_controls_present",
+      "keyboard_navigation_present",
+      "accessible_table_fallback_present",
+      "inline_csp_hashes_exact"
+    ],
+    "manualGate": "passed_local_browser_unspecified",
+    "namedBrowserMatrix": "unverified"
+  }
+}

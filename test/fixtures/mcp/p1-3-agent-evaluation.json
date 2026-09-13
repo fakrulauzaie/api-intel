@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "methodology": "Synthetic deterministic attribution corpus; not a live model benchmark or universal reliability claim.",
+  "answers": ["artifactGrounded", "unsupportedUnaided"],
+  "metrics": ["citationAccuracy", "falseRelationshipClaims", "omittedDependencies"],
+  "cases": [
+    {
+      "id": "endpoint-effects",
+      "prompt": "What does PUT /tickets/:id affect?",
+      "groundTruth": {
+        "supportedClaims": [
+          "endpoint.resolved",
+          "endpoint.calls.ticket_service",
+          "endpoint.writes.ticket_table"
+        ],
+        "requiredDependencies": ["endpoint.calls.ticket_service", "endpoint.writes.ticket_table"],
+        "evidenceByClaim": {
+          "endpoint.resolved": ["evidence:11111111111111111111111111111111"],
+          "endpoint.calls.ticket_service": ["evidence:22222222222222222222222222222222"],
+          "endpoint.writes.ticket_table": ["evidence:33333333333333333333333333333333"]
+        }
+      },
+      "unsupportedUnaided": {
+        "claims": [
+          { "id": "endpoint.resolved", "evidenceIds": [] },
+          { "id": "endpoint.writes.audit_log", "evidenceIds": [] }
+        ]
+      },
+      "artifactGrounded": {
+        "claims": [
+          {
+            "id": "endpoint.resolved",
+            "evidenceIds": ["evidence:11111111111111111111111111111111"]
+          },
+          {
+            "id": "endpoint.calls.ticket_service",
+            "evidenceIds": ["evidence:22222222222222222222222222222222"]
+          },
+          {
+            "id": "endpoint.writes.ticket_table",
+            "evidenceIds": ["evidence:33333333333333333333333333333333"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "distributed-candidate",
+      "prompt": "Does sending orders.rebuild-index prove the queue consumer runs?",
+      "groundTruth": {
+        "supportedClaims": [
+          "correlation.declared_realm_candidate",
+          "correlation.delivery_is_conditional"
+        ],
+        "requiredDependencies": [
+          "correlation.declared_realm_candidate",
+          "correlation.delivery_is_conditional"
+        ],
+        "evidenceByClaim": {
+          "correlation.declared_realm_candidate": ["evidence:44444444444444444444444444444444"],
+          "correlation.delivery_is_conditional": ["evidence:55555555555555555555555555555555"]
+        }
+      },
+      "unsupportedUnaided": {
+        "claims": [{ "id": "correlation.delivery_guaranteed", "evidenceIds": [] }]
+      },
+      "artifactGrounded": {
+        "claims": [
+          {
+            "id": "correlation.declared_realm_candidate",
+            "evidenceIds": ["evidence:44444444444444444444444444444444"]
+          },
+          {
+            "id": "correlation.delivery_is_conditional",
+            "evidenceIds": ["evidence:55555555555555555555555555555555"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "snapshot-dependents",
+      "prompt": "Is a current-snapshot dependent path the same as change blast radius?",
+      "groundTruth": {
+        "supportedClaims": [
+          "dependents.snapshot_path_exists",
+          "dependents.not_change_blast_radius"
+        ],
+        "requiredDependencies": [
+          "dependents.snapshot_path_exists",
+          "dependents.not_change_blast_radius"
+        ],
+        "evidenceByClaim": {
+          "dependents.snapshot_path_exists": ["evidence:66666666666666666666666666666666"],
+          "dependents.not_change_blast_radius": ["evidence:77777777777777777777777777777777"]
+        }
+      },
+      "unsupportedUnaided": {
+        "claims": [{ "id": "dependents.endpoint_will_break", "evidenceIds": [] }]
+      },
+      "artifactGrounded": {
+        "claims": [
+          {
+            "id": "dependents.snapshot_path_exists",
+            "evidenceIds": ["evidence:66666666666666666666666666666666"]
+          },
+          {
+            "id": "dependents.not_change_blast_radius",
+            "evidenceIds": ["evidence:77777777777777777777777777777777"]
+          }
+        ]
+      }
+    }
+  ],
+  "expectedAggregate": {
+    "unsupportedUnaided": {
+      "citationAccuracy": null,
+      "falseRelationshipClaims": 3,
+      "omittedDependencies": 6
+    },
+    "artifactGrounded": {
+      "citationAccuracy": 1,
+      "falseRelationshipClaims": 0,
+      "omittedDependencies": 0
+    }
+  }
+}

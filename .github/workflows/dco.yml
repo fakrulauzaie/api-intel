@@ -1,0 +1,29 @@
+name: DCO
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  signed-off-commits:
+    name: signed-off commits
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Fetch pull-request commit metadata
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git init .
+          git remote add origin "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git"
+          git fetch --no-tags --filter=blob:none origin "${BASE_SHA}" "${HEAD_SHA}"
+          git checkout "${BASE_SHA}" -- scripts/check-dco.mjs
+      - name: Verify DCO sign-offs
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/check-dco.mjs --range "${BASE_SHA}..${HEAD_SHA}"

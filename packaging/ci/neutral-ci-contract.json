@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "workflow": ".github/workflows/ci.yml",
+  "packageManager": {
+    "name": "pnpm",
+    "version": "11.19.0",
+    "lockfile": "pnpm-lock.yaml",
+    "frozen": true
+  },
+  "matrix": [
+    { "os": "ubuntu-24.04", "node": "22.13.1" },
+    { "os": "ubuntu-24.04", "node": "24.20.0" },
+    { "os": "windows-2025", "node": "22.13.1" },
+    { "os": "windows-2025", "node": "24.20.0" }
+  ],
+  "macosStatus": "unverified_not_in_matrix",
+  "actions": {
+    "checkout": "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+    "setupNode": "actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e",
+    "uploadArtifact": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+  },
+  "limits": {
+    "timeoutMinutes": 30,
+    "maximumParallelMatrixJobs": 2,
+    "maximumTestWorkers": 2,
+    "nodeHeapMegabytes": 6144,
+    "coverageRetentionDays": 7
+  },
+  "trust": {
+    "permissions": "contents_read_only",
+    "persistCheckoutCredentials": false,
+    "candidateSecretsReferenced": false,
+    "dependencyCacheEnabled": false,
+    "rootLifecyclePolicy": "only pnpm-workspace.yaml allowBuilds entries may run",
+    "fixtureLifecycleScriptsExecuted": false,
+    "usesProductActionUnderTest": false
+  },
+  "compatibilityCorpus": {
+    "root": "example-nestjs-app",
+    "lockfile": "example-nestjs-app/package-lock.json",
+    "installer": "npm ci --ignore-scripts --no-audit --no-fund",
+    "packages": {
+      "@nestjs/common": "11.2.1",
+      "@nestjs/core": "11.2.1",
+      "@nestjs/typeorm": "11.0.3",
+      "better-sqlite3": "12.11.1",
+      "typeorm": "1.1.0",
+      "typescript": "5.9.3"
+    },
+    "expectedAnalysis": {
+      "schemaVersion": "8.0.0",
+      "resultState": "completed_with_gaps",
+      "endpoints": 7,
+      "classes": 13,
+      "methods": 17,
+      "tables": 2,
+      "assertions": 70,
+      "routes": [
+        "DELETE /notes/:id",
+        "GET /",
+        "GET /admin/notes/count",
+        "GET /notes",
+        "GET /notes/archived",
+        "POST /notes",
+        "PUT /notes/legacy/:id"
+      ],
+      "diagnostics": [
+        "AUTH_GLOBAL_POLICY_UNKNOWN",
+        "DI_TOKEN_UNSUPPORTED",
+        "NEST_MODULE_METADATA_UNRESOLVED",
+        "NEST_MODULE_METADATA_UNRESOLVED",
+        "NEST_ROUTE_DYNAMIC",
+        "TYPEORM_OPERATION_UNSUPPORTED",
+        "TYPEORM_SAVE_COLUMNS_UNKNOWN"
+      ]
+    },
+    "targetApplicationExecuted": false
+  },
+  "coverage": {
+    "provider": "v8",
+    "scope": "src/**/*.ts",
+    "maximumWorkers": 1,
+    "thresholds": null,
+    "status": "measurement_only"
+  }
+}

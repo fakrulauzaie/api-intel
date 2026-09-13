@@ -1,0 +1,45 @@
+name: Feature proposal
+description: Propose a bounded product or workflow improvement.
+title: '[Feature]: '
+labels:
+  - enhancement
+  - proposal
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched existing issues and the roadmap.
+          required: true
+        - label: This proposal preserves deterministic evidence and explicit proof stops.
+          required: true
+        - label: This report contains only synthetic context and no private source or artifacts.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Describe the legacy-system maintenance decision, not only a preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required evidence
+      description: State which canonical facts would support the feature and whether they exist today.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Honesty and safety boundary
+      description: Identify ambiguity, open-world behavior, data sensitivity, and must-not-infer cases.
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Optional implementation idea
+    validations:
+      required: false

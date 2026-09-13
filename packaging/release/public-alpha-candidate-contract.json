@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": {
+    "name": "@fakrulauzaie/api-intel",
+    "version": "0.1.0-alpha.1",
+    "sourceManifestPrivate": true,
+    "stagedManifestPrivateProperty": "omitted"
+  },
+  "sourceExport": {
+    "allowedRootFiles": [
+      ".dockerignore",
+      ".gitignore",
+      ".prettierignore",
+      ".prettierrc.json",
+      "CHANGELOG.md",
+      "CODE_OF_CONDUCT.md",
+      "CONTRIBUTING.md",
+      "GOVERNANCE.md",
+      "LICENSE",
+      "MAINTAINERS.md",
+      "README.md",
+      "SECURITY.md",
+      "SUPPORT.md",
+      "THIRD_PARTY_NOTICES.md",
+      "action.yml",
+      "backend_api_intelligence_critical_section_wrapper_implementation_plan.md",
+      "backend_api_intelligence_implementation_plan.md",
+      "backend_api_intelligence_interaction_expansion_implementation_plan.md",
+      "backend_api_intelligence_open_source_productization_implementation_plan.md",
+      "backend_api_intelligence_personal_project_plan.md",
+      "backend_api_intelligence_platform_expansion_implementation_plan.md",
+      "backend_api_intelligence_post_mvp_implementation_plan.md",
+      "backend_api_intelligence_refactoring_expansion_implementation_plan.md",
+      "backend_api_intelligence_workflow_improvements_implementation_plan.md",
+      "eslint.config.mjs",
+      "package.json",
+      "pnpm-lock.yaml",
+      "pnpm-workspace.yaml",
+      "tsconfig.build.json",
+      "tsconfig.json",
+      "vitest.config.ts"
+    ],
+    "allowedRootDirectories": [
+      ".github",
+      "action-dist",
+      "docs",
+      "example-nestjs-app",
+      "gitlab-dist",
+      "packaging",
+      "schemas",
+      "scripts",
+      "spikes",
+      "src",
+      "templates",
+      "test"
+    ],
+    "forbiddenPathSegments": [
+      ".git",
+      ".api-intel",
+      ".demo",
+      ".tmp",
+      "coverage",
+      "dist",
+      "node_modules"
+    ],
+    "historyDisposition": "fresh_public_history_only",
+    "symbolicLinksAllowed": false
+  },
+  "immutableReferences": {
+    "githubThirdPartyActions": "full_commit_sha",
+    "candidateActionReference": "OWNER/REPOSITORY@ACTION_COMMIT_SHA",
+    "gitlabComponentReference": "full_commit_sha",
+    "gitlabImageConsumption": "registry.example.com/api-intel@sha256:IMAGE_MANIFEST_DIGEST",
+    "mutableConsumptionTagsAllowed": false
+  },
+  "surfaceClaims": {
+    "cliAndDocuments": "core-alpha candidate",
+    "offlineGraph": "core-alpha candidate; browser-unspecified manual pass",
+    "localMcp": "core-alpha candidate",
+    "githubAction": "hosted-validated preview",
+    "gitlabComponentAndImage": "locally verified preview",
+    "commentPublishers": "mock-verified preview",
+    "remoteMcpHostedAnalysisSaasTelemetryIde": "deferred"
+  },
+  "releaseBoundary": {
+    "externalMutationAuthorized": false,
+    "publicationWorkflowImplemented": false,
+    "sourceRepositoryHistoryIncluded": false,
+    "privateSecurityChannelActive": false,
+    "privateConductChannelActive": false,
+    "namedBrowserMatrixClaimed": false
+  }
+}

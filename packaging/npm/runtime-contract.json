@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.1.0",
+  "packageName": "@fakrulauzaie/api-intel",
+  "sourceManifestMustRemainPrivate": true,
+  "publicMetadata": {
+    "description": "Evidence-backed blast radius for legacy NestJS systems using deterministic static analysis.",
+    "author": "fakrulauzaie",
+    "maintainers": ["fakrulauzaie"],
+    "keywords": [
+      "architecture",
+      "blast-radius",
+      "nestjs",
+      "refactoring",
+      "static-analysis",
+      "typeorm"
+    ]
+  },
+  "bins": {
+    "api-intel": "dist/cli/index.js",
+    "api-intel-mcp": "dist/mcp/index.js"
+  },
+  "exports": {
+    "./schemas/api-intel.config.schema.json": "./schemas/api-intel.config.schema.json",
+    "./schemas/support-diagnostic-manifest.schema.json": "./schemas/support-diagnostic-manifest.schema.json"
+  },
+  "runtimeDependencies": [
+    {
+      "name": "@modelcontextprotocol/server",
+      "version": "2.0.0",
+      "probe": "@modelcontextprotocol/server",
+      "reason": "Local read-only MCP server runtime"
+    },
+    {
+      "name": "cytoscape",
+      "version": "3.34.0",
+      "probe": "cytoscape/dist/cytoscape.min.js",
+      "reason": "Self-contained offline graph browser asset"
+    },
+    {
+      "name": "libpg-query",
+      "version": "18.1.2",
+      "probe": "libpg-query/wasm/index.js",
+      "reason": "PostgreSQL parser and colocated WASM runtime"
+    },
+    {
+      "name": "typescript",
+      "version": "5.9.3",
+      "probe": "typescript",
+      "reason": "Compiler API used to parse and type-check target repositories"
+    },
+    {
+      "name": "zod",
+      "version": "4.1.5",
+      "probe": "zod",
+      "reason": "Runtime validation for canonical documents and configuration"
+    }
+  ],
+  "lifecyclePolicy": {
+    "consumerInstallScripts": [],
+    "packPreparation": "build_then_verify",
+    "targetProjectScriptsExecuted": false
+  },
+  "destinationMetadata": {
+    "status": "deferred_until_sanitized_public_repository_exists",
+    "fields": ["repository", "homepage", "bugs"],
+    "fundingStatus": "not_applicable"
+  }
+}

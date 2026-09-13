@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-12",
+  "package": {
+    "name": "@fakrulauzaie/api-intel",
+    "version": "0.1.0-alpha.1",
+    "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
+    "fileCount": 271,
+    "packedBytes": 431995,
+    "unpackedBytes": 2352574,
+    "shasum": "c704a8be412d5fda816fad5043fd819e5d8a4fda",
+    "integrity": "sha512-PvyfX/5Vy/xiffFT/EKfqAF96zV3Ev26Ll6Z7FAUxYOy2ubcylABdItvz4lYyIrZQMo6yH6RF8UoKQtp6yi1NA=="
+  },
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "node": "v22.13.1",
+    "npm": "10.9.2",
+    "pnpm": "11.19.0"
+  },
+  "isolation": {
+    "consumerLocation": "operating_system_temporary_directory",
+    "sourceWorkspaceNodeModulesUsed": false,
+    "targetApplicationExecuted": false,
+    "packageInstallScriptsExecuted": false
+  },
+  "expected": {
+    "cliVersion": "0.1.0-alpha.1",
+    "mcpVersion": "1.2.0",
+    "analysisSchemaVersion": "8.0.0",
+    "doctorSchemaVersion": "1.0.0",
+    "doctorResult": "warning",
+    "initializationSchemaVersion": "1.0.0",
+    "initialConfiguration": { "version": 4 },
+    "existingConfigurationExitCode": 9,
+    "configurationSchemaTitle": null,
+    "supportSchemaTitle": "api-intel source-free support diagnostic manifest",
+    "endpoint": {
+      "httpMethod": "POST",
+      "routePath": "/orders",
+      "handler": "OrdersController.create"
+    },
+    "rawSql": {
+      "dialect": "postgresql-18",
+      "ruleId": "typeorm.raw-sql.select.read.v1",
+      "table": "order_record",
+      "direction": "READ"
+    },
+    "graphFile": "api-intel-graph.html",
+    "mcpProtocolVersion": "2025-11-25",
+    "mcpTools": [
+      "compare_analyses",
+      "find_distributed_candidates",
+      "get_change_impact",
+      "get_endpoint_trace",
+      "get_policy_results",
+      "get_symbol_dependents",
+      "list_endpoints",
+      "resolve_symbol"
+    ],
+    "missingDependency": {
+      "diagnosticCode": "TS_IMPORT_UNRESOLVED",
+      "resultState": "completed_with_gaps"
+    },
+    "invalidTsconfig": { "exitCode": 2, "message": "TypeScript configuration could not be parsed:" }
+  },
+  "consumers": [
+    {
+      "manager": "npm",
+      "version": "10.9.2",
+      "installScriptsExecuted": false,
+      "consumerRootOutsideSourceWorkspace": true,
+      "runtimePathsOutsideSourceWorkspace": true,
+      "installedPackageFiles": 271,
+      "runtimeDependencies": ["cytoscape", "libpgQueryWasm", "mcpServer", "typescript", "zod"],
+      "bins": {
+        "apiIntel": "0.1.0-alpha.1",
+        "apiIntelMcp": "1.2.0",
+        "shims": ["api-intel", "api-intel-mcp"]
+      },
+      "initialization": {
+        "schemaVersion": "1.0.0",
+        "previewResult": "ready",
+        "writeResult": "written",
+        "existingConfigurationExitCode": 9,
+        "configuration": { "version": 4 },
+        "absoluteConsumerPathExposed": false,
+        "headlessGraphGenerated": true
+      },
+      "doctor": {
+        "schemaVersion": "1.0.0",
+        "result": "warning",
+        "repository": "<repository>",
+        "runtimeAssetsReady": true,
+        "nestDeclarationsResolved": true,
+        "absoluteConsumerPathExposed": false
+      },
+      "schemas": {
+        "configuration": "draft-2020-12",
+        "support": "api-intel source-free support diagnostic manifest",
+        "rootImport": "blocked",
+        "deepImport": "blocked"
+      },
+      "scan": {
+        "resultState": "completed",
+        "schemaVersion": "8.0.0",
+        "endpoints": 1,
+        "handler": "OrdersController.create",
+        "rawSql": {
+          "dialect": "postgresql-18",
+          "ruleId": "typeorm.raw-sql.select.read.v1",
+          "table": "order_record",
+          "direction": "READ"
+        },
+        "graph": {
+          "file": "api-intel-graph.html",
+          "bytes": 516757,
+          "externalScriptOrStylesheetReferences": 0,
+          "browserPreviewRequested": false
+        }
+      },
+      "mcp": {
+        "protocolVersion": "2025-11-25",
+        "tools": [
+          "compare_analyses",
+          "find_distributed_candidates",
+          "get_change_impact",
+          "get_endpoint_trace",
+          "get_policy_results",
+          "get_symbol_dependents",
+          "list_endpoints",
+          "resolve_symbol"
+        ]
+      },
+      "negatives": {
+        "missingDependency": {
+          "exitCode": 0,
+          "resultState": "completed_with_gaps",
+          "diagnosticCode": "TS_IMPORT_UNRESOLVED",
+          "stackTrace": false
+        },
+        "invalidTsconfig": {
+          "exitCode": 2,
+          "messageCategory": "TypeScript configuration could not be parsed",
+          "stackTrace": false
+        }
+      }
+    },
+    {
+      "manager": "pnpm",
+      "version": "11.19.0",
+      "installScriptsExecuted": false,
+      "consumerRootOutsideSourceWorkspace": true,
+      "runtimePathsOutsideSourceWorkspace": true,
+      "installedPackageFiles": 271,
+      "runtimeDependencies": ["cytoscape", "libpgQueryWasm", "mcpServer", "typescript", "zod"],
+      "bins": {
+        "apiIntel": "0.1.0-alpha.1",
+        "apiIntelMcp": "1.2.0",
+        "shims": ["api-intel", "api-intel-mcp"]
+      },
+      "initialization": {
+        "schemaVersion": "1.0.0",
+        "previewResult": "ready",
+        "writeResult": "written",
+        "existingConfigurationExitCode": 9,
+        "configuration": { "version": 4 },
+        "absoluteConsumerPathExposed": false,
+        "headlessGraphGenerated": true
+      },
+      "doctor": {
+        "schemaVersion": "1.0.0",
+        "result": "warning",
+        "repository": "<repository>",
+        "runtimeAssetsReady": true,
+        "nestDeclarationsResolved": true,
+        "absoluteConsumerPathExposed": false
+      },
+      "schemas": {
+        "configuration": "draft-2020-12",
+        "support": "api-intel source-free support diagnostic manifest",
+        "rootImport": "blocked",
+        "deepImport": "blocked"
+      },
+      "scan": {
+        "resultState": "completed",
+        "schemaVersion": "8.0.0",
+        "endpoints": 1,
+        "handler": "OrdersController.create",
+        "rawSql": {
+          "dialect": "postgresql-18",
+          "ruleId": "typeorm.raw-sql.select.read.v1",
+          "table": "order_record",
+          "direction": "READ"
+        },
+        "graph": {
+          "file": "api-intel-graph.html",
+          "bytes": 516757,
+          "externalScriptOrStylesheetReferences": 0,
+          "browserPreviewRequested": false
+        }
+      },
+      "mcp": {
+        "protocolVersion": "2025-11-25",
+        "tools": [
+          "compare_analyses",
+          "find_distributed_candidates",
+          "get_change_impact",
+          "get_endpoint_trace",
+          "get_policy_results",
+          "get_symbol_dependents",
+          "list_endpoints",
+          "resolve_symbol"
+        ]
+      },
+      "negatives": {
+        "missingDependency": {
+          "exitCode": 0,
+          "resultState": "completed_with_gaps",
+          "diagnosticCode": "TS_IMPORT_UNRESOLVED",
+          "stackTrace": false
+        },
+        "invalidTsconfig": {
+          "exitCode": 2,
+          "messageCategory": "TypeScript configuration could not be parsed",
+          "stackTrace": false
+        }
+      }
+    }
+  ]
+}

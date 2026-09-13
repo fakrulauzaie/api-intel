@@ -1,0 +1,39 @@
+{
+  "adapterVersion": "1.0.0",
+  "event": "pull_request",
+  "forbiddenEvent": "pull_request_target",
+  "permissions": {
+    "contents": "read",
+    "secrets": "none"
+  },
+  "limits": {
+    "annotations": 50,
+    "summaryBytes": 65536,
+    "inputBytes": 67108864
+  },
+  "processOutcomes": {
+    "success": 0,
+    "policy_violation": 8,
+    "analysis_failure": 6,
+    "invalid_input": 10,
+    "incompatible_baseline": 11,
+    "canceled": 130
+  },
+  "artifactFiles": [
+    "api-intel-graph.html",
+    "ci-evaluation.json",
+    "ci-evaluation.md",
+    "ci-scan-recipe.json",
+    "diff.json",
+    "github-annotations.jsonl",
+    "github-summary.md",
+    "impact.json",
+    "manifest.json",
+    "policy-results.json"
+  ],
+  "pinnedActions": {
+    "checkout": "de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+    "setupNode": "48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e",
+    "uploadArtifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+  }
+}

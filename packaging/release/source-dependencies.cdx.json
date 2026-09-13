@@ -1,0 +1,2302 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        { "type": "application", "name": "api-intel-release-candidate", "version": "0.1.0-alpha.1" }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:npm/%40fakrulauzaie/api-intel@0.1.0-alpha.1",
+      "group": "@fakrulauzaie",
+      "name": "api-intel",
+      "version": "0.1.0-alpha.1",
+      "purl": "pkg:npm/%40fakrulauzaie/api-intel@0.1.0-alpha.1",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }]
+    },
+    "properties": [
+      { "name": "api-intel:lockfile", "value": "pnpm-lock.yaml" },
+      {
+        "name": "api-intel:lockfile-sha256",
+        "value": "73322e1761fdc41ef5c53a35e113e992e8481e2d22a2763c08ca7b229c045bd3"
+      },
+      {
+        "name": "api-intel:scope",
+        "value": "source, build, and package-manager runtime dependencies; no OCI base/OS packages"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40babel/helper-string-parser@7.29.7",
+      "name": "@babel/helper-string-parser",
+      "version": "7.29.7",
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.29.7",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40babel/helper-validator-identifier@7.29.7",
+      "name": "@babel/helper-validator-identifier",
+      "version": "7.29.7",
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.29.7",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40babel/parser@7.29.8",
+      "name": "@babel/parser",
+      "version": "7.29.8",
+      "purl": "pkg:npm/%40babel/parser@7.29.8",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40babel/types@7.29.8",
+      "name": "@babel/types",
+      "version": "7.29.8",
+      "purl": "pkg:npm/%40babel/types@7.29.8",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40bcoe/v8-coverage@1.0.2",
+      "name": "@bcoe/v8-coverage",
+      "version": "1.0.2",
+      "purl": "pkg:npm/%40bcoe/v8-coverage@1.0.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40esbuild/win32-x64@0.28.2",
+      "name": "@esbuild/win32-x64",
+      "version": "0.28.2",
+      "purl": "pkg:npm/%40esbuild/win32-x64@0.28.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint-community/eslint-utils@4.10.1",
+      "name": "@eslint-community/eslint-utils",
+      "version": "4.10.1",
+      "purl": "pkg:npm/%40eslint-community/eslint-utils@4.10.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint-community/regexpp@4.12.2",
+      "name": "@eslint-community/regexpp",
+      "version": "4.12.2",
+      "purl": "pkg:npm/%40eslint-community/regexpp@4.12.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/config-array@0.21.2",
+      "name": "@eslint/config-array",
+      "version": "0.21.2",
+      "purl": "pkg:npm/%40eslint/config-array@0.21.2",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/config-helpers@0.4.2",
+      "name": "@eslint/config-helpers",
+      "version": "0.4.2",
+      "purl": "pkg:npm/%40eslint/config-helpers@0.4.2",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/core@0.17.0",
+      "name": "@eslint/core",
+      "version": "0.17.0",
+      "purl": "pkg:npm/%40eslint/core@0.17.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/eslintrc@3.3.6",
+      "name": "@eslint/eslintrc",
+      "version": "3.3.6",
+      "purl": "pkg:npm/%40eslint/eslintrc@3.3.6",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/js@9.39.1",
+      "name": "@eslint/js",
+      "version": "9.39.1",
+      "purl": "pkg:npm/%40eslint/js@9.39.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/object-schema@2.1.7",
+      "name": "@eslint/object-schema",
+      "version": "2.1.7",
+      "purl": "pkg:npm/%40eslint/object-schema@2.1.7",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40eslint/plugin-kit@0.4.1",
+      "name": "@eslint/plugin-kit",
+      "version": "0.4.1",
+      "purl": "pkg:npm/%40eslint/plugin-kit@0.4.1",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40humanfs/core@0.19.2",
+      "name": "@humanfs/core",
+      "version": "0.19.2",
+      "purl": "pkg:npm/%40humanfs/core@0.19.2",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40humanfs/node@0.16.8",
+      "name": "@humanfs/node",
+      "version": "0.16.8",
+      "purl": "pkg:npm/%40humanfs/node@0.16.8",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40humanfs/types@0.15.0",
+      "name": "@humanfs/types",
+      "version": "0.15.0",
+      "purl": "pkg:npm/%40humanfs/types@0.15.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40humanwhocodes/module-importer@1.0.1",
+      "name": "@humanwhocodes/module-importer",
+      "version": "1.0.1",
+      "purl": "pkg:npm/%40humanwhocodes/module-importer@1.0.1",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40humanwhocodes/retry@0.4.3",
+      "name": "@humanwhocodes/retry",
+      "version": "0.4.3",
+      "purl": "pkg:npm/%40humanwhocodes/retry@0.4.3",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
+      "name": "@jridgewell/resolve-uri",
+      "version": "3.1.2",
+      "purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.5.5",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40jridgewell/trace-mapping@0.3.31",
+      "name": "@jridgewell/trace-mapping",
+      "version": "0.3.31",
+      "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.31",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40modelcontextprotocol/core@2.0.0",
+      "name": "@modelcontextprotocol/core",
+      "version": "2.0.0",
+      "purl": "pkg:npm/%40modelcontextprotocol/core@2.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40modelcontextprotocol/server@2.0.0",
+      "name": "@modelcontextprotocol/server",
+      "version": "2.0.0",
+      "purl": "pkg:npm/%40modelcontextprotocol/server@2.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40nodelib/fs.scandir@2.1.5",
+      "name": "@nodelib/fs.scandir",
+      "version": "2.1.5",
+      "purl": "pkg:npm/%40nodelib/fs.scandir@2.1.5",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40nodelib/fs.stat@2.0.5",
+      "name": "@nodelib/fs.stat",
+      "version": "2.0.5",
+      "purl": "pkg:npm/%40nodelib/fs.stat@2.0.5",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40nodelib/fs.walk@1.2.8",
+      "name": "@nodelib/fs.walk",
+      "version": "1.2.8",
+      "purl": "pkg:npm/%40nodelib/fs.walk@1.2.8",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40pgsql/types@18.0.0",
+      "name": "@pgsql/types",
+      "version": "18.0.0",
+      "purl": "pkg:npm/%40pgsql/types@18.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40rollup/rollup-win32-x64-gnu@4.62.4",
+      "name": "@rollup/rollup-win32-x64-gnu",
+      "version": "4.62.4",
+      "purl": "pkg:npm/%40rollup/rollup-win32-x64-gnu@4.62.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40rollup/rollup-win32-x64-msvc@4.62.4",
+      "name": "@rollup/rollup-win32-x64-msvc",
+      "version": "4.62.4",
+      "purl": "pkg:npm/%40rollup/rollup-win32-x64-msvc@4.62.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40standard-schema/spec@1.1.0",
+      "name": "@standard-schema/spec",
+      "version": "1.1.0",
+      "purl": "pkg:npm/%40standard-schema/spec@1.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40types/chai@5.2.3",
+      "name": "@types/chai",
+      "version": "5.2.3",
+      "purl": "pkg:npm/%40types/chai@5.2.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40types/deep-eql@4.0.2",
+      "name": "@types/deep-eql",
+      "version": "4.0.2",
+      "purl": "pkg:npm/%40types/deep-eql@4.0.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40types/estree@1.0.9",
+      "name": "@types/estree",
+      "version": "1.0.9",
+      "purl": "pkg:npm/%40types/estree@1.0.9",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40types/json-schema@7.0.15",
+      "name": "@types/json-schema",
+      "version": "7.0.15",
+      "purl": "pkg:npm/%40types/json-schema@7.0.15",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40types/node@22.13.1",
+      "name": "@types/node",
+      "version": "22.13.1",
+      "purl": "pkg:npm/%40types/node@22.13.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/eslint-plugin@8.46.3",
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/eslint-plugin@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/parser@8.46.3",
+      "name": "@typescript-eslint/parser",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/parser@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/project-service@8.46.3",
+      "name": "@typescript-eslint/project-service",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/project-service@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/scope-manager@8.46.3",
+      "name": "@typescript-eslint/scope-manager",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/scope-manager@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/tsconfig-utils@8.46.3",
+      "name": "@typescript-eslint/tsconfig-utils",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/tsconfig-utils@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/type-utils@8.46.3",
+      "name": "@typescript-eslint/type-utils",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/type-utils@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/types@8.46.3",
+      "name": "@typescript-eslint/types",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/types@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/typescript-estree@8.46.3",
+      "name": "@typescript-eslint/typescript-estree",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/typescript-estree@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/utils@8.46.3",
+      "name": "@typescript-eslint/utils",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/utils@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40typescript-eslint/visitor-keys@8.46.3",
+      "name": "@typescript-eslint/visitor-keys",
+      "version": "8.46.3",
+      "purl": "pkg:npm/%40typescript-eslint/visitor-keys@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vercel/ncc@0.45.0",
+      "name": "@vercel/ncc",
+      "version": "0.45.0",
+      "purl": "pkg:npm/%40vercel/ncc@0.45.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/coverage-v8@4.1.11",
+      "name": "@vitest/coverage-v8",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/coverage-v8@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/expect@4.1.11",
+      "name": "@vitest/expect",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/expect@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/mocker@4.1.11",
+      "name": "@vitest/mocker",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/mocker@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/pretty-format@4.1.11",
+      "name": "@vitest/pretty-format",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/pretty-format@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/runner@4.1.11",
+      "name": "@vitest/runner",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/runner@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/snapshot@4.1.11",
+      "name": "@vitest/snapshot",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/snapshot@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/spy@4.1.11",
+      "name": "@vitest/spy",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/spy@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/%40vitest/utils@4.1.11",
+      "name": "@vitest/utils",
+      "version": "4.1.11",
+      "purl": "pkg:npm/%40vitest/utils@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/acorn@8.18.0",
+      "name": "acorn",
+      "version": "8.18.0",
+      "purl": "pkg:npm/acorn@8.18.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/acorn-jsx@5.3.2",
+      "name": "acorn-jsx",
+      "version": "5.3.2",
+      "purl": "pkg:npm/acorn-jsx@5.3.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ajv@6.15.0",
+      "name": "ajv",
+      "version": "6.15.0",
+      "purl": "pkg:npm/ajv@6.15.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ansi-styles@4.3.0",
+      "name": "ansi-styles",
+      "version": "4.3.0",
+      "purl": "pkg:npm/ansi-styles@4.3.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/argparse@2.0.1",
+      "name": "argparse",
+      "version": "2.0.1",
+      "purl": "pkg:npm/argparse@2.0.1",
+      "licenses": [{ "license": { "id": "Python-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/assertion-error@2.0.1",
+      "name": "assertion-error",
+      "version": "2.0.1",
+      "purl": "pkg:npm/assertion-error@2.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ast-v8-to-istanbul@1.0.6",
+      "name": "ast-v8-to-istanbul",
+      "version": "1.0.6",
+      "purl": "pkg:npm/ast-v8-to-istanbul@1.0.6",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/balanced-match@1.0.2",
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "purl": "pkg:npm/balanced-match@1.0.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/brace-expansion@1.1.18",
+      "name": "brace-expansion",
+      "version": "1.1.18",
+      "purl": "pkg:npm/brace-expansion@1.1.18",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/brace-expansion@2.1.4",
+      "name": "brace-expansion",
+      "version": "2.1.4",
+      "purl": "pkg:npm/brace-expansion@2.1.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/braces@3.0.3",
+      "name": "braces",
+      "version": "3.0.3",
+      "purl": "pkg:npm/braces@3.0.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/callsites@3.1.0",
+      "name": "callsites",
+      "version": "3.1.0",
+      "purl": "pkg:npm/callsites@3.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/chai@6.2.2",
+      "name": "chai",
+      "version": "6.2.2",
+      "purl": "pkg:npm/chai@6.2.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/chalk@4.1.2",
+      "name": "chalk",
+      "version": "4.1.2",
+      "purl": "pkg:npm/chalk@4.1.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-convert@2.0.1",
+      "name": "color-convert",
+      "version": "2.0.1",
+      "purl": "pkg:npm/color-convert@2.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/color-name@1.1.4",
+      "name": "color-name",
+      "version": "1.1.4",
+      "purl": "pkg:npm/color-name@1.1.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/concat-map@0.0.1",
+      "name": "concat-map",
+      "version": "0.0.1",
+      "purl": "pkg:npm/concat-map@0.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/convert-source-map@2.0.0",
+      "name": "convert-source-map",
+      "version": "2.0.0",
+      "purl": "pkg:npm/convert-source-map@2.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/cross-spawn@7.0.6",
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "purl": "pkg:npm/cross-spawn@7.0.6",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/cytoscape@3.34.0",
+      "name": "cytoscape",
+      "version": "3.34.0",
+      "purl": "pkg:npm/cytoscape@3.34.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/debug@4.4.3",
+      "name": "debug",
+      "version": "4.4.3",
+      "purl": "pkg:npm/debug@4.4.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/deep-is@0.1.4",
+      "name": "deep-is",
+      "version": "0.1.4",
+      "purl": "pkg:npm/deep-is@0.1.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/es-module-lexer@2.3.2",
+      "name": "es-module-lexer",
+      "version": "2.3.2",
+      "purl": "pkg:npm/es-module-lexer@2.3.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/esbuild@0.28.2",
+      "name": "esbuild",
+      "version": "0.28.2",
+      "purl": "pkg:npm/esbuild@0.28.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/escape-string-regexp@4.0.0",
+      "name": "escape-string-regexp",
+      "version": "4.0.0",
+      "purl": "pkg:npm/escape-string-regexp@4.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/eslint@9.39.1",
+      "name": "eslint",
+      "version": "9.39.1",
+      "purl": "pkg:npm/eslint@9.39.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/eslint-scope@8.4.0",
+      "name": "eslint-scope",
+      "version": "8.4.0",
+      "purl": "pkg:npm/eslint-scope@8.4.0",
+      "licenses": [{ "license": { "id": "BSD-2-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/eslint-visitor-keys@3.4.3",
+      "name": "eslint-visitor-keys",
+      "version": "3.4.3",
+      "purl": "pkg:npm/eslint-visitor-keys@3.4.3",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/eslint-visitor-keys@4.2.1",
+      "name": "eslint-visitor-keys",
+      "version": "4.2.1",
+      "purl": "pkg:npm/eslint-visitor-keys@4.2.1",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/espree@10.4.0",
+      "name": "espree",
+      "version": "10.4.0",
+      "purl": "pkg:npm/espree@10.4.0",
+      "licenses": [{ "license": { "id": "BSD-2-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/esquery@1.7.0",
+      "name": "esquery",
+      "version": "1.7.0",
+      "purl": "pkg:npm/esquery@1.7.0",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/esrecurse@4.3.0",
+      "name": "esrecurse",
+      "version": "4.3.0",
+      "purl": "pkg:npm/esrecurse@4.3.0",
+      "licenses": [{ "license": { "id": "BSD-2-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/estraverse@5.3.0",
+      "name": "estraverse",
+      "version": "5.3.0",
+      "purl": "pkg:npm/estraverse@5.3.0",
+      "licenses": [{ "license": { "id": "BSD-2-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/estree-walker@3.0.3",
+      "name": "estree-walker",
+      "version": "3.0.3",
+      "purl": "pkg:npm/estree-walker@3.0.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/esutils@2.0.3",
+      "name": "esutils",
+      "version": "2.0.3",
+      "purl": "pkg:npm/esutils@2.0.3",
+      "licenses": [{ "license": { "id": "BSD-2-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/expect-type@1.4.0",
+      "name": "expect-type",
+      "version": "1.4.0",
+      "purl": "pkg:npm/expect-type@1.4.0",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fast-deep-equal@3.1.3",
+      "name": "fast-deep-equal",
+      "version": "3.1.3",
+      "purl": "pkg:npm/fast-deep-equal@3.1.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fast-glob@3.3.3",
+      "name": "fast-glob",
+      "version": "3.3.3",
+      "purl": "pkg:npm/fast-glob@3.3.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fast-json-stable-stringify@2.1.0",
+      "name": "fast-json-stable-stringify",
+      "version": "2.1.0",
+      "purl": "pkg:npm/fast-json-stable-stringify@2.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fast-levenshtein@2.0.6",
+      "name": "fast-levenshtein",
+      "version": "2.0.6",
+      "purl": "pkg:npm/fast-levenshtein@2.0.6",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fastq@1.20.1",
+      "name": "fastq",
+      "version": "1.20.1",
+      "purl": "pkg:npm/fastq@1.20.1",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fdir@6.5.0",
+      "name": "fdir",
+      "version": "6.5.0",
+      "purl": "pkg:npm/fdir@6.5.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/file-entry-cache@8.0.0",
+      "name": "file-entry-cache",
+      "version": "8.0.0",
+      "purl": "pkg:npm/file-entry-cache@8.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/fill-range@7.1.1",
+      "name": "fill-range",
+      "version": "7.1.1",
+      "purl": "pkg:npm/fill-range@7.1.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/find-up@5.0.0",
+      "name": "find-up",
+      "version": "5.0.0",
+      "purl": "pkg:npm/find-up@5.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/flat-cache@4.0.1",
+      "name": "flat-cache",
+      "version": "4.0.1",
+      "purl": "pkg:npm/flat-cache@4.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/flatted@3.4.4",
+      "name": "flatted",
+      "version": "3.4.4",
+      "purl": "pkg:npm/flatted@3.4.4",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/glob-parent@5.1.2",
+      "name": "glob-parent",
+      "version": "5.1.2",
+      "purl": "pkg:npm/glob-parent@5.1.2",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/glob-parent@6.0.2",
+      "name": "glob-parent",
+      "version": "6.0.2",
+      "purl": "pkg:npm/glob-parent@6.0.2",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/globals@14.0.0",
+      "name": "globals",
+      "version": "14.0.0",
+      "purl": "pkg:npm/globals@14.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/globals@16.4.0",
+      "name": "globals",
+      "version": "16.4.0",
+      "purl": "pkg:npm/globals@16.4.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/graphemer@1.4.0",
+      "name": "graphemer",
+      "version": "1.4.0",
+      "purl": "pkg:npm/graphemer@1.4.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/has-flag@4.0.0",
+      "name": "has-flag",
+      "version": "4.0.0",
+      "purl": "pkg:npm/has-flag@4.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/html-escaper@2.0.2",
+      "name": "html-escaper",
+      "version": "2.0.2",
+      "purl": "pkg:npm/html-escaper@2.0.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ignore@5.3.2",
+      "name": "ignore",
+      "version": "5.3.2",
+      "purl": "pkg:npm/ignore@5.3.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ignore@7.0.6",
+      "name": "ignore",
+      "version": "7.0.6",
+      "purl": "pkg:npm/ignore@7.0.6",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/import-fresh@3.3.1",
+      "name": "import-fresh",
+      "version": "3.3.1",
+      "purl": "pkg:npm/import-fresh@3.3.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/imurmurhash@0.1.4",
+      "name": "imurmurhash",
+      "version": "0.1.4",
+      "purl": "pkg:npm/imurmurhash@0.1.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-extglob@2.1.1",
+      "name": "is-extglob",
+      "version": "2.1.1",
+      "purl": "pkg:npm/is-extglob@2.1.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-glob@4.0.3",
+      "name": "is-glob",
+      "version": "4.0.3",
+      "purl": "pkg:npm/is-glob@4.0.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/is-number@7.0.0",
+      "name": "is-number",
+      "version": "7.0.0",
+      "purl": "pkg:npm/is-number@7.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/isexe@2.0.0",
+      "name": "isexe",
+      "version": "2.0.0",
+      "purl": "pkg:npm/isexe@2.0.0",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/istanbul-lib-coverage@3.2.2",
+      "name": "istanbul-lib-coverage",
+      "version": "3.2.2",
+      "purl": "pkg:npm/istanbul-lib-coverage@3.2.2",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/istanbul-lib-report@3.0.1",
+      "name": "istanbul-lib-report",
+      "version": "3.0.1",
+      "purl": "pkg:npm/istanbul-lib-report@3.0.1",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/istanbul-reports@3.2.0",
+      "name": "istanbul-reports",
+      "version": "3.2.0",
+      "purl": "pkg:npm/istanbul-reports@3.2.0",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/js-tokens@10.0.0",
+      "name": "js-tokens",
+      "version": "10.0.0",
+      "purl": "pkg:npm/js-tokens@10.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/js-yaml@4.3.2",
+      "name": "js-yaml",
+      "version": "4.3.2",
+      "purl": "pkg:npm/js-yaml@4.3.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/json-buffer@3.0.1",
+      "name": "json-buffer",
+      "version": "3.0.1",
+      "purl": "pkg:npm/json-buffer@3.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/json-schema-traverse@0.4.1",
+      "name": "json-schema-traverse",
+      "version": "0.4.1",
+      "purl": "pkg:npm/json-schema-traverse@0.4.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/json-stable-stringify-without-jsonify@1.0.1",
+      "name": "json-stable-stringify-without-jsonify",
+      "version": "1.0.1",
+      "purl": "pkg:npm/json-stable-stringify-without-jsonify@1.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/keyv@4.5.4",
+      "name": "keyv",
+      "version": "4.5.4",
+      "purl": "pkg:npm/keyv@4.5.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/levn@0.4.1",
+      "name": "levn",
+      "version": "0.4.1",
+      "purl": "pkg:npm/levn@0.4.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/libpg-query@18.1.2",
+      "name": "libpg-query",
+      "version": "18.1.2",
+      "purl": "pkg:npm/libpg-query@18.1.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/locate-path@6.0.0",
+      "name": "locate-path",
+      "version": "6.0.0",
+      "purl": "pkg:npm/locate-path@6.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/lodash.merge@4.6.2",
+      "name": "lodash.merge",
+      "version": "4.6.2",
+      "purl": "pkg:npm/lodash.merge@4.6.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/magic-string@0.30.21",
+      "name": "magic-string",
+      "version": "0.30.21",
+      "purl": "pkg:npm/magic-string@0.30.21",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/magicast@0.5.4",
+      "name": "magicast",
+      "version": "0.5.4",
+      "purl": "pkg:npm/magicast@0.5.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/make-dir@4.0.0",
+      "name": "make-dir",
+      "version": "4.0.0",
+      "purl": "pkg:npm/make-dir@4.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/merge2@1.4.1",
+      "name": "merge2",
+      "version": "1.4.1",
+      "purl": "pkg:npm/merge2@1.4.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/micromatch@4.0.8",
+      "name": "micromatch",
+      "version": "4.0.8",
+      "purl": "pkg:npm/micromatch@4.0.8",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/minimatch@3.1.5",
+      "name": "minimatch",
+      "version": "3.1.5",
+      "purl": "pkg:npm/minimatch@3.1.5",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/minimatch@9.0.9",
+      "name": "minimatch",
+      "version": "9.0.9",
+      "purl": "pkg:npm/minimatch@9.0.9",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ms@2.1.3",
+      "name": "ms",
+      "version": "2.1.3",
+      "purl": "pkg:npm/ms@2.1.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/nanoid@3.3.18",
+      "name": "nanoid",
+      "version": "3.3.18",
+      "purl": "pkg:npm/nanoid@3.3.18",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/natural-compare@1.4.0",
+      "name": "natural-compare",
+      "version": "1.4.0",
+      "purl": "pkg:npm/natural-compare@1.4.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/obug@2.2.1",
+      "name": "obug",
+      "version": "2.2.1",
+      "purl": "pkg:npm/obug@2.2.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/optionator@0.9.4",
+      "name": "optionator",
+      "version": "0.9.4",
+      "purl": "pkg:npm/optionator@0.9.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/p-limit@3.1.0",
+      "name": "p-limit",
+      "version": "3.1.0",
+      "purl": "pkg:npm/p-limit@3.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/p-locate@5.0.0",
+      "name": "p-locate",
+      "version": "5.0.0",
+      "purl": "pkg:npm/p-locate@5.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/parent-module@1.0.1",
+      "name": "parent-module",
+      "version": "1.0.1",
+      "purl": "pkg:npm/parent-module@1.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/path-exists@4.0.0",
+      "name": "path-exists",
+      "version": "4.0.0",
+      "purl": "pkg:npm/path-exists@4.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/path-key@3.1.1",
+      "name": "path-key",
+      "version": "3.1.1",
+      "purl": "pkg:npm/path-key@3.1.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/pathe@2.0.3",
+      "name": "pathe",
+      "version": "2.0.3",
+      "purl": "pkg:npm/pathe@2.0.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/picocolors@1.1.1",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/picomatch@2.3.2",
+      "name": "picomatch",
+      "version": "2.3.2",
+      "purl": "pkg:npm/picomatch@2.3.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/picomatch@4.0.5",
+      "name": "picomatch",
+      "version": "4.0.5",
+      "purl": "pkg:npm/picomatch@4.0.5",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/postcss@8.5.26",
+      "name": "postcss",
+      "version": "8.5.26",
+      "purl": "pkg:npm/postcss@8.5.26",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/prelude-ls@1.2.1",
+      "name": "prelude-ls",
+      "version": "1.2.1",
+      "purl": "pkg:npm/prelude-ls@1.2.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/prettier@3.6.2",
+      "name": "prettier",
+      "version": "3.6.2",
+      "purl": "pkg:npm/prettier@3.6.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/punycode@2.3.1",
+      "name": "punycode",
+      "version": "2.3.1",
+      "purl": "pkg:npm/punycode@2.3.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/queue-microtask@1.2.3",
+      "name": "queue-microtask",
+      "version": "1.2.3",
+      "purl": "pkg:npm/queue-microtask@1.2.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/resolve-from@4.0.0",
+      "name": "resolve-from",
+      "version": "4.0.0",
+      "purl": "pkg:npm/resolve-from@4.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/reusify@1.1.0",
+      "name": "reusify",
+      "version": "1.1.0",
+      "purl": "pkg:npm/reusify@1.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/rollup@4.62.4",
+      "name": "rollup",
+      "version": "4.62.4",
+      "purl": "pkg:npm/rollup@4.62.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/run-parallel@1.2.0",
+      "name": "run-parallel",
+      "version": "1.2.0",
+      "purl": "pkg:npm/run-parallel@1.2.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/semver@7.8.5",
+      "name": "semver",
+      "version": "7.8.5",
+      "purl": "pkg:npm/semver@7.8.5",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/shebang-command@2.0.0",
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "purl": "pkg:npm/shebang-command@2.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/shebang-regex@3.0.0",
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "purl": "pkg:npm/shebang-regex@3.0.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/siginfo@2.0.0",
+      "name": "siginfo",
+      "version": "2.0.0",
+      "purl": "pkg:npm/siginfo@2.0.0",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/source-map-js@1.2.1",
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "purl": "pkg:npm/source-map-js@1.2.1",
+      "licenses": [{ "license": { "id": "BSD-3-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/stackback@0.0.2",
+      "name": "stackback",
+      "version": "0.0.2",
+      "purl": "pkg:npm/stackback@0.0.2",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/std-env@4.2.0",
+      "name": "std-env",
+      "version": "4.2.0",
+      "purl": "pkg:npm/std-env@4.2.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/strip-json-comments@3.1.1",
+      "name": "strip-json-comments",
+      "version": "3.1.1",
+      "purl": "pkg:npm/strip-json-comments@3.1.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/supports-color@7.2.0",
+      "name": "supports-color",
+      "version": "7.2.0",
+      "purl": "pkg:npm/supports-color@7.2.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tinybench@2.9.0",
+      "name": "tinybench",
+      "version": "2.9.0",
+      "purl": "pkg:npm/tinybench@2.9.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tinyexec@1.3.1",
+      "name": "tinyexec",
+      "version": "1.3.1",
+      "purl": "pkg:npm/tinyexec@1.3.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tinyglobby@0.2.17",
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "purl": "pkg:npm/tinyglobby@0.2.17",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/tinyrainbow@3.1.1",
+      "name": "tinyrainbow",
+      "version": "3.1.1",
+      "purl": "pkg:npm/tinyrainbow@3.1.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/to-regex-range@5.0.1",
+      "name": "to-regex-range",
+      "version": "5.0.1",
+      "purl": "pkg:npm/to-regex-range@5.0.1",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/ts-api-utils@2.5.0",
+      "name": "ts-api-utils",
+      "version": "2.5.0",
+      "purl": "pkg:npm/ts-api-utils@2.5.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/type-check@0.4.0",
+      "name": "type-check",
+      "version": "0.4.0",
+      "purl": "pkg:npm/type-check@0.4.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/typescript@5.9.3",
+      "name": "typescript",
+      "version": "5.9.3",
+      "purl": "pkg:npm/typescript@5.9.3",
+      "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/typescript-eslint@8.46.3",
+      "name": "typescript-eslint",
+      "version": "8.46.3",
+      "purl": "pkg:npm/typescript-eslint@8.46.3",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/undici-types@6.20.0",
+      "name": "undici-types",
+      "version": "6.20.0",
+      "purl": "pkg:npm/undici-types@6.20.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/uri-js@4.4.1",
+      "name": "uri-js",
+      "version": "4.4.1",
+      "purl": "pkg:npm/uri-js@4.4.1",
+      "licenses": [{ "license": { "id": "BSD-2-Clause" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/vite@7.3.6",
+      "name": "vite",
+      "version": "7.3.6",
+      "purl": "pkg:npm/vite@7.3.6",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/vitest@4.1.11",
+      "name": "vitest",
+      "version": "4.1.11",
+      "purl": "pkg:npm/vitest@4.1.11",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/which@2.0.2",
+      "name": "which",
+      "version": "2.0.2",
+      "purl": "pkg:npm/which@2.0.2",
+      "licenses": [{ "license": { "id": "ISC" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/why-is-node-running@2.3.0",
+      "name": "why-is-node-running",
+      "version": "2.3.0",
+      "purl": "pkg:npm/why-is-node-running@2.3.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/word-wrap@1.2.5",
+      "name": "word-wrap",
+      "version": "1.2.5",
+      "purl": "pkg:npm/word-wrap@1.2.5",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/yocto-queue@0.1.0",
+      "name": "yocto-queue",
+      "version": "0.1.0",
+      "purl": "pkg:npm/yocto-queue@0.1.0",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "development" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/zod@4.1.5",
+      "name": "zod",
+      "version": "4.1.5",
+      "purl": "pkg:npm/zod@4.1.5",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "true" }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/zod@4.5.4",
+      "name": "zod",
+      "version": "4.5.4",
+      "purl": "pkg:npm/zod@4.5.4",
+      "licenses": [{ "license": { "id": "MIT" } }],
+      "properties": [
+        { "name": "api-intel:dependency-scope", "value": "production" },
+        { "name": "api-intel:direct-dependency", "value": "false" }
+      ]
+    }
+  ]
+}

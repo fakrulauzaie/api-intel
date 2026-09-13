@@ -1,0 +1,5 @@
+{
+  "name": "@nestjs/common",
+  "version": "11.2.1-clean-room-stub",
+  "types": "index.d.ts"
+}

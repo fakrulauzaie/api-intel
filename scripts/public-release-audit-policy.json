@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.1.0",
+  "sensitiveTextFingerprints": [
+    {
+      "id": "legacy_repository_marker_01",
+      "length": 22,
+      "sha256": "50d268b13f3cd211051ea11a277c1820dbaaabd6170007027a753210b73ebcbf"
+    },
+    {
+      "id": "legacy_repository_marker_02",
+      "length": 25,
+      "sha256": "9e2eca29e946f46b18edee0155219e53358dace58a6359f5ae8a0b205840ed4d"
+    },
+    {
+      "id": "legacy_interaction_marker_01",
+      "length": 19,
+      "sha256": "a526a519e282e354c056b4cf49915a6ff4b06c876d98d31906a5fc3af0a9bc22"
+    },
+    {
+      "id": "legacy_resource_marker_01",
+      "length": 14,
+      "sha256": "0bf8caefaef96b937df6cec1f8049f2c6637d6f904dae2b41d8dc935a29d4967"
+    },
+    {
+      "id": "legacy_resource_marker_02",
+      "length": 8,
+      "sha256": "3138dac5da317e9774cc421a5d3ec76b9b7f49c294ea45913ae28c051f5ce615"
+    },
+    {
+      "id": "legacy_service_marker_01",
+      "length": 14,
+      "sha256": "62936fe0cfaca1822c8bdb9f0f3ea94e8db7800cd93fdefe2af95d375e665e35"
+    },
+    {
+      "id": "legacy_service_marker_02",
+      "length": 17,
+      "sha256": "e7d4232946aebf7c94845c3d12fbb8019200ea2bcc8b3fff8a545a7295b44ad2"
+    },
+    {
+      "id": "legacy_broker_marker_01",
+      "length": 7,
+      "sha256": "87355ac64e482f573d8d1b304dda2b462c5c482153881024e5687e8f45491073"
+    },
+    {
+      "id": "legacy_system_marker_01",
+      "length": 17,
+      "sha256": "50f1d15b82dbab07d53021230f93857b455e404c6bad0a913d52294b876a6be2"
+    },
+    {
+      "id": "legacy_domain_marker_01",
+      "length": 10,
+      "sha256": "154c961741125b0b622848d60b9d85ad996e36a5910caab63c257a9fc17731c8"
+    },
+    {
+      "id": "legacy_domain_marker_02",
+      "length": 10,
+      "sha256": "b17bc12e44343a7da5707935decba87e7afd75374e472c138f404cea5dfe275a"
+    },
+    {
+      "id": "legacy_domain_marker_03",
+      "length": 13,
+      "sha256": "33206ab5a7866e8966a43cf16cf8f7c799fe8c36c8fea7c9d86048eab03527d3"
+    },
+    {
+      "id": "legacy_domain_marker_04",
+      "length": 13,
+      "sha256": "c148e7798d40c4842d619233f97cdc803271dc0554556d6d4ea018f5fdedbcc2"
+    },
+    {
+      "id": "legacy_domain_marker_05",
+      "length": 3,
+      "sha256": "d5ecefe8bcc60dcbb64fa6dfb4f5630c7be57dcfa4615b39a98d9c364ccc4056"
+    },
+    {
+      "id": "legacy_domain_marker_06",
+      "length": 3,
+      "sha256": "d4cc2e3bab6ba157a09621b34030c6ace6437a26885659fd3bc3ddc8fa988c91"
+    },
+    {
+      "id": "legacy_domain_marker_07",
+      "length": 22,
+      "sha256": "1cbdedc97c80b7bd781e85e23130bd4db2f0d580acfcb81b931cd6940567400a"
+    },
+    {
+      "id": "legacy_job_marker_01",
+      "length": 17,
+      "sha256": "a1b1495f5efb81bc8d30de341ee2df5f5612ce5a32274e2951c84df1ea66c1d4"
+    },
+    {
+      "id": "legacy_job_marker_02",
+      "length": 19,
+      "sha256": "cf9bb27d27787c5e9b0aa1e2885c8ff6e05413a681f237add59ed40ef4bf9347"
+    },
+    {
+      "id": "legacy_job_marker_03",
+      "length": 21,
+      "sha256": "4acfadc59b9b491392ffc30066c49c7789abf7b55ea588242d6a7a2f6f82158b"
+    },
+    {
+      "id": "legacy_job_marker_04",
+      "length": 21,
+      "sha256": "15eb907f6394ea7e757ede2a0a5b5056755ad9cfdd89b65672c3b4d12d803dd4"
+    },
+    {
+      "id": "legacy_job_marker_05",
+      "length": 19,
+      "sha256": "25738e71f0ce31fa7a192cc60a333dba0c67cb5989eebec651b871d994d10d4c"
+    }
+  ],
+  "syntheticAllowlist": {
+    "private_key_block": ["test/unit/evidence/locations-and-snippets.test.ts"],
+    "url_userinfo": [
+      "test/fixtures/interactions/outbound-http.ts.txt",
+      "test/unit/ci-comment/contracts.test.ts",
+      "test/unit/evidence/locations-and-snippets.test.ts"
+    ],
+    "personal_absolute_path": [
+      "action-dist/**",
+      "gitlab-dist/**",
+      "test/unit/github-action/runner.test.ts"
+    ]
+  },
+  "historyPublicationStrategy": {
+    "status": "selected",
+    "strategy": "sanitized_new_public_repository_without_legacy_history",
+    "selectedAt": "2026-09-10",
+    "includeLegacyHistory": false,
+    "rewriteLegacyHistory": false
+  },
+  "ownershipPublicationAttestation": {
+    "status": "recorded",
+    "recordedAt": "2026-09-10",
+    "projectOwnedSourceAuthorized": true,
+    "organizationTestingPermissionDoesNotGrantRedistribution": true,
+    "organizationDerivedPublicMaterialAllowed": false,
+    "legacyHistoryIncluded": false,
+    "thirdPartyObligationsRemainApplicable": true,
+    "externalMutationAuthorized": false
+  }
+}

@@ -1,0 +1,115 @@
+spec:
+  inputs:
+    job-name:
+      description: Unique name for the API Intelligence merge-request job.
+      default: api-intel
+    stage:
+      description: Existing pipeline stage in which the job runs.
+      default: test
+    image:
+      description: API Intelligence OCI image pinned by sha256 digest.
+      regex: ^.+@sha256:[a-f0-9]{64}$
+    entrypoint:
+      description: Absolute bundled adapter entrypoint inside the pinned image.
+      default: /opt/api-intel/gitlab-dist/index.js
+    configuration:
+      description: Baseline-checkout-relative trusted api-intel configuration path.
+      default: api-intel.config.json
+    baseline-package-manager:
+      description: Baseline package manager.
+      default: pnpm
+      options:
+        - pnpm
+        - npm
+    baseline-package-manager-version:
+      description: Exact baseline package-manager version in the OCI image.
+      default: 11.19.0
+    baseline-lockfile:
+      description: Baseline-checkout-relative immutable lockfile path.
+      default: pnpm-lock.yaml
+    candidate-package-manager:
+      description: Candidate package manager.
+      default: pnpm
+      options:
+        - pnpm
+        - npm
+    candidate-package-manager-version:
+      description: Exact candidate package-manager version in the OCI image.
+      default: 11.19.0
+    candidate-lockfile:
+      description: Candidate-checkout-relative immutable lockfile path.
+      default: pnpm-lock.yaml
+    max-findings:
+      description: Maximum candidate file/line findings in the Code Quality report.
+      type: number
+      default: 500
+    artifact-expire-in:
+      description: Retention period for canonical and GitLab-native report artifacts.
+      default: 1 week
+---
+'$[[ inputs.job-name ]]':
+  stage: $[[ inputs.stage ]]
+  image: $[[ inputs.image ]]
+  timeout: 30 minutes
+  interruptible: true
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - when: never
+  variables:
+    GIT_DEPTH: '0'
+    GIT_STRATEGY: clone
+    GIT_SUBMODULE_STRATEGY: none
+    API_INTEL_ENTRYPOINT: $[[ inputs.entrypoint ]]
+    API_INTEL_CONFIGURATION: $[[ inputs.configuration ]]
+    API_INTEL_BASELINE_PACKAGE_MANAGER: $[[ inputs.baseline-package-manager ]]
+    API_INTEL_BASELINE_PACKAGE_MANAGER_VERSION: $[[ inputs.baseline-package-manager-version ]]
+    API_INTEL_BASELINE_LOCKFILE: $[[ inputs.baseline-lockfile ]]
+    API_INTEL_CANDIDATE_PACKAGE_MANAGER: $[[ inputs.candidate-package-manager ]]
+    API_INTEL_CANDIDATE_PACKAGE_MANAGER_VERSION: $[[ inputs.candidate-package-manager-version ]]
+    API_INTEL_CANDIDATE_LOCKFILE: $[[ inputs.candidate-lockfile ]]
+    API_INTEL_MAX_FINDINGS: '$[[ inputs.max-findings ]]'
+  script:
+    - |
+      set -eu
+      if [ "$CI_PIPELINE_SOURCE" != "merge_request_event" ]; then
+        echo "api-intel requires a merge_request_event pipeline" >&2
+        exit 10
+      fi
+      if [ -z "${CI_MERGE_REQUEST_DIFF_BASE_SHA:-}" ] || [ -z "${CI_COMMIT_SHA:-}" ]; then
+        echo "api-intel requires exact GitLab diff-base and candidate SHAs" >&2
+        exit 10
+      fi
+      API_INTEL_WORKSPACE="$CI_BUILDS_DIR/.api-intel-$CI_JOB_ID"
+      if [ -e "$API_INTEL_WORKSPACE" ]; then
+        echo "api-intel isolated workspace already exists" >&2
+        exit 10
+      fi
+      mkdir -p "$API_INTEL_WORKSPACE"
+      git -C "$CI_PROJECT_DIR" cat-file -e "$CI_MERGE_REQUEST_DIFF_BASE_SHA^{commit}"
+      git -C "$CI_PROJECT_DIR" cat-file -e "$CI_COMMIT_SHA^{commit}"
+      git -C "$CI_PROJECT_DIR" worktree add --detach "$API_INTEL_WORKSPACE/baseline" "$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+      git -C "$CI_PROJECT_DIR" worktree add --detach "$API_INTEL_WORKSPACE/candidate" "$CI_COMMIT_SHA"
+      export INPUT_WORKSPACE="$API_INTEL_WORKSPACE"
+      export INPUT_PROJECT_DIRECTORY="$CI_PROJECT_DIR"
+      export INPUT_PUBLICATION_DIRECTORY=".api-intel-gitlab"
+      export INPUT_BASELINE_DIRECTORY="baseline"
+      export INPUT_BASELINE_REVISION="$CI_MERGE_REQUEST_DIFF_BASE_SHA"
+      export INPUT_CANDIDATE_DIRECTORY="candidate"
+      export INPUT_CANDIDATE_REVISION="$CI_COMMIT_SHA"
+      export INPUT_CONFIGURATION="baseline/$API_INTEL_CONFIGURATION"
+      export INPUT_OUTPUT_DIRECTORY="results"
+      export INPUT_BASELINE_PACKAGE_MANAGER="$API_INTEL_BASELINE_PACKAGE_MANAGER"
+      export INPUT_BASELINE_PACKAGE_MANAGER_VERSION="$API_INTEL_BASELINE_PACKAGE_MANAGER_VERSION"
+      export INPUT_BASELINE_LOCKFILE="$API_INTEL_BASELINE_LOCKFILE"
+      export INPUT_CANDIDATE_PACKAGE_MANAGER="$API_INTEL_CANDIDATE_PACKAGE_MANAGER"
+      export INPUT_CANDIDATE_PACKAGE_MANAGER_VERSION="$API_INTEL_CANDIDATE_PACKAGE_MANAGER_VERSION"
+      export INPUT_CANDIDATE_LOCKFILE="$API_INTEL_CANDIDATE_LOCKFILE"
+      export INPUT_MAX_FINDINGS="$API_INTEL_MAX_FINDINGS"
+      node "$API_INTEL_ENTRYPOINT"
+  artifacts:
+    when: always
+    expire_in: $[[ inputs.artifact-expire-in ]]
+    paths:
+      - .api-intel-gitlab/
+    reports:
+      codequality: .api-intel-gitlab/gl-code-quality-report.json

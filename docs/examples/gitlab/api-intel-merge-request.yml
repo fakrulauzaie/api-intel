@@ -1,0 +1,23 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - when: never
+
+stages:
+  - test
+
+include:
+  # Replace OWNER/PROJECT and COMPONENT_COMMIT_SHA. Mirror the component project on
+  # self-managed GitLab and keep an exact full commit SHA here.
+  - component: $CI_SERVER_FQDN/OWNER/PROJECT/api-intel@COMPONENT_COMMIT_SHA
+    inputs:
+      stage: test
+      # Replace this with the published API Intelligence image manifest digest.
+      image: $CI_REGISTRY/OWNER/PROJECT/api-intel@sha256:IMAGE_MANIFEST_DIGEST
+      configuration: api-intel.config.json
+      baseline-package-manager: pnpm
+      baseline-package-manager-version: 11.19.0
+      baseline-lockfile: pnpm-lock.yaml
+      candidate-package-manager: pnpm
+      candidate-package-manager-version: 11.19.0
+      candidate-lockfile: pnpm-lock.yaml

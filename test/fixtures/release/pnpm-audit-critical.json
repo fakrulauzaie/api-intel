@@ -1,0 +1,31 @@
+{
+  "advisories": {
+    "1000001": {
+      "findings": [
+        {
+          "version": "1.0.0",
+          "paths": [".>synthetic-vulnerable-package"],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 1000001,
+      "title": "Synthetic critical advisory used only for the release-gate negative contract",
+      "module_name": "synthetic-vulnerable-package",
+      "vulnerable_versions": "<2.0.0",
+      "patched_versions": ">=2.0.0",
+      "severity": "critical",
+      "cwe": "CWE-000",
+      "github_advisory_id": "GHSA-0000-0000-0000",
+      "url": "https://example.invalid/advisories/GHSA-0000-0000-0000"
+    }
+  },
+  "metadata": {
+    "vulnerabilities": { "info": 0, "low": 0, "moderate": 0, "high": 0, "critical": 1 },
+    "dependencies": 0,
+    "devDependencies": 1,
+    "optionalDependencies": 0,
+    "totalDependencies": 1
+  }
+}

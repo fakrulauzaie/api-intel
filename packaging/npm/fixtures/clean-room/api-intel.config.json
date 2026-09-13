@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/@fakrulauzaie/api-intel/schemas/api-intel.config.schema.json",
+  "version": 4,
+  "analysis": {
+    "maxCallDepth": 3,
+    "rawSqlDialect": "postgresql-18"
+  },
+  "output": {
+    "directory": ".api-intel"
+  },
+  "reports": {
+    "graph": {
+      "enabled": true,
+      "maxNodesPerEndpoint": 120,
+      "maxEdgesPerEndpoint": 180
+    }
+  }
+}

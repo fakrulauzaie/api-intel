@@ -1,0 +1,5 @@
+{
+  "name": "typeorm",
+  "version": "0.3.26-clean-room-stub",
+  "types": "index.d.ts"
+}

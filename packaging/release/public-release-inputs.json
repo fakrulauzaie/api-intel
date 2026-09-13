@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": { "name": "@fakrulauzaie/api-intel", "version": "0.1.0-alpha.1" },
+  "source": {
+    "revisionResolution": "release_dry_run_runtime",
+    "treeFingerprintResolution": "release_dry_run_runtime",
+    "cleanTreeRequiredForPublication": true,
+    "expectedTag": "v0.1.0-alpha.1"
+  },
+  "toolchain": {
+    "declaredNodeRange": ">=22.13 <25",
+    "sourceCiNodeVersions": ["22.13.1", "24.20.0"],
+    "packageManager": "pnpm@11.19.0",
+    "npmCli": "10.9.2",
+    "ncc": "0.45.0",
+    "typescript": "5.9.3"
+  },
+  "evidence": [
+    {
+      "path": "package.json",
+      "bytes": 4889,
+      "sha256": "0fcc7889271a22bbf27902ff36e326bfbe2704c9fb0c1da5f2a2deb2919bf291"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "bytes": 57,
+      "sha256": "88800fe0bc1d524bb3775296c7925e83fe8e0f778db1f2fe74f07912682bf87f"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 77600,
+      "sha256": "73322e1761fdc41ef5c53a35e113e992e8481e2d22a2763c08ca7b229c045bd3"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 3662,
+      "sha256": "3477bddb24485ff632a6d1f5880a99db649961872d38966201b0d3e34da86e4f"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3212,
+      "sha256": "dc0f7c97f415f1195726b93ef45c18c3b2816ca7498076688c741b27ab271928"
+    },
+    {
+      "path": "docs/legal/dependency-license-inventory.json",
+      "bytes": 73975,
+      "sha256": "455f21afecf2505bf997b0ddfc26f3d538e0f8ec8cd59c43e791e5107416b434"
+    },
+    {
+      "path": "docs/legal/redistribution-audit.md",
+      "bytes": 6431,
+      "sha256": "43370302f7b0138284960db6cd2b4528fcb2deab6301d1497deafc22f6663a22"
+    },
+    {
+      "path": "packaging/npm/distribution-contract.json",
+      "bytes": 2151,
+      "sha256": "2199c90f49a227cb093e8f72d7ecd36569759f96a99acbfab42bb4ee9d14d4bd"
+    },
+    {
+      "path": "packaging/npm/package-contents.json",
+      "bytes": 55165,
+      "sha256": "5196d472dc05ff5daab0258cd1a951918e1be2958094ad291d0affb5f270bf41"
+    },
+    {
+      "path": "packaging/npm/public-package-contents.json",
+      "bytes": 55165,
+      "sha256": "f805b6a671c49f260c5e1fce273fc1c9551297b164f87dcfa996f0549ddaeea4"
+    },
+    {
+      "path": "packaging/npm/runtime-contract.json",
+      "bytes": 2027,
+      "sha256": "4cfcc878399ce62e96751969270e631cb6f66ad397b253f61a4e4ae400abbd82"
+    },
+    {
+      "path": "packaging/npm/clean-room-contract.json",
+      "bytes": 1447,
+      "sha256": "38a3730409fef5807b8b32a126e16ce0b665023dd7413d2622bdf1d152993549"
+    },
+    {
+      "path": "packaging/npm/clean-room-install-report.json",
+      "bytes": 7202,
+      "sha256": "ea1acba5c351311f43fc9d0092b08b889109b2b70ffc32b853075bea20cca0a9"
+    },
+    {
+      "path": "packaging/release/provider-artifact-contract.json",
+      "bytes": 2125,
+      "sha256": "eded86b033767105235a9631a6e82c06855e77bbba1413095c5f722690239400"
+    },
+    {
+      "path": "packaging/release/reproducible-artifacts.json",
+      "bytes": 7696,
+      "sha256": "fccd36363aef66df21bf7b9f456df1b27c4aa22405794fb32ce9006d222b90bf"
+    },
+    {
+      "path": "packaging/release/release-integrity-policy.json",
+      "bytes": 2445,
+      "sha256": "b1b4ca274ddf1fe9aafe5c336a8889a6e85dd87cc38e6aa832788b767af63c69"
+    },
+    {
+      "path": "packaging/release/public-alpha-candidate-contract.json",
+      "bytes": 2972,
+      "sha256": "dc0621f075f1dd4873d5884a09c4633a6bf2ffc177d0bccbf9ffd3135dfed4a5"
+    },
+    {
+      "path": "packaging/release/vulnerability-exceptions.json",
+      "bytes": 51,
+      "sha256": "bb1feb7773d8da6ffa6edb94dff32bdc6fe09dc50eb378a76335d9a56fdc4ec3"
+    },
+    {
+      "path": "packaging/release/dependency-vulnerability-report.json",
+      "bytes": 979,
+      "sha256": "97e7b5ebbe922db3ea92bb598c2191108f837c3676fad70046fb6954158efb6f"
+    },
+    {
+      "path": "packaging/release/source-dependencies.cdx.json",
+      "bytes": 79642,
+      "sha256": "794a60269deff02851a048b1208cf19e3889722276c1fbfdf0bb533ea60096fb"
+    },
+    {
+      "path": "scripts/audit-dependencies.mjs",
+      "bytes": 15617,
+      "sha256": "da33e4970e5bfe1f253d03825ba252444b267201da79cfd031c315f111ff2f23"
+    },
+    {
+      "path": "scripts/audit-third-party-licenses.mjs",
+      "bytes": 8816,
+      "sha256": "6ff75a2879e308f4ba6f6a4f585cbb82b6a89b198c2e423516aeb7f7cbc60b76"
+    },
+    {
+      "path": "scripts/verify-npm-package.mjs",
+      "bytes": 13476,
+      "sha256": "df2428d613f6c848e30802efb7822d98a2083524d3bdd50e33cda4e55ae99e71"
+    },
+    {
+      "path": "scripts/verify-provider-artifacts.mjs",
+      "bytes": 11074,
+      "sha256": "cad896d74b70e3b2604bbf905dc4d76b84f788d0657919111ce82c71b5cf5491"
+    },
+    {
+      "path": "scripts/release-candidate.mjs",
+      "bytes": 12083,
+      "sha256": "1039d27316a2021849b102536e9aab7872af735f839787e253b2e06c9707a76e"
+    },
+    {
+      "path": "scripts/release-dry-run.mjs",
+      "bytes": 13803,
+      "sha256": "c408947feda38f43a2b85145daec09ffd0bfecfb53fff61c9c16e76f43556b59"
+    },
+    {
+      "path": "scripts/stage-public-alpha-candidate.mjs",
+      "bytes": 21010,
+      "sha256": "871b670b5fb4f5ddfbe058ae3f5a26adb31b49631e5abe58fb103a848b1d5f0e"
+    },
+    {
+      "path": "docs/alpha-release-candidate.md",
+      "bytes": 2360,
+      "sha256": "da0f8b9e92eb0d5b8bb61b23289cd9db224ac6b772b47f47300ee2023ce7a112"
+    },
+    {
+      "path": "docs/releases/0.1.0-alpha.1.md",
+      "bytes": 4283,
+      "sha256": "85918cc0ce807d50b6978baddb9743e54358cf8e2886013100b848166436fcd1"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "bytes": 1103,
+      "sha256": "629a22e71f87035bd2afccef55742d79e8896b15eee76dd87979f0d309933f52"
+    },
+    {
+      "path": "vitest.config.ts",
+      "bytes": 573,
+      "sha256": "528bddfa58272a16aa3cd90586c7265148eaadffff5a0d28f8d50be665fc5542"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 672,
+      "sha256": "f4b701debc390e0143361395585730aa71727c42ac1cfd2de87980970fef5318"
+    },
+    {
+      "path": "tsconfig.build.json",
+      "bytes": 314,
+      "sha256": "8706a4927a59d2ffac0dc1800f714f48a1ac1ca39794de84f0a1cf3a3179baa0"
+    },
+    {
+      "path": "action.yml",
+      "bytes": 5261,
+      "sha256": "68031bddc1c501e48e72dcf6536e946ed6d7eefebbdfab26f869bfb10dc47195"
+    },
+    {
+      "path": "templates/api-intel/template.yml",
+      "bytes": 4965,
+      "sha256": "39b9fdcdf7aab0108c50fa25a44dd69ccbb1c4988a06eb1d62b7663c5dfaa2c1"
+    },
+    {
+      "path": "packaging/gitlab/Dockerfile",
+      "bytes": 1050,
+      "sha256": "db8d67a4ad4b6e329256bf57f0b80d00a6ef190b3d70da9019453940967df631"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 7131,
+      "sha256": "71bad3102fe70e4fc0017ea076ca0d8d8ebabb21e23149aff3c59bd8bfdb874e"
+    }
+  ],
+  "providerFingerprints": {
+    "githubAction": "sha256:4901856acce0c7118362d39ac73ae38a5e6d43454e805c7cc134297eae6fdf95",
+    "gitlab": "sha256:00ed4805ddde5aaec2e1705add0af6a8aee8159b5ae7faa4f78e438882d3589c"
+  },
+  "npmArchive": {
+    "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
+    "fileCount": 271,
+    "packedBytes": 431995,
+    "unpackedBytes": 2352574,
+    "shasum": "c704a8be412d5fda816fad5043fd819e5d8a4fda",
+    "integrity": "sha512-PvyfX/5Vy/xiffFT/EKfqAF96zV3Ev26Ll6Z7FAUxYOy2ubcylABdItvz4lYyIrZQMo6yH6RF8UoKQtp6yi1NA=="
+  },
+  "qualification": {
+    "sbomScope": "source_build_and_package_manager_runtime_dependencies",
+    "ociBaseAndOsPackagesIncluded": false,
+    "externalPublicationAuthorizedByThisDocument": false
+  }
+}

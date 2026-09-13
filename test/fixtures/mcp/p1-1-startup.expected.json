@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "server": {
+    "name": "api-intel-artifact-server",
+    "version": "1.0.0"
+  },
+  "transport": "stdio",
+  "startupInputs": ["after", "analysis", "before", "system"],
+  "startupGuarantees": [
+    "artifact_only",
+    "immutable_registry",
+    "load_once_per_canonical_path",
+    "stderr_diagnostics",
+    "stdout_protocol_only",
+    "validated_before_serve"
+  ],
+  "deferredCapabilities": ["prompts", "repository_scanning", "resources", "tools"]
+}

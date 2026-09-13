@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "engine": {
+    "version": "unknown"
+  },
+  "environment": {
+    "nodeVersion": "unknown",
+    "platform": "unknown",
+    "architecture": "unknown"
+  },
+  "analysis": {
+    "schemaVersion": "unknown",
+    "command": "scan",
+    "resultState": "unknown",
+    "sourceFileCount": 0,
+    "endpointCount": 0,
+    "interactionCount": 0,
+    "diagnosticCount": 0
+  },
+  "framework": {
+    "typescript": "unknown",
+    "nestCommon": "unknown",
+    "nestCore": "unknown",
+    "typeorm": "unknown"
+  },
+  "diagnostics": [],
+  "privacy": {
+    "sourceIncluded": false,
+    "pathsIncluded": false,
+    "identifiersIncluded": false,
+    "snippetsIncluded": false,
+    "freeFormTextIncluded": false,
+    "reviewedByReporter": true
+  }
+}

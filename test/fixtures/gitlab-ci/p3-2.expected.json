@@ -1,0 +1,33 @@
+{
+  "adapterVersion": "1.0.0",
+  "pipelineSource": "merge_request_event",
+  "minimumGitLabVersion": "17.0",
+  "baselineVariable": "CI_MERGE_REQUEST_DIFF_BASE_SHA",
+  "candidateVariable": "CI_COMMIT_SHA",
+  "executionImage": "digest_required",
+  "limits": {
+    "findings": 500,
+    "summaryBytes": 65536
+  },
+  "processOutcomes": {
+    "success": 0,
+    "policy_violation": 8,
+    "analysis_failure": 6,
+    "invalid_input": 10,
+    "incompatible_baseline": 11,
+    "canceled": 130
+  },
+  "evaluationArtifactFiles": [
+    "api-intel-graph.html",
+    "ci-evaluation.json",
+    "ci-evaluation.md",
+    "ci-scan-recipe.json",
+    "diff.json",
+    "gitlab-code-quality.json",
+    "gitlab-summary.md",
+    "impact.json",
+    "manifest.json",
+    "policy-results.json"
+  ],
+  "publicationFiles": ["gl-code-quality-report.json", "gitlab-summary.md", "process-result.json"]
+}

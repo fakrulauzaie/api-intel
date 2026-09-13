@@ -1,0 +1,84 @@
+name: Bug report
+description: Report a reproducible engine, CLI, or artifact failure using synthetic evidence.
+title: '[Bug]: '
+labels:
+  - bug
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach private source, analysis.json, run.json, graphs, topology, screenshots, or credentials. Security vulnerabilities must use SECURITY.md.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety checks
+      options:
+        - label: I read SUPPORT.md and SECURITY.md.
+          required: true
+        - label: This report and every attachment use synthetic, authorized material.
+          required: true
+        - label: I searched existing issues for this behavior.
+          required: true
+  - type: input
+    id: version
+    attributes:
+      label: api-intel version
+      placeholder: 0.0.0-alpha.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Node, platform, and architecture
+      placeholder: Node 22.x; Linux; x64
+    validations:
+      required: true
+  - type: dropdown
+    id: command
+    attributes:
+      label: Command or surface
+      options:
+        - scan
+        - diff
+        - impact
+        - check
+        - openapi
+        - controls
+        - graph
+        - stitch
+        - endpoints
+        - trace
+        - report
+        - api-intel-mcp
+        - GitHub Action
+        - GitLab component
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: Remove paths, identifiers, source, snippets, and secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic reproduction
+      description: Link a public synthetic repository or paste newly authored generic source only.
+    validations:
+      required: true
+  - type: textarea
+    id: manifest
+    attributes:
+      label: Source-free diagnostic manifest
+      description: Paste or attach the strict manifest described in docs/support-diagnostic-manifest.md.
+    validations:
+      required: false

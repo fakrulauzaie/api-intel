@@ -1,0 +1,130 @@
+name: API Intelligence pull-request gate
+description: Evidence-backed NestJS API impact, policy, diagnostics, and offline graph artifacts.
+author: API Intelligence
+
+inputs:
+  baseline-directory:
+    description: Isolated checkout of the trusted pull-request base revision.
+    required: false
+    default: .api-intel-ci-workspaces/baseline
+  baseline-revision:
+    description: Exact trusted pull-request base commit SHA expected in the baseline checkout.
+    required: true
+  candidate-directory:
+    description: Isolated checkout of the untrusted pull-request candidate revision.
+    required: false
+    default: .api-intel-ci-workspaces/candidate
+  candidate-revision:
+    description: Exact pull-request head commit SHA expected in the candidate checkout.
+    required: true
+  configuration:
+    description: Trusted api-intel.config.json from inside the baseline checkout.
+    required: false
+    default: .api-intel-ci-workspaces/baseline/api-intel.config.json
+  baseline-package-manager:
+    description: Baseline package manager; pnpm or npm.
+    required: false
+    default: pnpm
+  baseline-package-manager-version:
+    description: Exact baseline package-manager version already available on PATH.
+    required: false
+    default: 11.19.0
+  baseline-lockfile:
+    description: Baseline-checkout-relative immutable lockfile path.
+    required: false
+    default: pnpm-lock.yaml
+  candidate-package-manager:
+    description: Candidate package manager; pnpm or npm.
+    required: false
+    default: pnpm
+  candidate-package-manager-version:
+    description: Exact candidate package-manager version already available on PATH.
+    required: false
+    default: 11.19.0
+  candidate-lockfile:
+    description: Candidate-checkout-relative immutable lockfile path.
+    required: false
+    default: pnpm-lock.yaml
+  output-directory:
+    description: Workspace-relative parent for the content-addressed result bundle.
+    required: false
+    default: .api-intel-ci-results
+  max-annotations:
+    description: Maximum file/job workflow-command annotations, from 1 to 50.
+    required: false
+    default: '50'
+  upload-artifact:
+    description: Upload the exact result directory through the pinned artifact action.
+    required: false
+    default: 'true'
+  artifact-name:
+    description: Name for the downloadable GitHub Actions artifact.
+    required: false
+    default: api-intel-ci
+  retention-days:
+    description: Artifact retention accepted by the repository retention policy.
+    required: false
+    default: '7'
+
+outputs:
+  outcome:
+    description: Portable evaluation or process outcome.
+    value: ${{ steps.evaluate.outputs.outcome }}
+  process-exit-code:
+    description: Stable process exit code for the outcome.
+    value: ${{ steps.evaluate.outputs.process-exit-code }}
+  evaluation-id:
+    description: Content-derived CI evaluation ID.
+    value: ${{ steps.evaluate.outputs.evaluation-id }}
+  artifact-path:
+    description: Exact content-addressed result directory.
+    value: ${{ steps.evaluate.outputs.artifact-path }}
+  annotations-published:
+    description: Number of bounded GitHub annotations emitted.
+    value: ${{ steps.evaluate.outputs.annotations-published }}
+  annotations-omitted:
+    description: Number of additional findings retained only in artifacts.
+    value: ${{ steps.evaluate.outputs.annotations-omitted }}
+
+runs:
+  using: composite
+  steps:
+    - id: evaluate
+      name: Analyze and project API intelligence
+      shell: bash
+      env:
+        INPUT_BASELINE_DIRECTORY: ${{ inputs.baseline-directory }}
+        INPUT_BASELINE_REVISION: ${{ inputs.baseline-revision }}
+        INPUT_CANDIDATE_DIRECTORY: ${{ inputs.candidate-directory }}
+        INPUT_CANDIDATE_REVISION: ${{ inputs.candidate-revision }}
+        INPUT_CONFIGURATION: ${{ inputs.configuration }}
+        INPUT_BASELINE_PACKAGE_MANAGER: ${{ inputs.baseline-package-manager }}
+        INPUT_BASELINE_PACKAGE_MANAGER_VERSION: ${{ inputs.baseline-package-manager-version }}
+        INPUT_BASELINE_LOCKFILE: ${{ inputs.baseline-lockfile }}
+        INPUT_CANDIDATE_PACKAGE_MANAGER: ${{ inputs.candidate-package-manager }}
+        INPUT_CANDIDATE_PACKAGE_MANAGER_VERSION: ${{ inputs.candidate-package-manager-version }}
+        INPUT_CANDIDATE_LOCKFILE: ${{ inputs.candidate-lockfile }}
+        INPUT_OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
+        INPUT_MAX_ANNOTATIONS: ${{ inputs.max-annotations }}
+      run: node "$GITHUB_ACTION_PATH/action-dist/index.js"
+
+    - name: Upload API intelligence artifacts
+      if: ${{ steps.evaluate.outputs.artifact-path != '' && inputs.upload-artifact == 'true' }}
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ steps.evaluate.outputs.artifact-path }}
+        if-no-files-found: error
+        include-hidden-files: true
+        retention-days: ${{ inputs.retention-days }}
+
+    - name: Enforce API intelligence outcome
+      if: ${{ always() && steps.evaluate.outputs.process-exit-code != '0' }}
+      shell: bash
+      env:
+        API_INTEL_PROCESS_EXIT_CODE: ${{ steps.evaluate.outputs.process-exit-code }}
+      run: exit "$API_INTEL_PROCESS_EXIT_CODE"
+
+branding:
+  icon: shield
+  color: blue

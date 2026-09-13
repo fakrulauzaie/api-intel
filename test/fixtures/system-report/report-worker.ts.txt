@@ -1,0 +1,57 @@
+import { Controller, Injectable, Module } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { InjectRepository, TypeOrmModule } from '@nestjs/typeorm';
+import {
+  MessagePattern,
+  MicroserviceOptions,
+  Payload,
+  Transport,
+} from '@nestjs/microservices';
+import { Entity, PrimaryColumn, Repository } from 'typeorm';
+import Redlock from 'redlock';
+
+@Entity('report_job')
+export class ReportJob {
+  @PrimaryColumn()
+  declare status: string;
+}
+
+@Injectable()
+export class ReportLockService {
+  constructor(private readonly redlock: Redlock) {}
+
+  execute<T>(task: () => Promise<T>): Promise<T> {
+    return this.redlock.using(['locks:reports'], 5_000, async () => task());
+  }
+}
+
+@Controller()
+export class ReportWorkerController {
+  constructor(
+    @InjectRepository(ReportJob) private readonly jobs: Repository<ReportJob>,
+    private readonly locks: ReportLockService,
+  ) {}
+
+  @MessagePattern('report.generate')
+  handle(@Payload() payload: unknown): Promise<void> {
+    return this.locks.execute(async () => {
+      await this.jobs.save({ status: payload === undefined ? 'empty' : 'queued' });
+    });
+  }
+}
+
+@Module({
+  imports: [TypeOrmModule.forFeature([ReportJob])],
+  controllers: [ReportWorkerController],
+  providers: [ReportLockService],
+})
+export class ReportWorkerModule {}
+
+async function bootstrap(): Promise<void> {
+  await NestFactory.createMicroservice<MicroserviceOptions>(ReportWorkerModule, {
+    transport: Transport.RMQ,
+    options: { queue: 'reports_queue' },
+  });
+}
+
+void bootstrap;

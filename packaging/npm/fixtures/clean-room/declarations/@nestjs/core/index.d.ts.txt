@@ -1,0 +1,7 @@
+export interface INestApplication {
+  listen(port: number): Promise<void>;
+}
+
+export declare class NestFactory {
+  static create(module: unknown): Promise<INestApplication>;
+}

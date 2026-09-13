@@ -1,0 +1,9 @@
+import { Controller, Get } from '@nestjs/common';
+
+@Controller('controlled-orders')
+export class ControlledOrdersController {
+  @Get()
+  list(): readonly string[] {
+    return ['baseline'];
+  }
+}

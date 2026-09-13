@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "processOutcomes": {
+    "success": 0,
+    "policy_violation": 8,
+    "invalid_input": 10,
+    "incompatible_baseline": 11,
+    "analysis_failure": 6,
+    "canceled": 130
+  },
+  "inputArtifacts": ["comparison", "impact", "policy_results"],
+  "formats": ["json", "markdown", "annotations-jsonl"],
+  "annotationCategories": ["endpoint_change", "potential_impact", "policy", "diagnostic", "gap"],
+  "mustNotInclude": [
+    "repository checkout",
+    "branch resolution",
+    "network access",
+    "provider-specific API"
+  ]
+}
