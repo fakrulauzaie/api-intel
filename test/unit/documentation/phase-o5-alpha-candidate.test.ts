@@ -105,14 +105,14 @@ describe('Phase O5.1 audited alpha release candidate', () => {
     expect(gitlabExample).toContain('@sha256:IMAGE_MANIFEST_DIGEST');
     expect(actionExample).toContain('@ACTION_COMMIT_SHA');
     expect(contract.releaseBoundary).toMatchObject({
-      externalMutationAuthorized: false,
+      externalMutationAuthorized: true,
       publicationWorkflowImplemented: false,
       sourceRepositoryHistoryIncluded: false,
-      privateSecurityChannelActive: false,
-      privateConductChannelActive: false,
+      privateSecurityChannelActive: true,
+      privateConductChannelActive: true,
       namedBrowserMatrixClaimed: false,
     });
-    expect(releaseNotes).toContain('Known release blockers');
+    expect(releaseNotes).toContain('Remaining release boundaries');
     expect(releaseNotes).toContain('Migration notes');
     expect(releaseNotes).toContain('Rollback and compromise');
     expect(guide).toContain('content hash—not HEAD alone—is the exact source identity');

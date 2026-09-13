@@ -18,8 +18,8 @@
   "evidence": [
     {
       "path": "package.json",
-      "bytes": 4889,
-      "sha256": "0fcc7889271a22bbf27902ff36e326bfbe2704c9fb0c1da5f2a2deb2919bf291"
+      "bytes": 5139,
+      "sha256": "64aba67c1e2b4bb03f0b54a70baec861b88c45c3432712fffa874e8502688a23"
     },
     {
       "path": "pnpm-workspace.yaml",
@@ -64,17 +64,17 @@
     {
       "path": "packaging/npm/package-contents.json",
       "bytes": 55165,
-      "sha256": "5196d472dc05ff5daab0258cd1a951918e1be2958094ad291d0affb5f270bf41"
+      "sha256": "94b03a021e3525fb49d868b0d74a0c310bd027ff1c6977e2225c886bd01e9eee"
     },
     {
       "path": "packaging/npm/public-package-contents.json",
       "bytes": 55165,
-      "sha256": "f805b6a671c49f260c5e1fce273fc1c9551297b164f87dcfa996f0549ddaeea4"
+      "sha256": "c53a775872363bb96bca4ec946deed015d636bc19286096b120797e065e0c0d0"
     },
     {
       "path": "packaging/npm/runtime-contract.json",
-      "bytes": 2027,
-      "sha256": "4cfcc878399ce62e96751969270e631cb6f66ad397b253f61a4e4ae400abbd82"
+      "bytes": 2316,
+      "sha256": "bb1cf9e010fbb99e5f8b3ce275a2eabedd95d574b421f721a6e0d3dae8d9953b"
     },
     {
       "path": "packaging/npm/clean-room-contract.json",
@@ -84,7 +84,7 @@
     {
       "path": "packaging/npm/clean-room-install-report.json",
       "bytes": 7202,
-      "sha256": "ea1acba5c351311f43fc9d0092b08b889109b2b70ffc32b853075bea20cca0a9"
+      "sha256": "42da678278f2899f8f20eb4b4e09e9102bf32ca30042789ec0881385004bd6b3"
     },
     {
       "path": "packaging/release/provider-artifact-contract.json",
@@ -94,7 +94,7 @@
     {
       "path": "packaging/release/reproducible-artifacts.json",
       "bytes": 7696,
-      "sha256": "fccd36363aef66df21bf7b9f456df1b27c4aa22405794fb32ce9006d222b90bf"
+      "sha256": "efd6541c1f2f7ae270dc5bafd84fc41810990cdbc0ed1e88e9c112000039050b"
     },
     {
       "path": "packaging/release/release-integrity-policy.json",
@@ -103,8 +103,8 @@
     },
     {
       "path": "packaging/release/public-alpha-candidate-contract.json",
-      "bytes": 2972,
-      "sha256": "dc0621f075f1dd4873d5884a09c4633a6bf2ffc177d0bccbf9ffd3135dfed4a5"
+      "bytes": 2969,
+      "sha256": "a7dedff5813f41e697ef53b2b336aba914b3551db6a6c323e8637e2c7e0ab7b6"
     },
     {
       "path": "packaging/release/vulnerability-exceptions.json",
@@ -124,7 +124,7 @@
     {
       "path": "scripts/audit-dependencies.mjs",
       "bytes": 15617,
-      "sha256": "da33e4970e5bfe1f253d03825ba252444b267201da79cfd031c315f111ff2f23"
+      "sha256": "0b34acf8522b4ff74c4575ea6ac39229a89e43ff0ecc88a66f8589ec863f8d94"
     },
     {
       "path": "scripts/audit-third-party-licenses.mjs",
@@ -153,18 +153,18 @@
     },
     {
       "path": "scripts/stage-public-alpha-candidate.mjs",
-      "bytes": 21010,
-      "sha256": "871b670b5fb4f5ddfbe058ae3f5a26adb31b49631e5abe58fb103a848b1d5f0e"
+      "bytes": 21032,
+      "sha256": "8ca714164996e5128f859439774bced47c9069761ca7ac54a94f33ec113bbd51"
     },
     {
       "path": "docs/alpha-release-candidate.md",
-      "bytes": 2360,
-      "sha256": "da0f8b9e92eb0d5b8bb61b23289cd9db224ac6b772b47f47300ee2023ce7a112"
+      "bytes": 2407,
+      "sha256": "5cf2d90aa050a5e73af58ceb71f33e1cc58d0db57ea84a6134d52a4a5bb5dedd"
     },
     {
       "path": "docs/releases/0.1.0-alpha.1.md",
-      "bytes": 4283,
-      "sha256": "85918cc0ce807d50b6978baddb9743e54358cf8e2886013100b848166436fcd1"
+      "bytes": 4333,
+      "sha256": "ee714af124937f0a06986795246b222e49bd71bf988ea32b59a0de232101863d"
     },
     {
       "path": "eslint.config.mjs",
@@ -214,10 +214,10 @@
   "npmArchive": {
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 431995,
-    "unpackedBytes": 2352574,
-    "shasum": "c704a8be412d5fda816fad5043fd819e5d8a4fda",
-    "integrity": "sha512-PvyfX/5Vy/xiffFT/EKfqAF96zV3Ev26Ll6Z7FAUxYOy2ubcylABdItvz4lYyIrZQMo6yH6RF8UoKQtp6yi1NA=="
+    "packedBytes": 432147,
+    "unpackedBytes": 2352977,
+    "shasum": "4f2e915e4056b54b5fafe6037a70cff45d777401",
+    "integrity": "sha512-kbOC6xtDaYBX55x/P4rPhfAcGs2kuBT5U0rN9+UCSszeb14Uj+CSDQE/XuSeIw7tTkzDQ5gEnV5nS5dnEUxxJQ=="
   },
   "qualification": {
     "sbomScope": "source_build_and_package_manager_runtime_dependencies",

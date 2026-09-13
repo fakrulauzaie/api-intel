@@ -1,8 +1,8 @@
 # Neutral Repository CI
 
-Status: Phase O3.1 implementation complete; hosted matrix validation pending  
+Status: public hosted qualification active; each claim is bound to an exact workflow run  
 Workflow: `.github/workflows/ci.yml`  
-Publication status: no public repository or release exists
+Public repository: `https://github.com/fakrulauzaie/api-intel`
 
 The repository CI validates api-intel as an ordinary source project. It does not invoke
 the api-intel GitHub Action, GitLab component, OCI image, or comment publisher that the
@@ -26,8 +26,8 @@ GitHub currently documents both selected runner labels as hosted x64 images, and
 Node project publishes Node 24.20.0 as an LTS release. The workflow pins action
 dependencies to complete commit SHAs and disables setup-node's package-manager cache.
 
-The matrix is a candidate support contract until all four cells run successfully in
-the future sanitized public repository. Local Windows evidence cannot upgrade the two
+The matrix is a candidate support contract until all four cells run successfully on
+the exact public release commit. Local Windows evidence cannot upgrade the two
 Ubuntu cells or either Node 24 cell. macOS is intentionally absent and remains
 unverified; it should be added only after its package path is demonstrated and the
 cost of maintaining that cell is accepted.
@@ -124,7 +124,7 @@ or coverage thresholds.
 ## Evidence state
 
 The current local Windows x64 / Node 22.13.1 source tree can verify workflow structure,
-schema drift, the real-package corpus, the 187-file/521-test suite, and the initial
+schema drift, the real-package corpus, the current 195-file/553-test suite, and the initial
 coverage observation.
 It cannot prove a clean GitHub-hosted checkout or any other matrix cell. Phase O3.1's
 implementation is complete, but its acceptance gate remains open until the hosted

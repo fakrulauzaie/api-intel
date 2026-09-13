@@ -6,10 +6,10 @@
     "version": "0.1.0-alpha.1",
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 431995,
-    "unpackedBytes": 2352574,
-    "shasum": "c704a8be412d5fda816fad5043fd819e5d8a4fda",
-    "integrity": "sha512-PvyfX/5Vy/xiffFT/EKfqAF96zV3Ev26Ll6Z7FAUxYOy2ubcylABdItvz4lYyIrZQMo6yH6RF8UoKQtp6yi1NA=="
+    "packedBytes": 432147,
+    "unpackedBytes": 2352977,
+    "shasum": "4f2e915e4056b54b5fafe6037a70cff45d777401",
+    "integrity": "sha512-kbOC6xtDaYBX55x/P4rPhfAcGs2kuBT5U0rN9+UCSszeb14Uj+CSDQE/XuSeIw7tTkzDQ5gEnV5nS5dnEUxxJQ=="
   },
   "environment": {
     "platform": "win32",

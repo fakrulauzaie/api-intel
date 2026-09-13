@@ -12,18 +12,14 @@ will identify any exception explicitly.
 Do not disclose suspected vulnerabilities in a public issue, pull request, discussion,
 CI log, graph, or analysis artifact.
 
-The selected private reporting path is GitHub Private Vulnerability Reporting through
-the public repository's **Security** tab. That repository does not exist yet, so the
-channel is not active. Enabling and testing it is a blocking step before public issues,
-pull requests, packages, or release artifacts are accepted. This file must be updated
-to say that the channel is active before publication.
+The private reporting path is GitHub Private Vulnerability Reporting for
+[`fakrulauzaie/api-intel`](https://github.com/fakrulauzaie/api-intel). The channel is
+active. Use **Security → Report a vulnerability** or open a
+[private vulnerability report](https://github.com/fakrulauzaie/api-intel/security/advisories/new).
+Do not send vulnerability details to the conduct-reporting address or through an
+ordinary project channel.
 
-Until then, there is no public vulnerability-reporting channel. Do not send private
-source or vulnerability details through ordinary project channels. This limitation is
-intentional: the project will not publish a placeholder address or imply that an
-unmonitored inbox is safe.
-
-When the private channel is active, include only:
+Include only:
 
 - the affected api-intel version and distribution surface;
 - the vulnerability class and realistic impact;

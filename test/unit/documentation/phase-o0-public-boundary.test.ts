@@ -56,14 +56,14 @@ describe('Phase O0.2 public identity and alpha surface contract', () => {
     for (const selected of [
       '**Backend API Intelligence Engine**',
       '**Deterministic NestJS change intelligence**',
-      '`nestjs-api-intelligence-engine`',
+      '`api-intel`',
       '`@fakrulauzaie/api-intel`',
       'None adopted for alpha',
       'Apache-2.0; project-owned source authorized by owner',
     ]) {
       expect(boundary, `Public identity contract omits ${selected}`).toContain(selected);
     }
-    expect(boundary).toContain('Exact external publication action authorized: no');
+    expect(boundary).toContain('Exact external publication action authorized: yes');
     expect(boundary).toContain('E404 Not Found');
     expect(boundary).toContain('Availability can change at any time.');
     expect(packageJson).toMatchObject({
