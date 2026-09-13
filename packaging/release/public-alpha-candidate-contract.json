@@ -9,6 +9,7 @@
   "sourceExport": {
     "allowedRootFiles": [
       ".dockerignore",
+      ".gitattributes",
       ".gitignore",
       ".prettierignore",
       ".prettierrc.json",

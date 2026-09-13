@@ -115,11 +115,12 @@ describe('Phase O3.1 neutral repository CI', () => {
   });
 
   it('runs the complete quality boundary with constrained dependency execution', async () => {
-    const [manifestText, workflow, workspace, vitest] = await Promise.all([
+    const [manifestText, workflow, workspace, vitest, attributes] = await Promise.all([
       readFile(resolve('package.json'), 'utf8'),
       readFile(resolve('.github/workflows/ci.yml'), 'utf8'),
       readFile(resolve('pnpm-workspace.yaml'), 'utf8'),
       readFile(resolve('vitest.config.ts'), 'utf8'),
+      readFile(resolve('.gitattributes'), 'utf8'),
     ]);
     const manifest = JSON.parse(manifestText) as {
       readonly scripts: Readonly<Record<string, string>>;
@@ -153,6 +154,8 @@ describe('Phase O3.1 neutral repository CI', () => {
     expect(vitest).toContain('maxWorkers: 2');
     expect(vitest).toContain('testTimeout: 60_000');
     expect(vitest).not.toMatch(/thresholds\s*:/u);
+    expect(attributes).toContain('* text=auto eol=lf');
+    expect(attributes).toContain('*.wasm binary');
   });
 
   it('pins one real-package corpus without generalizing declaration fixtures', async () => {
