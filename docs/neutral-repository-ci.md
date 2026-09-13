@@ -95,7 +95,9 @@ compatibility. No adjacent framework version is implied.
   turn a proven result into a 15-second timing flake; this changes no assertion.
 - Coverage is observation-only, has no threshold, and runs only for trusted pushes or
   manual dispatch. Instrumented tests use one worker so timing contracts are not
-  distorted by CPU contention. The JSON/text result is retained for seven days.
+  distorted by CPU contention. The coverage job builds production output before the
+  complete instrumented suite because package-runtime tests exercise `dist/` and the
+  packed executable surface. The JSON/text result is retained for seven days.
 
 Coverage is measured before any threshold is considered. A future threshold must be
 based on stable repeated measurements and must not replace semantic, close-negative,

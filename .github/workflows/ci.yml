@@ -99,6 +99,9 @@ jobs:
           pnpm install --frozen-lockfile
           npm --prefix example-nestjs-app ci --ignore-scripts --no-audit --no-fund
 
+      - name: Build production output for runtime-dependent tests
+        run: pnpm run build
+
       - name: Measure coverage without enforcing a threshold
         run: pnpm run test:coverage
 
