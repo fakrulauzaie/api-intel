@@ -61,8 +61,18 @@
     "targetProjectScriptsExecuted": false
   },
   "destinationMetadata": {
-    "status": "deferred_until_sanitized_public_repository_exists",
+    "status": "active_sanitized_public_repository",
     "fields": ["repository", "homepage", "bugs"],
+    "values": {
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fakrulauzaie/api-intel.git"
+      },
+      "homepage": "https://github.com/fakrulauzaie/api-intel#readme",
+      "bugs": {
+        "url": "https://github.com/fakrulauzaie/api-intel/issues"
+      }
+    },
     "fundingStatus": "not_applicable"
   }
 }

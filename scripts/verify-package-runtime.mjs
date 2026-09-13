@@ -215,9 +215,14 @@ export async function verifyPackageRuntime() {
       'The package file list must contain only emitted runtime JavaScript from dist.',
     );
   }
+  if (contract.destinationMetadata.status !== 'active_sanitized_public_repository') {
+    throw new Error('The package destination metadata status is not recognized.');
+  }
   for (const field of contract.destinationMetadata.fields) {
-    if (manifest[field] !== undefined) {
-      throw new Error(`${field} must remain absent until the sanitized public repository exists.`);
+    if (
+      JSON.stringify(manifest[field]) !== JSON.stringify(contract.destinationMetadata.values[field])
+    ) {
+      throw new Error(`${field} does not match the sanitized public repository contract.`);
     }
   }
   if (contract.destinationMetadata.fundingStatus !== 'not_applicable') {

@@ -2,7 +2,7 @@
 
 Status: Phase O2.3 complete  
 Verification date: 2026-09-12 (O5.1 prerelease refresh)  
-Publication status: not published
+Publication status: O5.2 alpha candidate; retained checks precede registry verification
 
 Phase O2.3 proves the reviewed npm archive from Phase O2.2 in isolated package
 consumers. It does not turn the private source manifest into a publishable manifest,
@@ -81,7 +81,7 @@ source-workspace paths.
 
 ## Distribution boundary
 
-The verified archive contains 271 files, is 431,963 bytes compressed and 2,352,184
+The verified private-source archive contains 271 files, is 432,147 bytes compressed and 2,352,977
 bytes unpacked, with SHA-1
 `cb7affae34431808ae3ffe0ea78a4411d3176ea0`. Its SHA-512 integrity is retained in the
 machine report and the Phase O2.2 package-content ledger so a later staged registry

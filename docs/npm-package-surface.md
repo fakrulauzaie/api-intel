@@ -2,7 +2,7 @@
 
 Status: Phase O2.2 complete  
 Package candidate: `@fakrulauzaie/api-intel@0.1.0-alpha.1`  
-Publication status: not published
+Publication status: O5.2 alpha candidate; exact registry bytes are verified in O5.3
 
 The first package candidate is intentionally CLI-first. It exposes two executable
 commands and two JSON Schema data paths; it does not expose a supported JavaScript or
@@ -51,8 +51,9 @@ verifier selects the latter automatically when `package.json` has no `private`
 property; explicit source-side review uses `npm run pack:public-contents:check`.
 
 The retained package contains 271 files: 263 runtime JavaScript modules and eight
-manifest, documentation, schema, legal, or legal-evidence files. It is 431,963 bytes
-compressed and 2,352,184 bytes unpacked. The enforced budgets are 280 files, 650,000
+manifest, documentation, schema, legal, or legal-evidence files. The staged-public
+archive is 432,138 bytes compressed and 2,352,958 bytes unpacked. The enforced budgets
+are 280 files, 650,000
 compressed bytes, and 3,000,000 unpacked bytes. Source maps, declarations, tests,
 source, private implementation plans, temporary outputs, scripts, templates, and the
 GitHub/GitLab provider bundles are excluded.

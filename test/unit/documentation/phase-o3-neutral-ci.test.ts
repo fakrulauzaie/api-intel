@@ -204,7 +204,7 @@ describe('Phase O3.1 neutral repository CI', () => {
     expect(contract.compatibilityCorpus.expectedAnalysis.diagnostics).toHaveLength(7);
     expect(verifier).toContain("'dist/cli/index.js'");
     expect(verifier).toContain("'--no-config'");
-    expect(guide).toContain('hosted matrix validation pending');
+    expect(guide).toContain('public hosted qualification active');
     expect(guide).toMatch(/Generated\s+declaration stubs continue to prove extractor semantics/u);
     expect(compatibility).toContain('a declared matrix is not execution evidence');
     expect(boundary).toContain('Unverified until the hosted Linux and Windows cells pass');

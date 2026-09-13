@@ -8,10 +8,10 @@
   "archive": {
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 431991,
-    "unpackedBytes": 2352555,
-    "shasum": "24d0e70976bbe9e88e328ea47f472c1a9e074a6c",
-    "integrity": "sha512-SyzgUnRrS08Bjrus1Kydacp55vaK18qxMeBmLvPw6ITZMf5lfjc8vzJ078OuGwuxcyKzE9lkYFWNrofJRvsvYA=="
+    "packedBytes": 432138,
+    "unpackedBytes": 2352958,
+    "shasum": "937c0cf3c443fedb0ece13c19f875636249925f3",
+    "integrity": "sha512-mT8IqO2+cSrODPwPWYjGaG0JXblIg687IaiasJf1K0YSpWDUqZIJ+pwRyzwsySBDKRisL5pQPEmrAhfv+OFppA=="
   },
   "budgets": {
     "maximumFileCount": 280,
@@ -47,8 +47,8 @@
     },
     {
       "path": "README.md",
-      "size": 11748,
-      "sha256": "f3037d3759d114a180fdda685d2f0c9afa651df3786b4db88fe458eb07a7cee5",
+      "size": 11901,
+      "sha256": "75408ea9cf4edb5cb7afb26f28105dcfc42af9e1467e36bcd417b8113ad1d258",
       "role": "package_documentation"
     },
     {
@@ -1649,8 +1649,8 @@
     },
     {
       "path": "package.json",
-      "size": 4889,
-      "sha256": "0fcc7889271a22bbf27902ff36e326bfbe2704c9fb0c1da5f2a2deb2919bf291",
+      "size": 5139,
+      "sha256": "64aba67c1e2b4bb03f0b54a70baec861b88c45c3432712fffa874e8502688a23",
       "role": "manifest"
     },
     {

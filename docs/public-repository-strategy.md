@@ -1,12 +1,14 @@
 # Public Repository Strategy
 
-Status: selected; execution deferred  
+Status: implemented for the first public alpha  
 Decision date: 2026-09-10  
-External repository created: no  
+Execution date: 2026-09-13  
+External repository created: yes  
 Project-owned material authorized by owner: yes  
-Exact external publication action authorized: no
+Exact external publication action authorized: yes
 
-The first public release will use a **new, sanitized repository with fresh history**.
+The first public release uses a **new, sanitized repository with fresh history** at
+[`fakrulauzaie/api-intel`](https://github.com/fakrulauzaie/api-intel).
 The existing implementation repository and its reachable commit graph will remain
 private. This is a publication-boundary decision, not an assertion that the legacy
 history is clean.
@@ -26,11 +28,10 @@ classified as `findings_detected` with an
 `excluded_by_selected_strategy` publication disposition. They are never relabelled as
 clean or erased merely because that history will not be published.
 
-## Future public-candidate procedure
+## Public-candidate procedure
 
-Repository creation belongs to the audited alpha-release workflow and requires a new,
-explicit authorization naming the exact destination. Before that action, Phase O5.1
-must:
+Repository creation used the audited alpha-release workflow and explicit authorization
+naming the exact destination. Phase O5.1:
 
 1. pin the approved private source revision after all earlier productization gates;
 2. export an allowlisted source tree into a separate staging directory without `.git`,
@@ -42,11 +43,10 @@ must:
    manifest; and
 5. initialize fresh Git history only inside the approved staging tree.
 
-Before enabling public participation, O5.2 must also publish and test the private
-conduct-reporting contact required by `CODE_OF_CONDUCT.md`, create the public repository
-without importing legacy refs, enable GitHub Private Vulnerability Reporting, verify
-the repository's `SECURITY.md` path, and require the DCO status check. Issue intake must
-remain disabled until those controls are operational.
+O5.2 created the repository without importing legacy refs, enabled GitHub Private
+Vulnerability Reporting, and published the private conduct contact required by
+`CODE_OF_CONDUCT.md`. Issue intake remains disabled until the DCO status check and the
+remaining hosted release gates are operational.
 
 The first public commit starts the public project's lineage. Release notes and
 provenance records may describe earlier private development factually, but must not
@@ -60,9 +60,9 @@ source export. Security fixes should be applied to the private source first and 
 exported as a sanitized public change; blindly cherry-picking private commits is not a
 safe synchronization mechanism.
 
-This selection resolves Phase O1.2's history-strategy decision. It does not complete
-the remaining Public Trust Gate, create a repository, reserve a name, publish a
-package, or authorize any external mutation.
+This execution resolves Phase O1.2's history-strategy decision and repository-creation
+step. It does not claim that an npm package, OCI image, GitLab component, or named
+browser matrix exists; each remains controlled by its own release gate.
 
 The owner's publication authorization applies to qualifying project-owned material,
 not to organization systems used as private testing targets. Testing permission never

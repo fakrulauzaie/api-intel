@@ -66,7 +66,7 @@ function parseArguments(arguments_) {
     throw new Error('--input is an isolated fixture-evaluation mode.');
   }
   if (input) return { live: false, write: false, input };
-  if (check === write || (write && !live) || (!check && !live)) {
+  if ((check && live) || (write && !live) || (!check && !live)) {
     throw new Error('Usage: audit-dependencies.mjs --check | --live [--write]');
   }
   return { live, write, input: null };

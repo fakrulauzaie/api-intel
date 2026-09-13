@@ -51,10 +51,11 @@ checksum ledger covers every staged source and release-artifact byte.
 ## Honest gate result
 
 O5.1 can pass the candidate-level OT0, OD0, OR0, and OX0 checks while retaining
-external prerequisites as explicit blockers. It cannot prove a GitHub/GitLab hosted
-run, an unpublished OCI image digest/SBOM, active private reporting channels, or a
-named browser matrix. Those facts stay pending until the owning external gate is run.
+external prerequisites as explicit blockers. O5.2 activated the sanitized public
+repository and private reporting channels. The candidate still cannot prove its own
+GitHub/GitLab hosted run, an unpublished OCI image digest/SBOM, or a named browser
+matrix; those facts stay pending until the owning external gate is run.
 
-The candidate's source tree is suitable for fresh public history only after the owner
-separately authorizes Phase O5.2. Never copy the private `.git` directory or infer
-redistribution permission from private target-testing permission.
+The owner separately authorized the exact Phase O5.2 repository and package sequence
+on 2026-09-13. Never copy the private `.git` directory or infer redistribution
+permission from private target-testing permission.

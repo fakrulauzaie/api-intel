@@ -3,7 +3,7 @@
 Status: normative productization contract  
 Applies from: Phase O0.2  
 Decision date: 2026-09-09  
-Exact external publication action authorized: no
+Exact external publication action authorized: yes
 
 This document freezes the identity, release-surface labels, initial public package
 shape, maturity vocabulary, and evidence-based compatibility claims for the first
@@ -24,7 +24,7 @@ surface-specific qualifiers must accompany them.
 | Primary positioning           | **Evidence-backed blast radius for legacy NestJS systems.** |
 | CLI shorthand and primary bin | `api-intel`                                                 |
 | Local MCP bin                 | `api-intel-mcp`                                             |
-| Repository slug               | `nestjs-api-intelligence-engine`                            |
+| Repository slug               | `api-intel`                                                 |
 | First npm package candidate   | `@fakrulauzaie/api-intel`                                   |
 | Permanent product/domain URL  | None adopted for alpha                                      |
 | Project license               | Apache-2.0; project-owned source authorized by owner        |
@@ -41,16 +41,16 @@ used by existing GitHub/OCI work and avoids depending on an unreserved global pa
 name. A future organization transfer must preserve package provenance and migration
 instructions; it is not a reason to invent an organization before alpha.
 
-The first public source repository will be a new sanitized repository with fresh
-history. The current implementation repository and its reachable history remain
-private and unchanged. The [public repository strategy](public-repository-strategy.md)
-defines that separation and its deferred staged-export gate; it does not authorize
-repository creation or publication.
+The public source repository is
+[`fakrulauzaie/api-intel`](https://github.com/fakrulauzaie/api-intel), created as a new
+sanitized repository with fresh history. The current implementation repository and its
+reachable history remain private and unchanged. The
+[public repository strategy](public-repository-strategy.md) defines that separation.
 
 The [ownership and publication authorization](legal/ownership-and-publication-authorization.md)
 records the scope of owner approval. Permission to use organization systems as private
-testing targets is not redistribution permission, and exact external release actions
-remain deferred to O5.2.
+testing targets is not redistribution permission. The owner separately authorized the
+exact O5.2 repository and package publication sequence on 2026-09-13.
 
 ## Availability and conflict audit
 
@@ -163,14 +163,9 @@ step completes.
 
 The repository has source-controlled contribution, support, compatibility, security,
 conduct, governance, maintainer, issue-form, pull-request, DCO, and changelog contracts.
-They do not imply that public intake is active. The future repository must initially
-keep issue/discussion intake disabled, publish and test a private conduct-reporting
-contact, enable GitHub Private Vulnerability Reporting, and require the repository's
-`DCO / signed-off commits` check before accepting participation.
-
-Until those external controls exist, `SECURITY.md` and `CODE_OF_CONDUCT.md` deliberately
-state that their private channels are inactive. No placeholder email, response SLA, or
-confidentiality promise may be substituted to make the gate appear complete.
+GitHub Private Vulnerability Reporting and the private conduct-reporting contact are
+active. Issue and discussion intake remain disabled until the repository requires the
+`DCO / signed-off commits` check and the exact release commit passes hosted CI.
 
 ## Independent version domains
 

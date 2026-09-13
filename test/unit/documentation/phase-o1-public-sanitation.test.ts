@@ -77,8 +77,8 @@ describe('Phase O1.2 public-tree sanitation', () => {
     expect(repositoryStrategy).toContain(
       'changing the visibility of the private source repository',
     );
-    expect(repositoryStrategy).toContain('External repository created: no');
-    expect(repositoryStrategy).toContain('Exact external publication action authorized: no');
+    expect(repositoryStrategy).toContain('External repository created: yes');
+    expect(repositoryStrategy).toContain('Exact external publication action authorized: yes');
     expect(index).toContain('Public repository strategy');
   });
 

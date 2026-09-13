@@ -2,7 +2,7 @@
 
 Status: Phase O2.1 complete  
 Applies to: source package manifest and ordinary CLI/MCP build  
-Public package status: not published
+Public package status: O5.2 alpha candidate; registry verification belongs to O5.3
 
 The private development manifest uses the selected `@fakrulauzaie/api-intel` package
 identity while retaining `private: true`. The separately audited O5.1 staging
@@ -59,10 +59,9 @@ The name, description, author handle, maintainer handle, license, keywords, engi
 package-manager declaration, and both bins are fixed now. Funding is not currently
 applicable.
 
-`repository`, `homepage`, and `bugs` remain absent because the sanitized public
-repository does not yet exist. Publishing placeholder or private URLs would violate
-the alpha identity contract. O5.1 must add and validate the real destination metadata
-only in the staged publishable manifest after the exact public repository is approved.
+`repository`, `homepage`, and `bugs` point only to the sanitized public repository at
+`https://github.com/fakrulauzaie/api-intel`. The package does not reference the private
+development repository or infer a funding destination.
 
 `main` and `types` remain absent. Phase O2.2 added a finite `exports` map for the two
 shipped JSON Schemas only; it deliberately did not turn internal `dist/` modules or

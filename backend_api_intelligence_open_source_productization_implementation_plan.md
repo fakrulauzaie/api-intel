@@ -1079,7 +1079,7 @@ or publication workflow; only separately authorized O5.2 may do so.
 
 ### Phase O5.2 — External publication
 
-Status: pending; requires explicit user authorization at execution time
+Status: in progress; exact repository/package publication authorized on 2026-09-13
 
 Goal: publish only the exact O5.1 candidate to approved destinations.
 

@@ -32,6 +32,7 @@ interface RuntimeContract {
   readonly destinationMetadata: {
     readonly status: string;
     readonly fields: readonly string[];
+    readonly values: Readonly<Record<string, unknown>>;
     readonly fundingStatus: string;
   };
 }
@@ -84,17 +85,17 @@ describe('Phase O2.1 package runtime and manifest', () => {
     for (const hook of ['preinstall', 'install', 'postinstall']) {
       expect(manifest.scripts[hook]).toBeUndefined();
     }
-    for (const field of [...contract.destinationMetadata.fields, 'funding', 'main', 'types']) {
+    expect(manifest).toMatchObject(contract.destinationMetadata.values);
+    for (const field of ['funding', 'main', 'types']) {
       expect(manifest[field]).toBeUndefined();
     }
+    expect(contract.destinationMetadata.fields).toEqual(['repository', 'homepage', 'bugs']);
     expect(contract.lifecyclePolicy).toEqual({
       consumerInstallScripts: [],
       packPreparation: 'build_then_verify',
       targetProjectScriptsExecuted: false,
     });
-    expect(contract.destinationMetadata.status).toBe(
-      'deferred_until_sanitized_public_repository_exists',
-    );
+    expect(contract.destinationMetadata.status).toBe('active_sanitized_public_repository');
     const rootImporter = lockfile.slice(0, lockfile.indexOf('\npackages:'));
     expect(rootImporter).toMatch(/dependencies:[\s\S]*?typescript:\s+specifier: 5\.9\.3/u);
     expect(rootImporter).not.toMatch(/devDependencies:[\s\S]*?^\s{6}typescript:\s*$/mu);

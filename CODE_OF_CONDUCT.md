@@ -20,12 +20,10 @@ well as contributors.
 
 ## Reporting and enforcement
 
-Do not report conduct incidents in a public issue. A private conduct-reporting channel
-has not yet been configured because the public repository does not exist. Public issue,
-pull-request, and discussion intake must remain disabled until the maintainer publishes
-and tests a private conduct contact in this section. Absence of that contact is a
-release blocker, not an invitation to use the security channel for non-security
-matters.
+Do not report conduct incidents in a public issue. Send a private report to
+`fakrulauzaie@gmail.com` with a subject beginning `[api-intel conduct]`. This address is
+monitored by the sole maintainer for project-conduct reports. Do not use GitHub Private
+Vulnerability Reporting for non-security conduct matters.
 
 Once active, reports should identify the behavior, approximate time, project surface,
 and any witnesses or links needed for review. Do not collect or send unrelated personal
@@ -40,5 +38,4 @@ sole maintainer must be escalated through the hosting provider until independent
 maintainers exist.
 
 This project-specific policy is intentionally concise. It creates behavioral and
-enforcement expectations without claiming an operational private channel before one
-exists.
+enforcement expectations while keeping reports out of public project channels.

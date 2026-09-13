@@ -8,8 +8,9 @@ production behavior, or turn an unresolved path into a fact.
 
 ![A supported endpoint path through a service to a database write, with an explicit proof stop for an external message](docs/assets/evidence-path.svg)
 
-The current `0.1.0-alpha.1` tree is an unpublished **core-alpha candidate**. The command and
-artifact contracts are tested, but a public registry release has not happened yet.
+`0.1.0-alpha.1` is the first **core-alpha** release line. Check the repository release
+and npm registry for current availability; alpha contracts may change with explicit
+migration notes.
 
 ## First useful result
 
@@ -35,7 +36,8 @@ pnpm run cli -- doctor example-nestjs-app
 pnpm run cli -- scan example-nestjs-app --with-graph
 ```
 
-No registry-install command is documented before the package exists. The maintained
+After the package is published, install the explicitly prerelease-tagged CLI with
+`npm install --save-dev @fakrulauzaie/api-intel@alpha`. The maintained
 [First Evidence-Backed Trace](docs/first-use-workflow.md) uses only the installed
 `api-intel` binary and explains preflight, configuration preview, scanning, trace,
 comparison, and policy checks.
@@ -199,8 +201,9 @@ inbound-equals-outbound licensing, DCO sign-off, synthetic fixtures, and evidenc
 semantic changes; see [CONTRIBUTING.md](CONTRIBUTING.md) and the
 [contributor fixture contract](docs/contributor-fixtures.md).
 
-Security and conduct intake remain inactive until the first public release configures
-private channels. Support is best effort with no response-time promise. Project-owned
-source is covered by the recorded
+Private vulnerability reporting is active through the repository's Security tab;
+private conduct reports use the address published in
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Support is best effort with no response-time
+promise. Project-owned source is covered by the recorded
 [owner attestation](docs/legal/ownership-and-publication-authorization.md); private
 target-testing permission never authorizes redistribution of target material.

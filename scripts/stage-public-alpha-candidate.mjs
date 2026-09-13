@@ -110,7 +110,7 @@ function assertContract(contract, manifest) {
   }
   if (
     contract.package.stagedManifestPrivateProperty !== 'omitted' ||
-    contract.releaseBoundary.externalMutationAuthorized !== false ||
+    contract.releaseBoundary.externalMutationAuthorized !== true ||
     contract.releaseBoundary.sourceRepositoryHistoryIncluded !== false
   ) {
     throw new Error('The alpha-candidate trust boundary drifted.');
@@ -219,11 +219,17 @@ async function verifyCommunityBoundary(sourceRoot) {
     readFile(resolve(sourceRoot, '.github/ISSUE_TEMPLATE/config.yml'), 'utf8'),
     readFile(resolve(sourceRoot, '.github/workflows/dco.yml'), 'utf8'),
   ]);
-  if (!security.includes('channel is not active')) {
-    throw new Error('SECURITY.md must retain pre-publication inactive-channel wording.');
+  if (
+    !security.includes('https://github.com/fakrulauzaie/api-intel/security/advisories/new') ||
+    /channel is not active/iu.test(security)
+  ) {
+    throw new Error('SECURITY.md must publish the active private vulnerability path.');
   }
-  if (!conduct.includes('has not yet been configured')) {
-    throw new Error('CODE_OF_CONDUCT.md must retain pre-publication inactive-channel wording.');
+  if (
+    !conduct.includes('fakrulauzaie@gmail.com') ||
+    /has not yet been configured/iu.test(conduct)
+  ) {
+    throw new Error('CODE_OF_CONDUCT.md must publish the private conduct-reporting contact.');
   }
   if (!support.includes('source-free reproduction workflow')) {
     throw new Error('SUPPORT.md must retain the source-free intake boundary.');
@@ -490,7 +496,7 @@ async function main() {
         exactCandidateInstallSmoke: install,
       },
       gates: {
-        OT0: 'candidate_tree_pass; private security/conduct channel activation deferred to O5.2',
+        OT0: 'candidate_tree_pass; private security and conduct channels active',
         OD0: 'exact archive packaging and disposable install smoke pass; retained full npm/pnpm evidence applies to the same source version',
         OR0: 'candidate bytes content-addressed; independent hosted, exact OCI, and channel gates remain pending',
         OX0: 'repository documentation/tests pass; no named-browser matrix claimed',
@@ -500,8 +506,6 @@ async function main() {
         'sanitized_public_repository_clean_clone_hosted_matrix',
         'exact_oci_image_sbom_base_digest_and_source_obligation_review',
         'gitlab_hosted_component_validation',
-        'private_security_reporting_channel_activation',
-        'private_conduct_reporting_channel_activation',
         'named_browser_matrix_if_claimed',
       ],
       publication: {
