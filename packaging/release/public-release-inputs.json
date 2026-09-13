@@ -64,12 +64,12 @@
     {
       "path": "packaging/npm/package-contents.json",
       "bytes": 55165,
-      "sha256": "94b03a021e3525fb49d868b0d74a0c310bd027ff1c6977e2225c886bd01e9eee"
+      "sha256": "a8ee7f5719f6ca193ca1b696887c01e3a3135d6543b625752462e80e48f66192"
     },
     {
       "path": "packaging/npm/public-package-contents.json",
       "bytes": 55165,
-      "sha256": "c53a775872363bb96bca4ec946deed015d636bc19286096b120797e065e0c0d0"
+      "sha256": "a04cc65742abc06e275c08bac6d5f5572704bfdfc5f9a743550375ac0ee0a228"
     },
     {
       "path": "packaging/npm/runtime-contract.json",
@@ -84,7 +84,7 @@
     {
       "path": "packaging/npm/clean-room-install-report.json",
       "bytes": 7202,
-      "sha256": "42da678278f2899f8f20eb4b4e09e9102bf32ca30042789ec0881385004bd6b3"
+      "sha256": "4901d46498d7fa2100d6ca32bfb88933720249f72e42c816437448edac4ba47f"
     },
     {
       "path": "packaging/release/provider-artifact-contract.json",
@@ -94,7 +94,7 @@
     {
       "path": "packaging/release/reproducible-artifacts.json",
       "bytes": 7696,
-      "sha256": "efd6541c1f2f7ae270dc5bafd84fc41810990cdbc0ed1e88e9c112000039050b"
+      "sha256": "c3d1d3a8e1af6b7d0d753d44813c8e943251d43feaf8731869a1fc5e0883539e"
     },
     {
       "path": "packaging/release/release-integrity-policy.json",
@@ -148,8 +148,8 @@
     },
     {
       "path": "scripts/verify-package-install.mjs",
-      "bytes": 39252,
-      "sha256": "b7e43f88e7cd7809c508cf48f64651dc1aec528300111a26b79f4a173f935924"
+      "bytes": 39484,
+      "sha256": "d9d4a23a99f30e02520a07d164380cfe31f0daa16760eca1e82c090ae1f94c7d"
     },
     {
       "path": "scripts/verify-package-runtime.mjs",
@@ -234,10 +234,10 @@
   "npmArchive": {
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 432147,
-    "unpackedBytes": 2352977,
-    "shasum": "4f2e915e4056b54b5fafe6037a70cff45d777401",
-    "integrity": "sha512-kbOC6xtDaYBX55x/P4rPhfAcGs2kuBT5U0rN9+UCSszeb14Uj+CSDQE/XuSeIw7tTkzDQ5gEnV5nS5dnEUxxJQ=="
+    "packedBytes": 432404,
+    "unpackedBytes": 2354002,
+    "shasum": "b9711c01d9e8b3b590db41165591e8d3617f58a7",
+    "integrity": "sha512-9JSLnDqtBy7zmVWlGXCK454yt6qoE12oCDdVBYqaDaMK4xHX8n/wU7xzHeN9mruFDB4+kO1LHCFoA2dt1xjUHQ=="
   },
   "qualification": {
     "sbomScope": "source_build_and_package_manager_runtime_dependencies",

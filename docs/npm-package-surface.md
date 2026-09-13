@@ -52,7 +52,7 @@ property; explicit source-side review uses `npm run pack:public-contents:check`.
 
 The retained package contains 271 files: 263 runtime JavaScript modules and eight
 manifest, documentation, schema, legal, or legal-evidence files. The staged-public
-archive is 432,138 bytes compressed and 2,352,958 bytes unpacked. The enforced budgets
+archive is 432,396 bytes compressed and 2,353,983 bytes unpacked. The enforced budgets
 are 280 files, 650,000
 compressed bytes, and 3,000,000 unpacked bytes. Source maps, declarations, tests,
 source, private implementation plans, temporary outputs, scripts, templates, and the

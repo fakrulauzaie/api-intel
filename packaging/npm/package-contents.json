@@ -8,10 +8,10 @@
   "archive": {
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 432147,
-    "unpackedBytes": 2352977,
-    "shasum": "4f2e915e4056b54b5fafe6037a70cff45d777401",
-    "integrity": "sha512-kbOC6xtDaYBX55x/P4rPhfAcGs2kuBT5U0rN9+UCSszeb14Uj+CSDQE/XuSeIw7tTkzDQ5gEnV5nS5dnEUxxJQ=="
+    "packedBytes": 432404,
+    "unpackedBytes": 2354002,
+    "shasum": "b9711c01d9e8b3b590db41165591e8d3617f58a7",
+    "integrity": "sha512-9JSLnDqtBy7zmVWlGXCK454yt6qoE12oCDdVBYqaDaMK4xHX8n/wU7xzHeN9mruFDB4+kO1LHCFoA2dt1xjUHQ=="
   },
   "budgets": {
     "maximumFileCount": 280,
@@ -401,8 +401,8 @@
     },
     {
       "path": "dist/cli/index.js",
-      "size": 4758,
-      "sha256": "fad2e804cefb479ce60243b423720e04e335432bfa622fa30ebf581af3d2cdfc",
+      "size": 5317,
+      "sha256": "8b59df817b7bf3c3bdc768167be53eba237fa74bba6106454fea2aea6d662a4b",
       "role": "runtime_javascript"
     },
     {
@@ -941,8 +941,8 @@
     },
     {
       "path": "dist/mcp/index.js",
-      "size": 3086,
-      "sha256": "2e1b794c74677eecbc8274931f8b875510af681f5d557f8e3de4f180115a6297",
+      "size": 3552,
+      "sha256": "7a99df262a3f5df947bd0675985aec42114d432af8cf8831704cfadf919669bf",
       "role": "runtime_javascript"
     },
     {

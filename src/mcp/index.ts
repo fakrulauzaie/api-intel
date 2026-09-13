@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+import { realpathSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseMcpArguments, renderMcpHelp } from './arguments.js';
 import type { McpEntryResult, McpProcessIo } from './model.js';
 import { MCP_EXIT_CODE, MCP_RUNTIME_METADATA, McpStartupError } from './model.js';
@@ -23,7 +24,18 @@ export interface McpEntryDependencies {
 
 function isDirectExecution(): boolean {
   const entryPath = process.argv[1];
-  return entryPath !== undefined && pathToFileURL(resolve(entryPath)).href === import.meta.url;
+  if (entryPath === undefined) return false;
+
+  const resolvedEntryPath = resolve(entryPath);
+  if (pathToFileURL(resolvedEntryPath).href === import.meta.url) return true;
+
+  try {
+    // POSIX package-manager bins preserve the node_modules/.bin symlink in
+    // argv[1], whereas import.meta.url identifies the installed package file.
+    return realpathSync(resolvedEntryPath) === realpathSync(fileURLToPath(import.meta.url));
+  } catch {
+    return false;
+  }
 }
 
 export async function runMcpEntry(
