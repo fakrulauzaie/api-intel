@@ -42,17 +42,50 @@ async function readJson(path) {
   return JSON.parse(await readFile(path, 'utf8'));
 }
 
-function parseMode() {
-  const modes = process.argv.slice(2);
-  if (
-    modes.length !== 1 ||
-    !['--write', '--check', '--check-report', '--smoke'].includes(modes[0])
-  ) {
+function parseArguments() {
+  const arguments_ = process.argv.slice(2);
+  const mode = arguments_.shift();
+  if (!['--write', '--check', '--check-report', '--smoke'].includes(mode)) {
     throw new Error(
-      'Usage: node scripts/verify-package-install.mjs --write|--check|--check-report|--smoke',
+      'Usage: node scripts/verify-package-install.mjs --write|--check|--check-report|--smoke ' +
+        '[--package-spec <exact-name-and-version> --expected-sha256 <digest> ' +
+        '--result-file <repository-relative-path>]',
     );
   }
-  return modes[0];
+  const options = {
+    mode,
+    packageSpec: null,
+    expectedSha256: null,
+    resultFile: null,
+  };
+  while (arguments_.length > 0) {
+    const name = arguments_.shift();
+    const value = arguments_.shift();
+    if (value === undefined || value.startsWith('--')) {
+      throw new Error(`${name} requires a value.`);
+    }
+    if (name === '--package-spec') options.packageSpec = value;
+    else if (name === '--expected-sha256') options.expectedSha256 = value.toLowerCase();
+    else if (name === '--result-file') options.resultFile = resolve(repositoryRoot, value);
+    else throw new Error(`Unknown clean-room verification option: ${name}.`);
+  }
+  const registryMode = options.packageSpec !== null || options.expectedSha256 !== null;
+  if (registryMode && (options.packageSpec === null || options.expectedSha256 === null)) {
+    throw new Error('--package-spec and --expected-sha256 must be provided together.');
+  }
+  if (options.expectedSha256 !== null && !/^[a-f0-9]{64}$/u.test(options.expectedSha256)) {
+    throw new Error('--expected-sha256 must be a lowercase or uppercase SHA-256 digest.');
+  }
+  if (options.resultFile !== null) {
+    if (mode !== '--smoke' || !registryMode) {
+      throw new Error('--result-file is limited to registry-backed --smoke verification.');
+    }
+    const relativeResult = relative(repositoryRoot, options.resultFile);
+    if (relativeResult === '' || relativeResult.startsWith('..') || isAbsolute(relativeResult)) {
+      throw new Error('--result-file must remain beneath the repository root.');
+    }
+  }
+  return options;
 }
 
 function cleanChildEnvironment() {
@@ -131,16 +164,16 @@ async function requireSuccess(executable, arguments_, options = {}) {
   return result;
 }
 
-async function resolvePnpmExecutable() {
+async function resolvePnpmCommand() {
   const configured = process.env.API_INTEL_PNPM_EXECUTABLE;
   if (configured !== undefined) {
     if (!isAbsolute(configured)) {
       throw new Error('API_INTEL_PNPM_EXECUTABLE must be an absolute path.');
     }
     await access(configured);
-    return realpath(configured);
+    return { executable: await realpath(configured), prefixArguments: [] };
   }
-  if (process.platform !== 'win32') return 'pnpm';
+  if (process.platform !== 'win32') return { executable: 'pnpm', prefixArguments: [] };
 
   const localApplicationData = process.env.LOCALAPPDATA;
   if (localApplicationData !== undefined) {
@@ -151,21 +184,42 @@ async function resolvePnpmExecutable() {
       if (match?.[1] !== undefined) {
         const candidate = resolve(dirname(shim), ...match[1].split('/'));
         await access(candidate);
-        return realpath(candidate);
+        return { executable: await realpath(candidate), prefixArguments: [] };
       }
     } catch (error) {
       if (error?.code !== 'ENOENT') throw error;
     }
   }
+
+  const globalRoot = (
+    await requireSuccess(process.execPath, [npmCli, 'root', '--global'], {
+      cwd: repositoryRoot,
+    })
+  ).stdout.trim();
+  for (const relativeCli of ['pnpm/bin/pnpm.cjs', 'pnpm/bin/pnpm.js']) {
+    const candidate = resolve(globalRoot, ...relativeCli.split('/'));
+    try {
+      return {
+        executable: process.execPath,
+        prefixArguments: [await realpath(candidate)],
+      };
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+  }
   throw new Error(
-    'Cannot resolve a directly executable pnpm binary. Set API_INTEL_PNPM_EXECUTABLE to the absolute pnpm executable path.',
+    'Cannot resolve pnpm as a direct executable or an npm-global JavaScript CLI. ' +
+      'Set API_INTEL_PNPM_EXECUTABLE to an absolute directly executable pnpm path.',
   );
 }
 
 function managerCommand(manager, arguments_) {
   return manager.name === 'npm'
     ? { executable: process.execPath, arguments: [npmCli, ...arguments_] }
-    : { executable: manager.executable, arguments: arguments_ };
+    : {
+        executable: manager.executable,
+        arguments: [...manager.prefixArguments, ...arguments_],
+      };
 }
 
 async function runManager(manager, arguments_, cwd) {
@@ -839,12 +893,14 @@ async function verifyConsumer(input) {
   };
 }
 
-async function createArchive(temporaryRoot, packageContents) {
+async function createArchive(temporaryRoot, packageContents, options) {
+  const packageArguments = options.packageSpec === null ? [] : [options.packageSpec];
   const result = await requireSuccess(
     process.execPath,
     [
       npmCli,
       'pack',
+      ...packageArguments,
       '--json',
       '--ignore-scripts',
       '--pack-destination',
@@ -874,13 +930,19 @@ async function createArchive(temporaryRoot, packageContents) {
   }
   const archivePath = resolve(temporaryRoot, record.filename);
   const archive = await readFile(archivePath);
+  const archiveSha256 = sha256(archive);
   if (
     createHash('sha1').update(archive).digest('hex') !== record.shasum ||
     `sha512-${createHash('sha512').update(archive).digest('base64')}` !== record.integrity
   ) {
     throw new Error('Clean-room archive bytes do not match npm pack integrity metadata.');
   }
-  return { archivePath, record };
+  if (options.expectedSha256 !== null && archiveSha256 !== options.expectedSha256) {
+    throw new Error(
+      `Registry archive SHA-256 drifted: expected ${options.expectedSha256}, received ${archiveSha256}.`,
+    );
+  }
+  return { archivePath, record, sha256: archiveSha256 };
 }
 
 function assertReport(report, contract, packageContents) {
@@ -936,17 +998,19 @@ function assertReport(report, contract, packageContents) {
   }
 }
 
-async function buildReport(contract, packageContents, temporaryRoot, archive) {
-  const pnpmExecutable = await resolvePnpmExecutable();
+async function buildReport(contract, packageContents, temporaryRoot, archive, options) {
+  const pnpmCommand = await resolvePnpmCommand();
   const npmVersion = (
     await requireSuccess(process.execPath, [npmCli, '--version'], { cwd: temporaryRoot })
   ).stdout.trim();
   const pnpmVersion = (
-    await requireSuccess(pnpmExecutable, ['--version'], { cwd: temporaryRoot })
+    await requireSuccess(pnpmCommand.executable, [...pnpmCommand.prefixArguments, '--version'], {
+      cwd: temporaryRoot,
+    })
   ).stdout.trim();
   const managers = [
-    { name: 'npm', executable: process.execPath, version: npmVersion },
-    { name: 'pnpm', executable: pnpmExecutable, version: pnpmVersion },
+    { name: 'npm', executable: process.execPath, prefixArguments: [], version: npmVersion },
+    { name: 'pnpm', ...pnpmCommand, version: pnpmVersion },
   ];
   const consumers = [];
   for (const manager of managers) {
@@ -960,7 +1024,7 @@ async function buildReport(contract, packageContents, temporaryRoot, archive) {
       }),
     );
   }
-  return {
+  const report = {
     schemaVersion: '1.0.0',
     generatedAt: '2026-09-12',
     package: {
@@ -989,25 +1053,43 @@ async function buildReport(contract, packageContents, temporaryRoot, archive) {
     expected: contract.expected,
     consumers,
   };
+  if (options.packageSpec !== null) {
+    report.package.sha256 = archive.sha256;
+    report.source = {
+      kind: 'npm_registry',
+      packageSpec: options.packageSpec,
+      registry: 'https://registry.npmjs.org/',
+    };
+  }
+  return report;
 }
 
-async function serializeReport(report) {
-  const prettierConfig = (await resolveConfig(reportPath)) ?? {};
-  return format(JSON.stringify(report), { ...prettierConfig, filepath: reportPath });
+async function serializeReport(report, destination = reportPath) {
+  const prettierConfig = (await resolveConfig(destination)) ?? {};
+  return format(JSON.stringify(report), { ...prettierConfig, filepath: destination });
 }
 
 async function main() {
-  const mode = parseMode();
+  const options = parseArguments();
+  const { mode } = options;
   const [contract, manifest] = await Promise.all([
     readJson(contractPath),
     readJson(resolve(repositoryRoot, 'package.json')),
   ]);
   const stagedPublic = !Object.hasOwn(manifest, 'private');
   const packageContentsPath =
-    stagedPublic && mode !== '--check-report'
+    (stagedPublic || options.packageSpec !== null) && mode !== '--check-report'
       ? publicPackageContentsPath
       : privatePackageContentsPath;
   const packageContents = await readJson(packageContentsPath);
+  if (
+    options.packageSpec !== null &&
+    options.packageSpec !== `${contract.packageName}@${contract.packageVersion}`
+  ) {
+    throw new Error(
+      `Published-package verification requires exact spec ${contract.packageName}@${contract.packageVersion}.`,
+    );
+  }
   if (mode === '--check-report') {
     const report = await readJson(reportPath);
     assertReport(report, contract, packageContents);
@@ -1029,10 +1111,14 @@ async function main() {
     throw new Error('Refusing to use an unverified clean-room temporary directory.');
   }
   try {
-    const archive = await createArchive(temporaryRoot, packageContents);
-    const report = await buildReport(contract, packageContents, temporaryRoot, archive);
+    const archive = await createArchive(temporaryRoot, packageContents, options);
+    const report = await buildReport(contract, packageContents, temporaryRoot, archive, options);
     assertReport(report, contract, packageContents);
-    const serialized = await serializeReport(report);
+    const serialized = await serializeReport(report, options.resultFile ?? reportPath);
+    if (options.resultFile !== null) {
+      await mkdir(dirname(options.resultFile), { recursive: true });
+      await writeFile(options.resultFile, serialized, 'utf8');
+    }
     if (mode === '--write') {
       await writeFile(reportPath, serialized, 'utf8');
       process.stdout.write('Wrote packaging/npm/clean-room-install-report.json.\n');
