@@ -112,7 +112,7 @@ describe('Phase O5.1 audited alpha release candidate', () => {
       privateConductChannelActive: true,
       namedBrowserMatrixClaimed: false,
     });
-    expect(releaseNotes).toContain('Remaining release boundaries');
+    expect(releaseNotes).toContain('Verification and remaining boundaries');
     expect(releaseNotes).toContain('Migration notes');
     expect(releaseNotes).toContain('Rollback and compromise');
     expect(guide).toContain('content hash—not HEAD alone—is the exact source identity');

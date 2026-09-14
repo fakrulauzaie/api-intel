@@ -107,12 +107,16 @@ describe('Phase O5.3 published artifact verification', () => {
   });
 
   it('executes the published full-SHA Action against isolated synthetic pull-request targets', async () => {
-    const [contractText, workflow, targetBuilder, resultVerifier, guide] = await Promise.all([
+    const [contractText, workflow, targetBuilder, resultVerifier, guide, plan] = await Promise.all([
       readFile(resolve('packaging/release/published-alpha-contract.json'), 'utf8'),
       readFile(resolve('.github/workflows/published-release-verification.yml'), 'utf8'),
       readFile(resolve('scripts/prepare-published-action-targets.mjs'), 'utf8'),
       readFile(resolve('scripts/verify-published-action-result.mjs'), 'utf8'),
       readFile(resolve('docs/published-release-verification.md'), 'utf8'),
+      readFile(
+        resolve('backend_api_intelligence_open_source_productization_implementation_plan.md'),
+        'utf8',
+      ),
     ]);
     const contract = JSON.parse(contractText) as PublishedAlphaContract;
 
@@ -129,6 +133,8 @@ describe('Phase O5.3 published artifact verification', () => {
     expect(resultVerifier).toContain('api-intel-graph.html');
     expect(guide).toContain('Non-destructive rollback drill');
     expect(guide).toContain('must not unpublish it');
+    expect(guide).toContain('actions/runs/34835680659');
+    expect(plan).toMatch(/### Phase O5\.3[\s\S]*?Status: complete/u);
   });
 
   it('resolves every local link in the public Markdown surface', async () => {

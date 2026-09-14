@@ -9,7 +9,7 @@ the api-intel GitHub Action, GitLab component, OCI image, or comment publisher t
 repository also builds. This prevents the generic quality gate from recursively
 depending on a product adapter under test.
 
-## Maintained candidate matrix
+## Maintained release matrix
 
 The source matrix contains four deliberately pinned cells:
 
@@ -26,11 +26,13 @@ GitHub currently documents both selected runner labels as hosted x64 images, and
 Node project publishes Node 24.20.0 as an LTS release. The workflow pins action
 dependencies to complete commit SHAs and disables setup-node's package-manager cache.
 
-The matrix is a candidate support contract until all four cells run successfully on
-the exact public release commit. Local Windows evidence cannot upgrade the two
-Ubuntu cells or either Node 24 cell. macOS is intentionally absent and remains
-unverified; it should be added only after its package path is demonstrated and the
-cost of maintaining that cell is accepted.
+All four cells passed on exact public release commit
+`641d830176f9ba36875392edd5c419da9d5e01b1` in retained GitHub Actions run
+[`34756419218`](https://github.com/fakrulauzaie/api-intel/actions/runs/34756419218).
+That exact run is maintained evidence, not a claim about adjacent tool versions or
+later revisions. macOS is intentionally absent and remains unverified; it should be
+added only after its package path is demonstrated and the cost of maintaining that
+cell is accepted.
 
 ## Per-cell verification
 
@@ -130,9 +132,10 @@ or coverage thresholds.
 
 ## Evidence state
 
-The current local Windows x64 / Node 22.13.1 source tree can verify workflow structure,
-schema drift, the real-package corpus, the current 195-file/553-test suite, and the initial
-coverage observation.
-It cannot prove a clean GitHub-hosted checkout or any other matrix cell. Phase O3.1's
-implementation is complete, but its acceptance gate remains open until the hosted
-four-cell run is retained from the sanitized public repository.
+The exact release commit passed the clean GitHub-hosted four-cell source matrix, so
+Phase O3.1's hosted acceptance gate is complete for that commit. The initial local
+coverage observation remains historical and is not upgraded by the source run. The
+independent O5.3 matrix subsequently verified the exact public npm archive across npm
+and pnpm consumers and the released GitHub Action; see
+[Published release verification](published-release-verification.md). Future commits
+must pass their own runs and do not rewrite this dated evidence.

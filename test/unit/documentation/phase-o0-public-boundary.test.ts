@@ -105,7 +105,7 @@ describe('Phase O0.2 public identity and alpha surface contract', () => {
     const boundary = await readFile(resolve('docs/public-release-boundary.md'), 'utf8');
 
     for (const label of [
-      '**core-alpha candidate**',
+      '**core alpha**',
       '**hosted-validated preview**',
       '**locally verified preview**',
       '**mock-verified preview**',
@@ -116,7 +116,8 @@ describe('Phase O0.2 public identity and alpha surface contract', () => {
     expect(boundary).toContain('GitLab-hosted execution/catalog publication remains deferred.');
     expect(boundary).toContain('No real hosted comment mutation is claimed.');
     expect(boundary).toContain('O3.2 intentionally retains no named browser claim');
-    expect(boundary).toContain('No universal MCP-host compatibility claim.');
+    expect(boundary).toContain('no universal MCP-host compatibility claim is made.');
+    expect(boundary).toContain('O5.3 GitHub-hosted controlled target run');
   });
 
   it('separates maturity, package, schema, adapter, and compatibility versions', async () => {
@@ -150,7 +151,7 @@ describe('Phase O0.2 public identity and alpha surface contract', () => {
     expect(packageJson.engines?.node).toBe('>=22.13 <25');
     expect(packageJson.packageManager).toBe('pnpm@11.19.0');
     expect(packageJson.dependencies?.typescript).toBe('5.9.3');
-    expect(boundary).toContain('Node.js 22.13.1; pnpm 11.19.0');
+    expect(boundary).toContain('Node.js 22.13.1 and 24.20.0; pnpm 11.19.0');
     expect(boundary).toContain('Node.js 22.14.0; pnpm 11.19.0');
     expect(githubEvidence).toContain('Runner: GitHub-hosted `ubuntu-24.04`');
     expect(fixtureLock.packages?.['node_modules/@nestjs/common']?.version).toBe('11.2.1');

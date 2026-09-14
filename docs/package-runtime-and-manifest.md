@@ -1,14 +1,14 @@
 # Package Runtime and Manifest Contract
 
-Status: Phase O2.1 complete  
-Applies to: source package manifest and ordinary CLI/MCP build  
-Public package status: O5.2 alpha candidate; registry verification belongs to O5.3
+Status: Phase O2.1 runtime contract complete
+Applies to: source package manifest and ordinary CLI/MCP build
+Public package status: `@fakrulauzaie/api-intel@0.1.0-alpha.1` published and O5.3 verified
 
-The private development manifest uses the selected `@fakrulauzaie/api-intel` package
-identity while retaining `private: true`. The separately audited O5.1 staging
-procedure derives a candidate manifest that omits that property without modifying the
-private workspace. Neither O2.1 nor O5.1 creates a repository, reserves a package, or
-publishes an artifact.
+O2.1 established the selected `@fakrulauzaie/api-intel` identity behind a private
+source-manifest guard. O5.1 later derived the audited public manifest without changing
+that private workspace, and O5.2 published only the resulting package archive. The
+current public bytes are independently checked by
+[Published Release Verification](published-release-verification.md).
 
 ## Runtime dependency boundary
 
@@ -66,9 +66,10 @@ development repository or infer a funding destination.
 `main` and `types` remain absent. Phase O2.2 added a finite `exports` map for the two
 shipped JSON Schemas only; it deliberately did not turn internal `dist/` modules or
 their emitted declarations into supported package APIs. See the
-[npm package surface](npm-package-surface.md). O2.1 proves runtime completeness;
-the separate [clean-room installation gate](clean-room-package-installation.md) proves
-installed-package behavior for its exact recorded environment.
+[npm package surface](npm-package-surface.md). O2.1 proves runtime completeness; the
+separate [clean-room installation gate](clean-room-package-installation.md) retains the
+original archive evidence, while O5.3 proves installed-package behavior for the exact
+registry bytes and maintained environment matrix.
 
 ## Verification
 

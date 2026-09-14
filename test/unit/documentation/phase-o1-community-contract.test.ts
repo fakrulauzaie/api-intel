@@ -70,7 +70,7 @@ describe('Phase O1.3 community, security, and maintenance contract', () => {
     for (const label of ['supported', 'verified', 'unverified', 'unsupported']) {
       expect(compatibility).toContain(`**${label}:**`);
     }
-    expect(compatibility).toContain('No public version is supported before the first alpha');
+    expect(compatibility).toContain('The current maintained public version is `0.1.0-alpha.1`');
   });
 
   it('defines a strict source-free diagnostic manifest without sensitive field classes', async () => {

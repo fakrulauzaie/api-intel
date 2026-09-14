@@ -141,10 +141,18 @@ interface CleanRoomReport {
 
 describe('Phase O2.3 clean-room package installation', () => {
   it('retains exact, source-free npm and pnpm consumer evidence', async () => {
-    const [contractText, reportText, contentsText, manifestText, verification] = await Promise.all([
+    const [
+      contractText,
+      reportText,
+      privateContentsText,
+      publicContentsText,
+      manifestText,
+      verification,
+    ] = await Promise.all([
       readFile(resolve('packaging/npm/clean-room-contract.json'), 'utf8'),
       readFile(resolve('packaging/npm/clean-room-install-report.json'), 'utf8'),
       readFile(resolve('packaging/npm/package-contents.json'), 'utf8'),
+      readFile(resolve('packaging/npm/public-package-contents.json'), 'utf8'),
       readFile(resolve('package.json'), 'utf8'),
       execFile(
         process.execPath,
@@ -157,12 +165,14 @@ describe('Phase O2.3 clean-room package installation', () => {
     ]);
     const contract = JSON.parse(contractText) as CleanRoomContract;
     const report = JSON.parse(reportText) as CleanRoomReport;
-    const contents = JSON.parse(contentsText) as {
-      readonly archive: CleanRoomReport['package'];
-    };
     const manifest = JSON.parse(manifestText) as {
       readonly private: boolean;
       readonly scripts: Readonly<Record<string, string>>;
+    };
+    const contents = JSON.parse(
+      Object.hasOwn(manifest, 'private') ? privateContentsText : publicContentsText,
+    ) as {
+      readonly archive: CleanRoomReport['package'];
     };
 
     expect(contract).toMatchObject({
@@ -187,7 +197,7 @@ describe('Phase O2.3 clean-room package installation', () => {
         architecture: 'x64',
         node: 'v22.13.1',
         npm: '10.9.2',
-        pnpm: '11.19.0',
+        pnpm: '11.21.0',
       },
       isolation: {
         consumerLocation: 'operating_system_temporary_directory',
@@ -314,11 +324,11 @@ describe('Phase O2.3 clean-room package installation', () => {
       readFile(resolve('CHANGELOG.md'), 'utf8'),
     ]);
 
-    expect(guide).toContain('Gate OD0 passes for this exact environment.');
-    expect(guide).toContain('Neutral clean-source validation remains Phase O3.1 work.');
-    expect(surface).toContain('[clean-room package installation record]');
+    expect(guide).toContain('Gate OD0 remains the source-archive proof.');
+    expect(guide).toMatch(/O5\.3 separately passed the exact published\s+package/u);
+    expect(surface).toContain('[published release verification]');
     expect(configuration).toContain('isolated npm and pnpm consumers');
-    expect(boundary).toContain('npm 10.9.2 and pnpm 11.19.0');
+    expect(boundary).toContain('passed npm and pnpm probes');
     expect(index).toContain('[Clean-room package installation]');
     expect(plan).toMatch(/### Phase O2\.3[\s\S]*?Status: complete/u);
     expect(plan).toContain('Gate OD0 passes for this exact environment.');

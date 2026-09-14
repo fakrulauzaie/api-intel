@@ -8,9 +8,9 @@ production behavior, or turn an unresolved path into a fact.
 
 ![A supported endpoint path through a service to a database write, with an explicit proof stop for an external message](docs/assets/evidence-path.svg)
 
-`0.1.0-alpha.1` is the first **core-alpha** release line. Check the repository release
-and npm registry for current availability; alpha contracts may change with explicit
-migration notes.
+`0.1.0-alpha.1` is the first published **core alpha** release. Its exact npm bytes,
+immutable GitHub release, and full-SHA Action passed the maintained published-artifact
+verification matrix. Alpha contracts may still change with explicit migration notes.
 
 ## First useful result
 
@@ -24,9 +24,7 @@ api-intel scan . --with-graph --open
 This creates a canonical `.api-intel/analysis.json`, endpoint and trace Markdown, and
 a self-contained offline graph. In headless environments, omit `--open`.
 
-The private development workspace retains `private: true` while publication gates are
-open. The separately audited O5.1 staging tree omits that property without changing
-the private workspace. For a source checkout, use:
+For a source checkout, use:
 
 ```text
 corepack enable
@@ -36,7 +34,7 @@ pnpm run cli -- doctor example-nestjs-app
 pnpm run cli -- scan example-nestjs-app --with-graph
 ```
 
-After the package is published, install the explicitly prerelease-tagged CLI with
+Install the explicitly prerelease-tagged CLI with
 `npm install --save-dev @fakrulauzaie/api-intel@alpha`. The maintained
 [First Evidence-Backed Trace](docs/first-use-workflow.md) uses only the installed
 `api-intel` binary and explains preflight, configuration preview, scanning, trace,
@@ -150,11 +148,14 @@ moving an artifact outside its existing trust boundary.
 
 ## Compatibility and support
 
-The core CLI and canonical readers are a **core-alpha candidate**. The GitHub Action is
-a **hosted-validated preview** for its recorded Ubuntu path; the GitLab adapter is a
-**locally verified preview**; comment publishers are a **mock-verified preview**.
-Unlisted operating systems, framework versions, runners, and MCP hosts are unverified,
-not implicitly supported.
+The core CLI, canonical readers, offline graph, and local MCP server are published
+**core-alpha** surfaces. The exact npm package is verified on Ubuntu 24.04 and Windows
+2025 with Node.js 22.13.1 and 24.20.0. The GitHub Action is a
+**hosted-validated preview** for its recorded Ubuntu path. The GitLab adapter remains
+a source-only **locally verified preview**, while its component/image publication is
+withheld; comment publishers remain unpublished **mock-verified previews**. Unlisted
+operating systems, framework versions, runners, and MCP hosts are unverified, not
+implicitly supported.
 
 Read the current [Compatibility and Version Support](docs/compatibility-and-support.md)
 table and [Support Policy](SUPPORT.md). Reports should begin with the

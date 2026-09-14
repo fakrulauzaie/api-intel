@@ -8,10 +8,10 @@
   "archive": {
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 432396,
-    "unpackedBytes": 2353983,
-    "shasum": "6e03b38791d3dda586e602288d5ceb8b2e3c2b85",
-    "integrity": "sha512-JHpQqL/JNv8vZ3Chza0hOMsN1ss7DTe4C1Ve6ea0sZGrwRfMHKvHUc25eWM7x36aJc7/BNUqXIigUrYvHx2r8A=="
+    "packedBytes": 432416,
+    "unpackedBytes": 2354050,
+    "shasum": "69216bfccb12d06bbe2d57fe2a5a90f775489b73",
+    "integrity": "sha512-1tUiS3lJmYqB1Ay8100RgshLhNQDFet/1ez7KVyYOexX7cUVT/Js2HGZodzauKD+4BIivpZMxXKTIh+fVcUTjg=="
   },
   "budgets": {
     "maximumFileCount": 280,
@@ -47,8 +47,8 @@
     },
     {
       "path": "README.md",
-      "size": 11901,
-      "sha256": "75408ea9cf4edb5cb7afb26f28105dcfc42af9e1467e36bcd417b8113ad1d258",
+      "size": 11968,
+      "sha256": "c6739fa17b4e672d00883489c954c58e6fa6117ed3976eb6293a998f88896055",
       "role": "package_documentation"
     },
     {

@@ -219,7 +219,7 @@ describe('Phase O3.2 reproducible provider and package artifacts', () => {
     expect(boundary).toContain('GitLab-hosted execution/catalog publication remains deferred.');
     expect(boundary).toContain('No real hosted comment mutation is claimed.');
     expect(plan).toMatch(
-      /### Phase O3\.2[\s\S]*?Status: implementation complete; hosted artifact and container validation pending/u,
+      /### Phase O3\.2[\s\S]*?Status: complete for the published npm and GitHub Action surfaces; container publication withheld/u,
     );
   });
 });

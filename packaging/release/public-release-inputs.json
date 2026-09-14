@@ -69,7 +69,7 @@
     {
       "path": "packaging/npm/public-package-contents.json",
       "bytes": 55165,
-      "sha256": "a04cc65742abc06e275c08bac6d5f5572704bfdfc5f9a743550375ac0ee0a228"
+      "sha256": "c2a96e2f176de835f69f41ca7c37019ad2604aaafccbe7b3db04b035c3908b1b"
     },
     {
       "path": "packaging/npm/runtime-contract.json",
@@ -84,7 +84,7 @@
     {
       "path": "packaging/npm/clean-room-install-report.json",
       "bytes": 7202,
-      "sha256": "4901d46498d7fa2100d6ca32bfb88933720249f72e42c816437448edac4ba47f"
+      "sha256": "9ef508eaa8d68a4e389841732d35606c8168654917aa023018f5e76be8d6e0f2"
     },
     {
       "path": "packaging/release/provider-artifact-contract.json",
@@ -148,8 +148,8 @@
     },
     {
       "path": "scripts/verify-package-install.mjs",
-      "bytes": 43236,
-      "sha256": "32b4ecb7e473e5f08de6dc544db91520edce3bc4ad9866a1d9a848c9fb5f2f3f"
+      "bytes": 43205,
+      "sha256": "b66ed3687d590259bd8ae338f028f3634f2950bbd485b502710d08cdc8f02c6a"
     },
     {
       "path": "scripts/verify-package-runtime.mjs",
@@ -178,13 +178,13 @@
     },
     {
       "path": "docs/alpha-release-candidate.md",
-      "bytes": 2407,
-      "sha256": "5cf2d90aa050a5e73af58ceb71f33e1cc58d0db57ea84a6134d52a4a5bb5dedd"
+      "bytes": 2662,
+      "sha256": "ddc6d4089e496123f858a9a85b5368ffeded05bbd75b993ab45b913288759c7a"
     },
     {
       "path": "docs/releases/0.1.0-alpha.1.md",
-      "bytes": 4333,
-      "sha256": "ee714af124937f0a06986795246b222e49bd71bf988ea32b59a0de232101863d"
+      "bytes": 4729,
+      "sha256": "9d01ed589bb81588bdce64b5b61a46dad3c75e1e746efecb611dc0912146e2d3"
     },
     {
       "path": "eslint.config.mjs",

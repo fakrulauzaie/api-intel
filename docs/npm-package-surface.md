@@ -1,13 +1,17 @@
 # npm Package Surface
 
-Status: Phase O2.2 complete  
-Package candidate: `@fakrulauzaie/api-intel@0.1.0-alpha.1`  
-Publication status: O5.2 alpha candidate; exact registry bytes are verified in O5.3
+Status: Phase O2.2 package boundary complete
+Published package: `@fakrulauzaie/api-intel@0.1.0-alpha.1`
+Publication status: exact registry bytes verified by O5.3 on 2026-09-14
 
-The first package candidate is intentionally CLI-first. It exposes two executable
+The first published package is intentionally CLI-first. It exposes two executable
 commands and two JSON Schema data paths; it does not expose a supported JavaScript or
-TypeScript library API. The private development manifest retains `private: true`; the
-audited O5.1 staging manifest omits that property. Neither state publishes anything.
+TypeScript library API. O5.1 derived the public manifest from a guarded private source
+manifest; O5.2 published only the audited public archive.
+
+```text
+npm install --save-dev @fakrulauzaie/api-intel@alpha
+```
 
 ## Supported package entrypoints
 
@@ -51,9 +55,10 @@ verifier selects the latter automatically when `package.json` has no `private`
 property; explicit source-side review uses `npm run pack:public-contents:check`.
 
 The retained package contains 271 files: 263 runtime JavaScript modules and eight
-manifest, documentation, schema, legal, or legal-evidence files. The staged-public
-archive is 432,396 bytes compressed and 2,353,983 bytes unpacked. The enforced budgets
-are 280 files, 650,000
+manifest, documentation, schema, legal, or legal-evidence files. The exact published
+archive is 432,396 bytes compressed and 2,353,983 bytes unpacked. Its SHA-256 is
+`186cb921ff8ea62f5877c4bc695674757d0e0eb111c83d61a59b20138f5b1709`. The enforced
+budgets are 280 files, 650,000
 compressed bytes, and 3,000,000 unpacked bytes. Source maps, declarations, tests,
 source, private implementation plans, temporary outputs, scripts, templates, and the
 GitHub/GitLab provider bundles are excluded.
@@ -85,8 +90,8 @@ bundles, licenses, notices, and release gates.
 
 ## Boundary of this phase
 
-O2.2 remains the source-workspace pack proof. Phase O2.3 separately proved the exact
-archive in isolated npm and pnpm consumers, including CLI/MCP execution, schema and
-runtime-asset resolution, raw-SQL parsing, and graph generation. See the
-[clean-room package installation record](clean-room-package-installation.md). A fresh
-source clone and broader environment matrix remain Phase O3.1 work.
+O2.2 remains the source-workspace pack proof. Phase O2.3 proved the reviewed archive
+in isolated npm and pnpm consumers. O5.3 then repeated the complete CLI/MCP/schema,
+runtime-asset, raw-SQL/WASM, offline-graph, and negative probes against the exact
+registry bytes on the maintained four-cell matrix. See the
+[published release verification](published-release-verification.md).

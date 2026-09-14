@@ -674,7 +674,7 @@ compatibility claim; O3.1 still owns those matrices.
 
 ### Phase O3.1 — Neutral repository CI
 
-Status: implementation complete; hosted matrix validation pending
+Status: complete for exact release commit; hosted four-cell matrix passed
 
 Goal: validate clean source independently of api-intel's own packaged provider
 adapters.
@@ -714,14 +714,15 @@ observation measured 88.67% statements/lines, 81.80% branches, and 95.08% functi
 over `src/**/*.ts`. The exact environment and counts are retained in
 `docs/benchmarks/phase-o3-1-coverage.md`.
 
-The phase acceptance gate remains open: no sanitized public repository exists yet, so
-the Linux/Windows Node 22/24 GitHub-hosted matrix has not run from a clean hosted clone.
-The workflow declaration and local Windows evidence do not convert those candidate
-cells into verified support claims. macOS remains intentionally unverified.
+Hosted acceptance update (2026-09-14): exact public release commit
+`641d830176f9ba36875392edd5c419da9d5e01b1` passed the Linux/Windows Node 22/24
+GitHub-hosted matrix in retained run `34756419218`. The phase acceptance gate is
+complete for that commit. macOS and adjacent tool versions remain intentionally
+unverified.
 
 ### Phase O3.2 — Reproducible provider and package artifacts
 
-Status: implementation complete; hosted artifact and container validation pending
+Status: complete for the published npm and GitHub Action surfaces; container publication withheld
 
 Goal: catch stale or incomplete checked-in/release distributions.
 
@@ -754,10 +755,12 @@ to UID/GID `10001:10001`, and the hosted artifact lane declares runtime UID and 
 entrypoint checks.
 
 Local Windows verification passed exact provider regeneration and the controlled
-Action smoke. The GitHub-hosted artifact/container lane has not run yet. GitLab-hosted
-component execution and real comment mutation remain separate deferred claims. O3.2
-intentionally names no browser support matrix: deterministic offline/CSP/accessibility
-contracts and the retained browser-unspecified manual pass do not justify one.
+Action smoke. O5.3 later verified the exact published npm archive and full-SHA GitHub
+Action in retained hosted run `34835680659`. GitLab-hosted component execution, OCI
+publication, and real comment mutation remain separate withheld or deferred claims.
+O3.2 intentionally names no browser support matrix: deterministic
+offline/CSP/accessibility contracts and the retained browser-unspecified manual pass do
+not justify one.
 
 ### Phase O3.3 — Release integrity and dependency policy
 
@@ -1079,7 +1082,9 @@ or publication workflow; only separately authorized O5.2 may do so.
 
 ### Phase O5.2 — External publication
 
-Status: in progress; exact repository/package publication authorized on 2026-09-13
+Status: complete; sanitized repository, npm prerelease, immutable source release, and
+GitHub Action published on 2026-09-13; GitLab component, OCI image, and privileged
+comment publisher withheld
 
 Goal: publish only the exact O5.1 candidate to approved destinations.
 
@@ -1108,7 +1113,7 @@ Safety boundary:
 
 ### Phase O5.3 — Published-artifact verification and rollback drill
 
-Status: pending
+Status: complete (2026-09-14)
 
 Goal: test what users actually receive.
 
@@ -1134,6 +1139,27 @@ Gate OA0 — Public alpha:
 3. Public limitations and support labels are accurate.
 4. Security/reporting and rollback routes work.
 5. Any failed surface is relabeled or withheld rather than inferred working.
+
+Completion note (2026-09-14): the exact
+`@fakrulauzaie/api-intel@0.1.0-alpha.1` registry archive retained its audited
+271-file inventory and SHA-256
+`186cb921ff8ea62f5877c4bc695674757d0e0eb111c83d61a59b20138f5b1709`.
+Fresh isolated npm and pnpm consumers passed on Ubuntu 24.04 and Windows 2025 with
+Node.js 22.13.1 and 24.20.0 in public workflow run 34835680659. The consumers proved
+both bins, both schema exports, dependency isolation, safe initialization and doctor
+behavior, NestJS fixture scanning, PostgreSQL/WASM analysis, the offline graph, all
+eight MCP tools, and bounded negative diagnostics.
+
+The same hosted run invoked the immutable GitHub Action at commit
+`641d830176f9ba36875392edd5c419da9d5e01b1` against isolated synthetic pull-request
+repositories. It proved the added `POST /controlled-orders` endpoint, retained
+canonical artifacts, offline graph, and distribution fingerprint
+`sha256:4901856acce0c7118362d39ac73ae38a5e6d43454e805c7cc134297eae6fdf95`.
+The GitHub tag/release metadata, all nine attached assets, public Issues route,
+conduct contact, and authenticated Private Vulnerability Reporting state were also
+verified. The rollback/yank exercise remained deliberately non-destructive. No OCI,
+GitLab-hosted component, or privileged publisher claim was added; those surfaces are
+withheld. Gate OA0 passes for every surface actually published in this alpha.
 
 ---
 

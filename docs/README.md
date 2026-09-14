@@ -58,7 +58,7 @@ override runtime schemas or executable contracts when describing actual behavior
 - [Clean-room package installation](clean-room-package-installation.md) — isolated npm
   and pnpm archive installation, installed CLI/MCP/schema/runtime probes, negative
   diagnostics, and the exact Gate OD0 evidence boundary.
-- [Neutral repository CI](neutral-repository-ci.md) — clean-source candidate matrix,
+- [Neutral repository CI](neutral-repository-ci.md) — maintained clean-source release matrix,
   pinned real-package compatibility corpus, workflow trust/resource controls, and the
   explicitly pending hosted-validation boundary.
 - [Reproducible provider and package artifacts](reproducible-release-artifacts.md) —
@@ -67,9 +67,13 @@ override runtime schemas or executable contracts when describing actual behavior
 - [Release integrity and response](release-integrity-and-response.md) — lockfile-bound
   vulnerability decisions, exception rules, CycloneDX SBOM, checksums, source/toolchain
   identity, non-publishing dry run, credential boundary, and compromise runbook.
-- [Audited alpha release candidate](alpha-release-candidate.md) — allowlisted fresh-history
-  staging, content identity, exact tarball smoke, immutable references, and retained blockers.
-- [0.1.0-alpha.1 release-candidate notes](releases/0.1.0-alpha.1.md) — surface labels,
+- [Audited alpha release candidate](alpha-release-candidate.md) — historical O5.1
+  allowlisted staging, content identity, exact tarball smoke, immutable references,
+  and retained blockers before publication.
+- [Published release verification](published-release-verification.md) — exact registry
+  bytes, the maintained OS/Node consumer matrix, immutable GitHub release and Action,
+  public routes, withheld surfaces, and the non-destructive rollback drill.
+- [0.1.0-alpha.1 release notes](releases/0.1.0-alpha.1.md) — surface labels,
   version domains, migration notes, limitations, and rollback boundary.
 - [Compatibility and version support](compatibility-and-support.md) — evidence labels,
   exact current evidence table, alpha support window, and compatibility-report contract.

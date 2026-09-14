@@ -6,17 +6,17 @@
     "version": "0.1.0-alpha.1",
     "filename": "fakrulauzaie-api-intel-0.1.0-alpha.1.tgz",
     "fileCount": 271,
-    "packedBytes": 432404,
-    "unpackedBytes": 2354002,
-    "shasum": "b9711c01d9e8b3b590db41165591e8d3617f58a7",
-    "integrity": "sha512-9JSLnDqtBy7zmVWlGXCK454yt6qoE12oCDdVBYqaDaMK4xHX8n/wU7xzHeN9mruFDB4+kO1LHCFoA2dt1xjUHQ=="
+    "packedBytes": 432416,
+    "unpackedBytes": 2354050,
+    "shasum": "69216bfccb12d06bbe2d57fe2a5a90f775489b73",
+    "integrity": "sha512-1tUiS3lJmYqB1Ay8100RgshLhNQDFet/1ez7KVyYOexX7cUVT/Js2HGZodzauKD+4BIivpZMxXKTIh+fVcUTjg=="
   },
   "environment": {
     "platform": "win32",
     "architecture": "x64",
     "node": "v22.13.1",
     "npm": "10.9.2",
-    "pnpm": "11.19.0"
+    "pnpm": "11.21.0"
   },
   "isolation": {
     "consumerLocation": "operating_system_temporary_directory",
@@ -148,7 +148,7 @@
     },
     {
       "manager": "pnpm",
-      "version": "11.19.0",
+      "version": "11.21.0",
       "installScriptsExecuted": false,
       "consumerRootOutsideSourceWorkspace": true,
       "runtimePathsOutsideSourceWorkspace": true,

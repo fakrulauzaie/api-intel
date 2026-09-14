@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { parseSystemStitchingGateManifest } from '../../helpers/system-stitching-gate-manifest.js';
 
 const supportedLabels = [
-  'core-alpha candidate',
+  'core alpha',
   'hosted-validated preview',
   'locally verified preview',
   'mock-verified preview',
@@ -24,7 +24,7 @@ describe('Phase O4.3 public documentation and fixtures', () => {
     expect(readme).toContain('api-intel scan . --with-graph --open');
     expect(readme).toContain('![A supported endpoint path');
     expect(readme).not.toContain('runtime-validated');
-    expect(readme).not.toMatch(/npm (?:install|i) @fakrulauzaie\/api-intel/u);
+    expect(readme).toContain('npm install --save-dev @fakrulauzaie/api-intel@alpha');
   });
 
   it('tracks the public visual and synthetic examples as project-owned material', async () => {

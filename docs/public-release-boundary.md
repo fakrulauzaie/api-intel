@@ -7,9 +7,10 @@ Exact external publication action authorized: yes
 
 This document freezes the identity, release-surface labels, initial public package
 shape, maturity vocabulary, and evidence-based compatibility claims for the first
-open-source alpha. It does not reserve a name, publish a package, change repository
-visibility, adopt a permanent domain, or independently grant rights beyond the root
-license.
+open-source alpha. Phase O0.2 did not itself reserve a name, publish a package, change
+repository visibility, adopt a permanent domain, or independently grant rights beyond
+the root license. The separately authorized O5.2 publication and O5.3 verification are
+recorded below.
 
 The [product charter](product-charter.md) remains authoritative for positioning and
 proof language. This contract determines where those claims may be exposed and which
@@ -52,6 +53,11 @@ records the scope of owner approval. Permission to use organization systems as p
 testing targets is not redistribution permission. The owner separately authorized the
 exact O5.2 repository and package publication sequence on 2026-09-13.
 
+O5.2 published the sanitized source repository, the npm package, the GitHub release,
+and the GitHub Action distribution. GitLab component/catalog publication, the OCI
+image, and real comment-publisher mutations were deliberately withheld; their preview
+labels remain unchanged.
+
 ## Availability and conflict audit
 
 The checks below are point-in-time discovery, not reservation, trademark clearance,
@@ -64,13 +70,13 @@ or legal advice.
 | “API Intel” / “Backend API Intelligence” exact-name searches                       | No obvious exact-match NestJS static-analysis product was identified; “API intelligence” and “intel” are crowded, generic technology terms. | Keep the descriptive formal name, lowercase shorthand, explicit NestJS category, and no affiliation claim. O1.1 must still review. |
 | `api-intel.dev` or another permanent domain                                        | Not required for a local-first alpha and not reserved by this phase.                                                                        | Use repository-relative/package-shipped schema and documentation paths until an owned domain is deliberately approved.             |
 
-Availability can change at any time. O5 must repeat the exact registry lookup, verify
-the authenticated publisher owns the selected scope, and stop rather than silently
-falling back to another name.
+Availability can change at any time. O5 repeated the exact registry lookup and verified
+the authenticated publisher before publishing `@fakrulauzaie/api-intel`. Future names
+or scopes must repeat that check rather than silently falling back.
 
-No `api-intel.dev` schema URL, package badge, registry install command, immutable tag,
-or public release URL may appear as current until the corresponding resource exists
-and its release gate passes.
+The repository, npm package, immutable source tag, and GitHub release now exist and
+their exact released surfaces passed O5.3. No `api-intel.dev` schema URL or permanent
+product-domain claim is current.
 
 ## Initial package and public API boundary
 
@@ -128,16 +134,16 @@ it must not retroactively turn alpha internals into supported exports.
 Maturity and validation are separate dimensions. “Preview” does not mean broken, and
 “alpha” does not imply every adapter has the same evidence.
 
-| Surface                                                                    | Alpha label                  | Evidence boundary                                                                                                                                                                                            |
-| -------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `api-intel` CLI and canonical artifact readers                             | **core-alpha candidate**     | Repository tests, real-repository validations, one exact Windows x64 clean-package installation gate, and a local O3.1 source/coverage observation exist. The hosted source matrix remains pending.          |
-| Canonical analysis/comparison/impact/policy/system documents               | **core-alpha candidate**     | Versioned schemas, validators, compatibility readers, golden tests, and deterministic projections exist. Each document retains its own version.                                                              |
-| Offline graph and system graph                                             | **core-alpha candidate**     | Deterministic/self-contained/CSP/accessibility contracts and a browser-unspecified manual interaction pass exist. O3.2 intentionally retains no named browser claim until versioned browser evidence exists. |
-| `api-intel-mcp` local stdio server                                         | **core-alpha candidate**     | Read-only bounded protocol tests and local setup guidance exist. No universal MCP-host compatibility claim.                                                                                                  |
-| GitHub pull-request Action                                                 | **hosted-validated preview** | One retained GitHub-hosted Ubuntu 24.04 run used Node 22.14.0 and pnpm 11.19.0 and validated summary, annotations, artifact upload, and graph generation. Other runner operating systems are unverified.     |
-| GitLab 17.0+ component and OCI image                                       | **locally verified preview** | Source, component, projection, bundled-runtime, container, and asset checks passed locally. GitLab-hosted execution/catalog publication remains deferred.                                                    |
-| GitHub/GitLab comment publishers                                           | **mock-verified preview**    | Provider-neutral projection and mocked HTTP/upsert/permission contracts passed. No real hosted comment mutation is claimed.                                                                                  |
-| Remote/network MCP, hosted source analysis, SaaS, telemetry, or IDE plugin | **deferred**                 | Not part of the alpha release surface.                                                                                                                                                                       |
+| Surface                                                                    | Alpha label                  | Evidence boundary                                                                                                                                                                                              |
+| -------------------------------------------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api-intel` CLI and canonical artifact readers                             | **core alpha**               | The exact published npm archive passed clean npm and pnpm consumer probes on Ubuntu 24.04 and Windows 2025 with Node.js 22.13.1 and 24.20.0. Broader combinations remain unverified.                           |
+| Canonical analysis/comparison/impact/policy/system documents               | **core alpha**               | Versioned schemas, validators, compatibility readers, golden tests, and deterministic projections exist in the published package. Each document retains its own version.                                       |
+| Offline graph and system graph                                             | **core alpha**               | Deterministic/self-contained/CSP/accessibility contracts and a browser-unspecified manual interaction pass exist. O3.2 intentionally retains no named browser claim until versioned browser evidence exists.   |
+| `api-intel-mcp` local stdio server                                         | **core alpha**               | The exact package entrypoint passed the O5.3 clean-install matrix. Read-only bounded protocol tests exist; no universal MCP-host compatibility claim is made.                                                  |
+| GitHub pull-request Action                                                 | **hosted-validated preview** | The released Action, pinned by its full source commit, passed an O5.3 GitHub-hosted controlled target run. Earlier hosted validation also covered summary, annotations, artifact upload, and graph generation. |
+| GitLab 17.0+ component and OCI image                                       | **locally verified preview** | Source, component, projection, bundled-runtime, container, and asset checks passed locally. GitLab-hosted execution/catalog publication remains deferred.                                                      |
+| GitHub/GitLab comment publishers                                           | **mock-verified preview**    | Provider-neutral projection and mocked HTTP/upsert/permission contracts passed. No real hosted comment mutation is claimed.                                                                                    |
+| Remote/network MCP, hosted source analysis, SaaS, telemetry, or IDE plugin | **deferred**                 | Not part of the alpha release surface.                                                                                                                                                                         |
 
 Every README, release note, package page, action page, image label, and integration
 guide must preserve the exact label applicable to its surface. Evidence from one
@@ -155,17 +161,16 @@ surface cannot upgrade another.
 | `deferred`   | Not shipped or claimed by the current channel.                                                                                             |
 | `historical` | Evidence about a dated input/environment, not a current support promise.                                                                   |
 
-The current source version `0.1.0-alpha.1` is the selected alpha release-candidate
-version. It is not a published alpha until the separately authorized O5.2 publication
-step completes.
+The current maintained version `0.1.0-alpha.1` is the first published alpha. Its
+prerelease status does not upgrade preview or deferred surfaces.
 
 ## Community activation boundary
 
 The repository has source-controlled contribution, support, compatibility, security,
 conduct, governance, maintainer, issue-form, pull-request, DCO, and changelog contracts.
-GitHub Private Vulnerability Reporting and the private conduct-reporting contact are
-active. Issue and discussion intake remain disabled until the repository requires the
-`DCO / signed-off commits` check and the exact release commit passes hosted CI.
+GitHub Issues, Private Vulnerability Reporting, the private conduct-reporting contact,
+and the `DCO / signed-off commits` check are active. The exact release commit passed
+hosted CI. GitHub Discussions remains unclaimed and is not required for the alpha.
 
 ## Independent version domains
 
@@ -185,23 +190,23 @@ schema changed. Release notes must list each changed domain explicitly.
 
 ## Initial compatibility claim matrix
 
-This matrix freezes only evidence already retained in the repository. O3.1's four-cell
-matrix remains a candidate until a clean hosted run is retained.
+This matrix freezes only evidence retained for the exact released surfaces. It does
+not imply adjacent versions, platforms, package managers, or adapters.
 
-| Dimension                                     | Initial claim                                                                                                              | Evidence label / limitation                                                                                                 |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Core development/runtime on Windows x64       | Node.js 22.13.1; pnpm 11.19.0                                                                                              | Locally verified source/build/test environment. This is not clean npm-package installation evidence.                        |
-| GitHub hosted adapter                         | Ubuntu 24.04; target Node.js 22.14.0; pnpm 11.19.0                                                                         | Hosted-validated preview for that exact path only.                                                                          |
-| GitLab container adapter                      | `node:22.14.0-bookworm-slim`; pnpm 11.19.0                                                                                 | Locally verified preview. No GitLab-hosted or self-managed instance claim.                                                  |
-| Node.js 24                                    | Node.js 24.20.0 is pinned in the O3.1 candidate matrix                                                                     | Unverified until the hosted Linux and Windows cells pass; the manifest range or workflow alone is not evidence.             |
-| macOS                                         | No current verified core/package path                                                                                      | Unverified. Do not advertise support yet.                                                                                   |
-| npm and pnpm consumer installation            | The exact alpha archive passed isolated npm 10.9.2 and pnpm 11.19.0 installation on Windows x64 with Node.js 22.13.1       | Verified for this exact environment only; broader versions and platforms remain unverified pending hosted evidence.         |
-| Engine TypeScript compiler                    | Exactly 5.9.3 in the current lockfile                                                                                      | Pinned implementation input, not a broad target-TypeScript compatibility range.                                             |
-| Generated declaration-stub fixtures           | Pinned synthetic package declarations used by extractor tests                                                              | Generated declaration stubs prove semantic rules, not framework-version compatibility.                                      |
-| Pinned real-package compatibility corpus      | NestJS common/core 11.2.1, NestJS TypeORM 11.0.3, TypeORM 1.1.0, better-sqlite3 12.11.1, and TypeScript 5.9.3              | Locally verified on Windows x64 / Node 22.13.1; hosted matrix evidence is pending and no adjacent version is implied.       |
-| Additional NestJS/TypeORM/TypeScript versions | No range frozen                                                                                                            | Unverified; declaration stubs and adjacent versions cannot establish compatibility.                                         |
-| Browser rendering                             | Self-contained graph generation is automated; one local manual interaction pass is retained without a named browser matrix | O3.2 keeps named browser support unverified; each future named browser requires its own retained automated/manual evidence. |
-| Local MCP clients                             | Stdio protocol/tools/resources are tested; VS Code/Cursor setup is documented                                              | No universal host/editor endorsement or compatibility claim.                                                                |
+| Dimension                                     | Initial claim                                                                                                                         | Evidence label / limitation                                                                                                     |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Core development/runtime source matrix        | Ubuntu 24.04 and Windows 2025; Node.js 22.13.1 and 24.20.0; pnpm 11.19.0                                                              | Exact release commit passed all four hosted source cells in run `34756419218`; adjacent versions and platforms are unverified.  |
+| GitHub hosted adapter                         | Ubuntu 24.04; target Node.js 22.14.0; pnpm 11.19.0                                                                                    | Hosted-validated preview for that exact path only.                                                                              |
+| GitLab container adapter                      | `node:22.14.0-bookworm-slim`; pnpm 11.19.0                                                                                            | Locally verified preview. No GitLab-hosted or self-managed instance claim.                                                      |
+| Node.js 24                                    | Node.js 24.20.0 passed the exact release source and published-package matrices on Ubuntu 24.04 and Windows 2025                       | Verified for these exact paths only; this is not a broad Node.js 24 claim.                                                      |
+| macOS                                         | No current verified core/package path                                                                                                 | Unverified. Do not advertise support yet.                                                                                       |
+| npm and pnpm consumer installation            | The exact public `0.1.0-alpha.1` archive passed npm and pnpm probes on Ubuntu 24.04 and Windows 2025 with Node.js 22.13.1 and 24.20.0 | O5.3 run `34835680659`; broader versions, managers, and platforms remain unverified.                                            |
+| Engine TypeScript compiler                    | Exactly 5.9.3 in the current lockfile                                                                                                 | Pinned implementation input, not a broad target-TypeScript compatibility range.                                                 |
+| Generated declaration-stub fixtures           | Pinned synthetic package declarations used by extractor tests                                                                         | Generated declaration stubs prove semantic rules, not framework-version compatibility.                                          |
+| Pinned real-package compatibility corpus      | NestJS common/core 11.2.1, NestJS TypeORM 11.0.3, TypeORM 1.1.0, better-sqlite3 12.11.1, and TypeScript 5.9.3                         | The exact release source matrix passed on Ubuntu/Windows and Node.js 22.13.1/24.20.0; no adjacent framework version is implied. |
+| Additional NestJS/TypeORM/TypeScript versions | No range frozen                                                                                                                       | Unverified; declaration stubs and adjacent versions cannot establish compatibility.                                             |
+| Browser rendering                             | Self-contained graph generation is automated; one local manual interaction pass is retained without a named browser matrix            | O3.2 keeps named browser support unverified; each future named browser requires its own retained automated/manual evidence.     |
+| Local MCP clients                             | Stdio protocol/tools/resources are tested; VS Code/Cursor setup is documented                                                         | No universal host/editor endorsement or compatibility claim.                                                                    |
 
 When a version is not named above, say `unverified`, not `unsupported`, unless an
 executable contract explicitly rejects it.
@@ -215,8 +220,9 @@ The alpha boundary excludes:
 - a permanent website/domain or hosted schema service;
 - GitLab-hosted validation inferred from local Docker execution;
 - real comment mutation inferred from mocked publisher tests;
-- Node.js 24, macOS, broad package-manager, framework-major, or browser support inferred
-  from manifests, declaration stubs, or adjacent surfaces;
+- macOS, Node.js versions outside the exact matrix, broad package-manager,
+  framework-major, or browser support inferred from manifests, declaration stubs, or
+  adjacent surfaces;
 - remote MCP, source upload, telemetry, SaaS, or IDE plugins; and
 - automatic refactoring or runtime-observation claims.
 

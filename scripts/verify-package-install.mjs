@@ -1078,7 +1078,7 @@ async function main() {
   ]);
   const stagedPublic = !Object.hasOwn(manifest, 'private');
   const packageContentsPath =
-    (stagedPublic || options.packageSpec !== null) && mode !== '--check-report'
+    stagedPublic || options.packageSpec !== null
       ? publicPackageContentsPath
       : privatePackageContentsPath;
   const packageContents = await readJson(packageContentsPath);
