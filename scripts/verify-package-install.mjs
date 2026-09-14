@@ -48,13 +48,15 @@ function parseArguments() {
   if (!['--write', '--check', '--check-report', '--smoke'].includes(mode)) {
     throw new Error(
       'Usage: node scripts/verify-package-install.mjs --write|--check|--check-report|--smoke ' +
-        '[--package-spec <exact-name-and-version> --expected-sha256 <digest> ' +
+        '[--package-spec <exact-name-and-version> --package-contents <released-inventory> ' +
+        '--expected-sha256 <digest> ' +
         '--result-file <repository-relative-path>]',
     );
   }
   const options = {
     mode,
     packageSpec: null,
+    packageContentsPath: null,
     expectedSha256: null,
     resultFile: null,
   };
@@ -65,16 +67,40 @@ function parseArguments() {
       throw new Error(`${name} requires a value.`);
     }
     if (name === '--package-spec') options.packageSpec = value;
-    else if (name === '--expected-sha256') options.expectedSha256 = value.toLowerCase();
+    else if (name === '--package-contents') {
+      options.packageContentsPath = resolve(repositoryRoot, value);
+    } else if (name === '--expected-sha256') options.expectedSha256 = value.toLowerCase();
     else if (name === '--result-file') options.resultFile = resolve(repositoryRoot, value);
     else throw new Error(`Unknown clean-room verification option: ${name}.`);
   }
-  const registryMode = options.packageSpec !== null || options.expectedSha256 !== null;
-  if (registryMode && (options.packageSpec === null || options.expectedSha256 === null)) {
-    throw new Error('--package-spec and --expected-sha256 must be provided together.');
+  const registryMode =
+    options.packageSpec !== null ||
+    options.packageContentsPath !== null ||
+    options.expectedSha256 !== null;
+  if (
+    registryMode &&
+    (options.packageSpec === null ||
+      options.packageContentsPath === null ||
+      options.expectedSha256 === null)
+  ) {
+    throw new Error(
+      '--package-spec, --package-contents, and --expected-sha256 must be provided together.',
+    );
   }
   if (options.expectedSha256 !== null && !/^[a-f0-9]{64}$/u.test(options.expectedSha256)) {
     throw new Error('--expected-sha256 must be a lowercase or uppercase SHA-256 digest.');
+  }
+  if (options.packageContentsPath !== null) {
+    const inventoryRelative = normalizePath(relative(repositoryRoot, options.packageContentsPath));
+    if (
+      inventoryRelative.startsWith('..') ||
+      isAbsolute(inventoryRelative) ||
+      !/^packaging\/npm\/releases\/[^/]+-package-contents\.json$/u.test(inventoryRelative)
+    ) {
+      throw new Error(
+        '--package-contents must name a frozen inventory in packaging/npm/releases/.',
+      );
+    }
   }
   if (options.resultFile !== null) {
     if (mode !== '--smoke' || !registryMode) {
@@ -1078,9 +1104,8 @@ async function main() {
   ]);
   const stagedPublic = !Object.hasOwn(manifest, 'private');
   const packageContentsPath =
-    stagedPublic || options.packageSpec !== null
-      ? publicPackageContentsPath
-      : privatePackageContentsPath;
+    options.packageContentsPath ??
+    (stagedPublic ? publicPackageContentsPath : privatePackageContentsPath);
   const packageContents = await readJson(packageContentsPath);
   if (
     options.packageSpec !== null &&

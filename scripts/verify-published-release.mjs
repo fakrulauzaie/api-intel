@@ -181,6 +181,8 @@ async function runCleanRoomVerifier(contract, resultFile) {
       '--smoke',
       '--package-spec',
       contract.npm.packageSpec,
+      '--package-contents',
+      contract.npm.inventory,
       '--expected-sha256',
       contract.npm.sha256,
       '--result-file',

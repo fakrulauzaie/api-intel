@@ -12,6 +12,7 @@
     "packageName": "@fakrulauzaie/api-intel",
     "version": "0.1.0-alpha.1",
     "packageSpec": "@fakrulauzaie/api-intel@0.1.0-alpha.1",
+    "inventory": "packaging/npm/releases/0.1.0-alpha.1-package-contents.json",
     "intendedDistTag": "alpha",
     "bootstrapLatestRequired": true,
     "tarball": "https://registry.npmjs.org/@fakrulauzaie/api-intel/-/api-intel-0.1.0-alpha.1.tgz",
