@@ -12,6 +12,7 @@ interface PublishedAlphaContract {
   };
   readonly npm: {
     readonly packageSpec: string;
+    readonly inventory: string;
     readonly intendedDistTag: string;
     readonly bootstrapLatestRequired: boolean;
     readonly sha256: string;
@@ -34,6 +35,15 @@ describe('Phase O5.3 published artifact verification', () => {
     const contract = JSON.parse(
       await readFile(resolve('packaging/release/published-alpha-contract.json'), 'utf8'),
     ) as PublishedAlphaContract;
+    const inventory = JSON.parse(await readFile(resolve(contract.npm.inventory), 'utf8')) as {
+      readonly archive: {
+        readonly fileCount: number;
+        readonly packedBytes: number;
+        readonly unpackedBytes: number;
+        readonly shasum: string;
+        readonly integrity: string;
+      };
+    };
 
     expect(contract).toMatchObject({
       schemaVersion: '1.0.0',
@@ -44,6 +54,7 @@ describe('Phase O5.3 published artifact verification', () => {
       },
       npm: {
         packageSpec: '@fakrulauzaie/api-intel@0.1.0-alpha.1',
+        inventory: 'packaging/npm/releases/0.1.0-alpha.1-package-contents.json',
         intendedDistTag: 'alpha',
         bootstrapLatestRequired: true,
         fileCount: 271,
@@ -54,6 +65,14 @@ describe('Phase O5.3 published artifact verification', () => {
       },
     });
     expect(contract.npm.sha256).toMatch(/^[a-f0-9]{64}$/u);
+    expect(inventory.archive).toMatchObject({
+      fileCount: contract.npm.fileCount,
+      packedBytes: 432_396,
+      unpackedBytes: 2_353_983,
+      shasum: '6e03b38791d3dda586e602288d5ceb8b2e3c2b85',
+      integrity:
+        'sha512-JHpQqL/JNv8vZ3Chza0hOMsN1ss7DTe4C1Ve6ea0sZGrwRfMHKvHUc25eWM7x36aJc7/BNUqXIigUrYvHx2r8A==',
+    });
     expect(contract.githubAction.distributionFingerprint).toMatch(/^sha256:[a-f0-9]{64}$/u);
     expect(contract.source.release).toContain(contract.source.tag);
     expect(contract.publishedSurfaces).toEqual({
@@ -98,9 +117,11 @@ describe('Phase O5.3 published artifact verification', () => {
       expect(workflow).toContain(`- ${cell.node}`);
     }
     expect(packageVerifier).toContain("'--package-spec'");
+    expect(packageVerifier).toContain("'--package-contents'");
     expect(packageVerifier).toContain("'--expected-sha256'");
     expect(packageVerifier).toContain("kind: 'npm_registry'");
     expect(releaseVerifier).toContain('verifyNpmMetadata');
+    expect(releaseVerifier).toContain("'--package-contents'");
     expect(releaseVerifier).toContain('verifyGitHubMetadata');
     expect(releaseVerifier).toContain('delete cleanEnvironment.GITHUB_TOKEN');
     expect(manifest.scripts['release:published:smoke']).toBeUndefined();

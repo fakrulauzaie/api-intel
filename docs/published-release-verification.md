@@ -13,6 +13,12 @@ immutable GitHub source tag, release metadata, attached artifacts, and full-SHA 
 Action reference are independently checked against
 [`published-alpha-contract.json`](../packaging/release/published-alpha-contract.json).
 
+The immutable per-file inventory for this release is retained at
+[`packaging/npm/releases/0.1.0-alpha.1-package-contents.json`](../packaging/npm/releases/0.1.0-alpha.1-package-contents.json).
+Registry verification uses that frozen inventory plus the release SHA-256; the moving
+development package ledger may change after publication without changing released
+bytes.
+
 ## Package verification
 
 The maintained workflow runs the registry package on Ubuntu 24.04 and Windows 2025
