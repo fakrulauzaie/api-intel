@@ -6,6 +6,12 @@ versions without creating a tag, release, package, image, repository, or registr
 mutation. Passing these local checks is necessary release evidence; it is not release
 authorization and does not complete Gate OR0 by itself.
 
+O5.2 subsequently performed an explicitly authorized manual publication of the
+audited npm archive, sanitized source, GitHub release, and GitHub Action. O5.3 verified
+the exact published npm and Action surfaces. The non-publishing O3.3 mechanics remain
+the preparation contract; they must not be read as saying those later publications
+did not occur.
+
 ## Canonical policy and evidence
 
 [`../packaging/release/release-integrity-policy.json`](../packaging/release/release-integrity-policy.json)
@@ -99,13 +105,14 @@ Pull-request and candidate jobs retain repository `contents: read` permission, r
 no release environment, request no OIDC identity, and receive no registry secret.
 Untrusted candidate code therefore cannot publish even if it changes a build script.
 
-A future publishing workflow is deliberately absent. When O5 explicitly authorizes
-one, it must be a separate protected `release` environment with required review and
-must consume the already-reviewed candidate by digest. npm should use trusted
-publishing with short-lived OIDC identity when supported. A container registry must
-use a separately revocable short-lived identity scoped only to the intended package.
-Long-lived registry tokens are prohibited. The workflow must never run in pull-request
-context or rebuild from an untrusted checkout after approval.
+An automated privileged publishing workflow remains deliberately absent; O5.2 was a
+manual, explicitly authorized publication. Any future publishing workflow must be a
+separate protected `release` environment with required review and must consume the
+already-reviewed candidate by digest. npm should use trusted publishing with
+short-lived OIDC identity when supported. A container registry must use a separately
+revocable short-lived identity scoped only to the intended package. Long-lived
+registry tokens are prohibited. The workflow must never run in pull-request context
+or rebuild from an untrusted checkout after approval.
 
 ## Rollback, yank, and compromise response
 
@@ -134,8 +141,10 @@ For a suspected compromised release:
 
 ## Current gate state
 
-The O3.3 implementation and local non-publishing evidence pass. Gate OR0 remains open:
-the sanitized public repository clean-clone matrix, GitHub-hosted provider/container
-smoke, GitLab-hosted component validation, exact OCI base/image SBOM and source-
-obligation review, and activation of the private security channel retain their
-independent pending or deferred states.
+The O3.3 implementation and local non-publishing evidence pass. O5.3 additionally
+passed for the exact public npm archive and released GitHub Action; the exact release
+source commit also passed its four-cell hosted matrix. GitHub Private Vulnerability
+Reporting is active. GitLab-hosted component validation, OCI publication and its
+base/image SBOM obligations, real comment publication, and macOS or named-browser
+claims retain their independent withheld, deferred, or unverified states. See
+[Published release verification](published-release-verification.md).

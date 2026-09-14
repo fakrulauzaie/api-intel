@@ -1,8 +1,11 @@
 # Published Release Verification
 
-Status: Phase O5.3 in progress
+Status: Phase O5.3 complete
 
 Release: `@fakrulauzaie/api-intel@0.1.0-alpha.1` / `v0.1.0-alpha.1`
+Verification date: 2026-09-14
+
+Hosted evidence: [Published Release Verification run 34835680659](https://github.com/fakrulauzaie/api-intel/actions/runs/34835680659)
 
 Phase O5.3 tests the public bytes that consumers receive. It does not rebuild the npm
 package and infer that the rebuilt archive is equivalent. The exact registry tarball,
@@ -16,6 +19,15 @@ The maintained workflow runs the registry package on Ubuntu 24.04 and Windows 20
 with Node.js 22.13.1 and 24.20.0. Each cell downloads the exact version and checks its
 SHA-256, npm SHA-1/integrity metadata, file inventory, and package size before creating
 isolated npm and pnpm consumers outside the source checkout.
+
+All four maintained cells passed in run 34835680659:
+
+| Runner       | Node.js | Result |
+| ------------ | ------- | ------ |
+| Ubuntu 24.04 | 22.13.1 | passed |
+| Ubuntu 24.04 | 24.20.0 | passed |
+| Windows 2025 | 22.13.1 | passed |
+| Windows 2025 | 24.20.0 | passed |
 
 Both consumers exercise:
 
@@ -52,6 +64,8 @@ summary, complete canonical artifact manifest, offline graph, and the Action-rep
 distribution fingerprint
 `sha256:4901856acce0c7118362d39ac73ae38a5e6d43454e805c7cc134297eae6fdf95`.
 The synthetic targets do not contain the Action implementation.
+The hosted job passed and reported the added endpoint, the modified endpoint, bounded
+analysis gaps, the complete artifact manifest, and the expected fingerprint.
 
 ## Public routes and withheld surfaces
 
@@ -60,6 +74,10 @@ tag resolves to the frozen commit, the release is a non-draft prerelease, all ni
 expected release assets exist, and the npm archive asset has the reviewed digest.
 Private Vulnerability Reporting and the private conduct address are checked separately
 because neither belongs in a public artifact report.
+
+An authenticated owner check of GitHub's Private Vulnerability Reporting endpoint
+returned `enabled: true` on 2026-09-14. This route check is operational evidence, not
+content embedded into the public consumer report.
 
 The GitLab component, OCI image, and privileged hosted comment publisher were not
 published. O5.3 therefore records them as withheld and does not manufacture runtime or

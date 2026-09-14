@@ -1,25 +1,28 @@
 # Clean-Room Package Installation
 
-Status: Phase O2.3 complete  
-Verification date: 2026-09-12 (O5.1 prerelease refresh)  
-Publication status: O5.2 alpha candidate; retained checks precede registry verification
+Status: Phase O2.3 source-archive gate complete
+Verification date: 2026-09-15 (post-publication source-tree refresh)
+Publication status: exact registry package independently verified by O5.3 on 2026-09-14
 
-Phase O2.3 proves the reviewed npm archive from Phase O2.2 in isolated package
-consumers. It does not turn the private source manifest into a publishable manifest,
-publish the archive, or claim that a fresh source checkout passes on every supported
-platform. Neutral clean-source validation remains Phase O3.1 work.
+Phase O2.3 originally proved the reviewed source archive from Phase O2.2 in isolated
+package consumers without publishing it. The later
+[Published Release Verification](published-release-verification.md) applies the same
+semantic probes to the exact public registry bytes and is the current consumer-facing
+evidence.
 
 ## Verified environment
 
-The retained run used Windows x64, Node.js 22.13.1, npm 10.9.2, and pnpm 11.19.0.
+The current source-tree report used Windows x64, Node.js 22.13.1, npm 10.9.2, and pnpm
+11.21.0.
 Both package managers installed the same
 `@fakrulauzaie/api-intel@0.1.0-alpha.1` archive under a newly created operating-system
 temporary directory. Runtime dependencies and the installed package resolved only
 inside that temporary tree; the source workspace's `node_modules` was not used.
 
 This is exact-environment verification, not a broad npm, pnpm, Windows, or Node.js
-support promise. The maintained compatibility matrix is expanded separately in Phase
-O3.1.
+support promise. In particular, this local pnpm observation does not change the
+maintained pnpm 11.19.0 release matrix. Compatibility claims are expanded separately
+in Phase O3.1 and O5.3.
 
 ## Exercised installed surfaces
 
@@ -67,11 +70,18 @@ npm run pack:clean-room:write
 npm run pack:clean-room:report
 ```
 
-The first two commands require local npm and pnpm executables and may require registry
-access to populate temporary package-manager caches. On Windows, set
-`API_INTEL_PNPM_EXECUTABLE` to an absolute directly executable pnpm path only when the
-standard local pnpm shim cannot be resolved. The verifier uses bounded child-process
-output and timeouts and deletes only its validated `api-intel-o2-3-*` temporary tree.
+To verify the immutable published prerelease and its public metadata instead:
+
+```powershell
+node scripts/verify-published-release.mjs
+```
+
+The first two commands require local npm and pnpm and may require registry access to
+populate temporary package-manager caches. On Windows, the verifier accepts its
+direct executable or resolves npm's global `pnpm.cjs` launcher without invoking a
+shell. `API_INTEL_PNPM_EXECUTABLE` remains an override for an absolute directly
+executable pnpm path. The verifier bounds child-process output and timeouts and
+deletes only its validated `api-intel-o2-3-*` temporary tree.
 
 [`packaging/npm/clean-room-contract.json`](../packaging/npm/clean-room-contract.json)
 freezes the expected semantic probes. The retained, machine-independent result is
@@ -81,12 +91,12 @@ source-workspace paths.
 
 ## Distribution boundary
 
-The verified private-source archive contains 271 files, is 432,404 bytes compressed and 2,354,002
-bytes unpacked, with SHA-1
-`cb7affae34431808ae3ffe0ea78a4411d3176ea0`. Its SHA-512 integrity is retained in the
-machine report and the Phase O2.2 package-content ledger so a later staged registry
-candidate can be compared byte-for-byte.
+The private and sanitized-public source-tree ledgers describe the current checkout and
+may change after publication; neither replaces the immutable release identity. The
+published public archive contains 271 files and is 432,396 bytes compressed and
+2,353,983 bytes unpacked; its SHA-256 is
+`186cb921ff8ea62f5877c4bc695674757d0e0eb111c83d61a59b20138f5b1709`.
 
-Gate OD0 passes for this exact environment. A clean source clone, cross-platform and
-version matrices, supply-chain checks, and the final publishable manifest remain later
-release gates.
+Gate OD0 remains the source-archive proof. O5.3 separately passed the exact published
+package on the maintained Ubuntu/Windows and Node 22/24 matrix; it does not imply
+unlisted platforms or versions.

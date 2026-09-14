@@ -1,5 +1,8 @@
 # Audited Alpha Release Candidate
 
+Historical status: O5.1 completed before `0.1.0-alpha.1` was published. For current
+consumer evidence, see [Published Release Verification](published-release-verification.md).
+
 Phase O5.1 creates a separate, content-addressed candidate beneath
 `.tmp/public-alpha-candidate/`. It does not change repository visibility, initialize
 public history, tag source, publish a package or image, or activate a community
@@ -50,11 +53,12 @@ checksum ledger covers every staged source and release-artifact byte.
 
 ## Honest gate result
 
-O5.1 can pass the candidate-level OT0, OD0, OR0, and OX0 checks while retaining
-external prerequisites as explicit blockers. O5.2 activated the sanitized public
-repository and private reporting channels. The candidate still cannot prove its own
-GitHub/GitLab hosted run, an unpublished OCI image digest/SBOM, or a named browser
-matrix; those facts stay pending until the owning external gate is run.
+O5.1 passed the candidate-level OT0, OD0, OR0, and OX0 checks while retaining external
+prerequisites as explicit blockers. O5.2 then activated the sanitized public
+repository and private reporting channels. At this candidate stage, the artifact
+could not prove its own GitHub/GitLab hosted run, an unpublished OCI image digest/SBOM,
+or a named browser matrix. O5.3 later verified the published npm package and GitHub
+Action; GitLab/OCI and named-browser claims remain withheld.
 
 The owner separately authorized the exact Phase O5.2 repository and package sequence
 on 2026-09-13. Never copy the private `.git` directory or infer redistribution

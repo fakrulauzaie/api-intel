@@ -24,22 +24,26 @@ and framework-version compatibility are separate claims.
 This table is the concise public support view. The detailed evidence record remains in
 the [public identity and alpha surface contract](public-release-boundary.md#initial-compatibility-claim-matrix).
 
-| Surface or environment                                    | Exact evidence                                                                                                    | Label                                                                     |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Core source/build/test                                    | Windows x64, Node.js 22.13.1, pnpm 11.19.0                                                                        | verified locally; core-alpha candidate                                    |
-| Packed CLI/MCP install                                    | Windows x64, Node.js 22.13.1, npm 10.9.2 and pnpm 11.19.0, exact reviewed archive                                 | verified for that archive/environment only                                |
-| Real-package target corpus                                | `@nestjs/common`/`core` 11.2.1, `@nestjs/typeorm` 11.0.3, TypeORM 1.1.0, better-sqlite3 12.11.1, TypeScript 5.9.3 | verified synthetic application combination; not a framework-major promise |
-| GitHub pull-request adapter                               | Ubuntu 24.04, Node.js 22.14.0, pnpm 11.19.0                                                                       | hosted-validated preview for that exact path                              |
-| GitLab component/container                                | GitLab 17.0+ contract; `node:22.14.0-bookworm-slim`, pnpm 11.19.0                                                 | locally verified preview; GitLab-hosted execution unverified              |
-| Comment publishers                                        | GitHub and GitLab HTTP/upsert/permission contracts                                                                | mock-verified preview; no hosted mutation claim                           |
-| Candidate source CI cells                                 | Ubuntu 24.04 and Windows 2025 with Node.js 22.13.1/24.20.0                                                        | unverified until retained hosted runs pass                                |
-| macOS                                                     | no maintained package/source run                                                                                  | unverified                                                                |
-| Offline graph browser                                     | browser-unspecified manual interaction/accessibility pass plus deterministic offline/CSP tests                    | core-alpha candidate; no named-browser support claim                      |
-| MCP hosts                                                 | protocol and local stdio tests                                                                                    | core-alpha candidate; no universal host claim                             |
-| Remote MCP, hosted analysis, SaaS, telemetry, IDE plugins | no released surface                                                                                               | unsupported for alpha / deferred                                          |
+| Surface or environment                                    | Exact evidence                                                                                                    | Label                                                                 |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Core source/build/test                                    | Ubuntu 24.04 and Windows 2025, Node.js 22.13.1/24.20.0, pnpm 11.19.0, exact release commit                        | verified in all four hosted source cells; core alpha                  |
+| Published CLI/MCP install                                 | Ubuntu 24.04 and Windows 2025, Node.js 22.13.1/24.20.0, npm and pnpm consumers, exact public archive              | verified in all four O5.3 cells; core alpha                           |
+| Real-package target corpus                                | `@nestjs/common`/`core` 11.2.1, `@nestjs/typeorm` 11.0.3, TypeORM 1.1.0, better-sqlite3 12.11.1, TypeScript 5.9.3 | verified exact application combination in the hosted source matrix    |
+| GitHub pull-request adapter                               | Ubuntu 24.04, Node.js 22.14.0, pnpm 11.19.0                                                                       | hosted-validated preview for that exact path                          |
+| GitLab component/container                                | GitLab 17.0+ contract; `node:22.14.0-bookworm-slim`, pnpm 11.19.0                                                 | locally verified preview; GitLab-hosted execution unverified          |
+| Comment publishers                                        | GitHub and GitLab HTTP/upsert/permission contracts                                                                | mock-verified preview; no hosted mutation claim                       |
+| Released source CI cells                                  | Ubuntu 24.04 and Windows 2025 with Node.js 22.13.1/24.20.0                                                        | verified for source commit `641d830176f9ba36875392edd5c419da9d5e01b1` |
+| macOS                                                     | no maintained package/source run                                                                                  | unverified                                                            |
+| Offline graph browser                                     | browser-unspecified manual interaction/accessibility pass plus deterministic offline/CSP tests                    | core alpha; no named-browser support claim                            |
+| MCP hosts                                                 | protocol, local stdio tests, and exact packaged-entrypoint probes                                                 | core alpha; no universal host claim                                   |
+| Remote MCP, hosted analysis, SaaS, telemetry, IDE plugins | no released surface                                                                                               | unsupported for alpha / deferred                                      |
 
-Phase O3.1 defines the four-cell [neutral repository CI](neutral-repository-ci.md)
-candidate matrix, but a declared matrix is not execution evidence. The
+The exact release commit passed the four-cell
+[neutral repository CI](neutral-repository-ci.md) matrix in retained run
+[`34756419218`](https://github.com/fakrulauzaie/api-intel/actions/runs/34756419218).
+The exact npm archive and released Action then passed the independent
+[O5.3 published-release matrix](published-release-verification.md) in retained run
+[`34835680659`](https://github.com/fakrulauzaie/api-intel/actions/runs/34835680659). The
 [supported-patterns matrix](supported-patterns.md) describes AST semantics, not broad
 package-version support. Declaration-only fixtures remain semantic evidence rather
 than package-version compatibility evidence.
@@ -47,7 +51,8 @@ than package-version compatibility evidence.
 The current [limitations ledger](current-limitations.md) separately records semantic,
 runtime, distributed, privacy, and public-API boundaries.
 
-No public version is supported before the first alpha is published.
+The current maintained public version is `0.1.0-alpha.1`. Only the exact combinations
+above are verified; other combinations remain unverified unless explicitly rejected.
 
 ## Version support
 

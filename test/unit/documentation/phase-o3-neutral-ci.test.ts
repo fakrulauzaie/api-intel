@@ -212,11 +212,11 @@ describe('Phase O3.1 neutral repository CI', () => {
     expect(verifier).toContain("'--no-config'");
     expect(guide).toContain('public hosted qualification active');
     expect(guide).toMatch(/Generated\s+declaration stubs continue to prove extractor semantics/u);
-    expect(compatibility).toContain('a declared matrix is not execution evidence');
-    expect(boundary).toContain('Unverified until the hosted Linux and Windows cells pass');
+    expect(compatibility).toContain('exact release commit passed the four-cell');
+    expect(boundary).toContain('Exact release commit passed all four hosted source cells');
     expect(index).toContain('[Neutral repository CI]');
     expect(plan).toMatch(
-      /### Phase O3\.1[\s\S]*?Status: implementation complete; hosted matrix validation pending/u,
+      /### Phase O3\.1[\s\S]*?Status: complete for exact release commit; hosted four-cell matrix passed/u,
     );
   });
 });
