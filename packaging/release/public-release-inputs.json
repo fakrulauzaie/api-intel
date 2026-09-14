@@ -148,8 +148,8 @@
     },
     {
       "path": "scripts/verify-package-install.mjs",
-      "bytes": 39484,
-      "sha256": "d9d4a23a99f30e02520a07d164380cfe31f0daa16760eca1e82c090ae1f94c7d"
+      "bytes": 43236,
+      "sha256": "32b4ecb7e473e5f08de6dc544db91520edce3bc4ad9866a1d9a848c9fb5f2f3f"
     },
     {
       "path": "scripts/verify-package-runtime.mjs",

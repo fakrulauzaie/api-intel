@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "verifiedAt": "2026-09-13",
+  "source": {
+    "repository": "https://github.com/fakrulauzaie/api-intel",
+    "commit": "641d830176f9ba36875392edd5c419da9d5e01b1",
+    "tag": "v0.1.0-alpha.1",
+    "release": "https://github.com/fakrulauzaie/api-intel/releases/tag/v0.1.0-alpha.1"
+  },
+  "npm": {
+    "registry": "https://registry.npmjs.org/",
+    "packageName": "@fakrulauzaie/api-intel",
+    "version": "0.1.0-alpha.1",
+    "packageSpec": "@fakrulauzaie/api-intel@0.1.0-alpha.1",
+    "intendedDistTag": "alpha",
+    "bootstrapLatestRequired": true,
+    "tarball": "https://registry.npmjs.org/@fakrulauzaie/api-intel/-/api-intel-0.1.0-alpha.1.tgz",
+    "sha256": "186cb921ff8ea62f5877c4bc695674757d0e0eb111c83d61a59b20138f5b1709",
+    "shasum": "6e03b38791d3dda586e602288d5ceb8b2e3c2b85",
+    "integrity": "sha512-JHpQqL/JNv8vZ3Chza0hOMsN1ss7DTe4C1Ve6ea0sZGrwRfMHKvHUc25eWM7x36aJc7/BNUqXIigUrYvHx2r8A==",
+    "fileCount": 271,
+    "packedBytes": 432396,
+    "unpackedBytes": 2353983
+  },
+  "githubAction": {
+    "reference": "fakrulauzaie/api-intel@641d830176f9ba36875392edd5c419da9d5e01b1",
+    "distributionFingerprint": "sha256:4901856acce0c7118362d39ac73ae38a5e6d43454e805c7cc134297eae6fdf95",
+    "event": "pull_request",
+    "hostedRunner": "ubuntu-24.04"
+  },
+  "maintainedPackageMatrix": [
+    {
+      "runner": "ubuntu-24.04",
+      "node": "22.13.1"
+    },
+    {
+      "runner": "ubuntu-24.04",
+      "node": "24.20.0"
+    },
+    {
+      "runner": "windows-2025",
+      "node": "22.13.1"
+    },
+    {
+      "runner": "windows-2025",
+      "node": "24.20.0"
+    }
+  ],
+  "publishedSurfaces": {
+    "npmPackage": true,
+    "githubRelease": true,
+    "githubAction": true,
+    "gitlabComponent": false,
+    "ociImage": false,
+    "privilegedCommentPublisher": false
+  }
+}
